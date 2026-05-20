@@ -13,7 +13,7 @@ pnpm install
 pnpm run dev
 ```
 
-개발 서버 기본 주소:
+개발 서버 기본 주소: vite.config.ts 에서 변경 가능
 
 ```txt
 http://localhost:8000
