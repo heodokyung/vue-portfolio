@@ -1,30 +1,17 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import globals from 'globals'
-import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
-import pluginOxlint from 'eslint-plugin-oxlint'
-import skipFormatting from 'eslint-config-prettier/flat'
+import vueTsEslintConfig from '@vue/eslint-config-typescript'
+import vuePrettierConfig from '@vue/eslint-config-prettier'
 
-export default defineConfig([
+export default [
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{vue,js,mjs,jsx}'],
+    files: ['**/*.{ts,vue}'],
   },
-
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
-
   {
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-    },
+    name: 'app/files-to-ignore',
+    ignores: ['dist/**', 'node_modules/**'],
   },
-
-  js.configs.recommended,
-  ...pluginVue.configs['flat/essential'],
-
-  ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
-
-  skipFormatting,
-])
+  ...pluginVue.configs['flat/recommended'],
+  ...vueTsEslintConfig(),
+  vuePrettierConfig,
+]

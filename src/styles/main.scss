@@ -1,0 +1,19 @@
+@use './tokens';
+@use './reset';
+@use './a11y';
+
+#app {
+  min-height: 100vh;
+}
+
+.page {
+  min-height: calc(100vh - var(--header-height));
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.flow > * + * {
+  margin-top: 1rem;
+}
