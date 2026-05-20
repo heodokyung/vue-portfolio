@@ -1,0 +1,109 @@
+# -----------------------------
+# Vue + Capacitor
+# -----------------------------
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+/dist/
+/dist-ssr/
+coverage/
+
+# Vite / TypeScript cache
+*.tsbuildinfo
+*.timestamp-*-*.mjs
+
+# Vite cache
+.vite/
+node_modules/.vite/
+
+# Environment variables / local secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+.env.local
+.env.*.local
+
+# Firebase / Google / OneSignal secrets
+# google-services.json is not the Firebase Admin private key, but keep it out of shared zips/repos for this private project.
+android/app/google-services.json
+**/google-services.json
+*firebase-adminsdk*.json
+*service-account*.json
+*service_account*.json
+onesignal*.json
+
+# Android / Gradle local files
+android/local.properties
+android/.gradle/
+android/**/.gradle/
+android/**/build/
+android/build/
+android/app/build/
+android/captures/
+android/.cxx/
+android/.externalNativeBuild/
+android/.idea/
+android/*.iml
+
+# Android signing keys - never commit
+*.jks
+*.keystore
+keystore.properties
+upload-keystore.properties
+release-signing.properties
+
+# Capacitor generated runtime/cache files
+android/app/src/main/assets/capacitor.config.json.tmp
+
+# Editor directories and files
+.DS_Store
+Thumbs.db
+.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ESLint cache
+.eslintcache
+**/.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest / screenshots
+__screenshots__/
+
+# Temporary archives / handoff files
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Supabase CLI local state
+supabase/.temp/
+# Android generated / local state
+android/*.jks
+android/*.keystore
+android/keystore.properties
