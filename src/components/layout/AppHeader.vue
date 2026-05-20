@@ -7,12 +7,16 @@ const isOpen = ref(false)
 const closeMenu = () => {
   isOpen.value = false
 }
+
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value
+}
 </script>
 
 <template>
   <header class="site-header">
     <AppContainer class="site-header__inner">
-      <RouterLink class="site-header__brand" to="/" @click="closeMenu" aria-label="홈으로 이동">
+      <RouterLink class="site-header__brand" to="/" aria-label="홈으로 이동" @click="closeMenu">
         HDK<span>Portfolio</span>
       </RouterLink>
       <button
@@ -20,9 +24,10 @@ const closeMenu = () => {
         type="button"
         :aria-expanded="isOpen"
         aria-controls="site-navigation"
-        @click="isOpen = !isOpen"
+        @click="toggleMenu"
+        @keydown.esc="closeMenu"
       >
-        <span class="visually-hidden">메뉴 열기</span>
+        <span class="visually-hidden">{{ isOpen ? '메뉴 닫기' : '메뉴 열기' }}</span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </button>
@@ -95,9 +100,9 @@ const closeMenu = () => {
   display: none;
   width: 44px;
   height: 44px;
+  border: 1px solid var(--color-border);
   border-radius: 999px;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
 }
 
 .site-header__toggle span:not(.visually-hidden) {

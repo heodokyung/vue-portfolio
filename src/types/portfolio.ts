@@ -1,6 +1,6 @@
 export type ProjectPlatform = 'web' | 'mobile' | 'responsive'
 export type ProjectCategory = 'work' | 'side' | 'study'
-export type ProjectFilterValue = 'all' | 'work' | 'side' | 'web' | 'mobile' | 'responsive'
+export type ProjectFilterValue = 'all' | ProjectCategory | ProjectPlatform
 
 export interface ProjectPeriod {
   start: string
@@ -39,6 +39,7 @@ export interface Project {
   tags: string[]
   thumbnail: string
   media: ProjectMedia[]
+  links?: ProjectLink[]
   featured: boolean
   isNew?: boolean
 }

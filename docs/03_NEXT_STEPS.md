@@ -42,5 +42,5 @@
 - GitHub 신규 private repo 생성: `vue-portfolio` 또는 `portfolio`
 - Cloudflare Pages 연결
 - production branch: `main`
-- build command: `pnpm build`
+- build command: `npm run build`
 - output: `dist`

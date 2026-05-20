@@ -31,8 +31,8 @@
 ## 적용 후 실행
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 브라우저에서 아래 주소를 확인합니다.

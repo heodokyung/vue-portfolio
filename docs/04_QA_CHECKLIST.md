@@ -3,10 +3,10 @@
 ## 설치/빌드
 
 ```bash
-pnpm install
-pnpm typecheck
-pnpm build
-pnpm preview
+npm install
+npm run typecheck
+npm run build
+npm run preview
 ```
 
 ## 화면 QA

@@ -24,16 +24,16 @@ Remove-Item src/components/icons -Recurse -Force -ErrorAction SilentlyContinue
 그 다음 수정 파일을 덮어쓰고 실행합니다.
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 ## 검증 명령
 
 ```bash
-pnpm typecheck
-pnpm build
-pnpm preview
+npm run typecheck
+npm run build
+npm run preview
 ```
 
 ## 수동 QA

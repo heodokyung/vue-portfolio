@@ -12,7 +12,9 @@ $paths = @(
   'src/components/HelloWorld.vue',
   'src/components/TheWelcome.vue',
   'src/components/WelcomeItem.vue',
-  'src/components/icons'
+  'src/components/icons',
+  'public/assets/portfolio/thumb_img_project/h_w.tt',
+  'public/assets/portfolio/thumb_img_project/#Uc81c#Ubaa9-#Uc5c6#Uc74c-2.png'
 )
 
 foreach ($path in $paths) {

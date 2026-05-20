@@ -4,18 +4,23 @@ import AppContainer from '@/components/common/AppContainer.vue'
 import AppSection from '@/components/common/AppSection.vue'
 import AppSectionTitle from '@/components/common/AppSectionTitle.vue'
 import ProjectFilter from '@/components/project/ProjectFilter.vue'
-import type { ProjectFilterValue } from '@/types/portfolio'
 import ProjectGrid from '@/components/project/ProjectGrid.vue'
 import { projects } from '@/data/projects'
+import type { ProjectCategory, ProjectFilterValue, ProjectPlatform } from '@/types/portfolio'
 
 const currentFilter = ref<ProjectFilterValue>('all')
+const categoryFilters: ProjectCategory[] = ['work', 'side', 'study']
+const platformFilters: ProjectPlatform[] = ['web', 'mobile', 'responsive']
 
 const filteredProjects = computed(() => {
   if (currentFilter.value === 'all') return projects
-  if (currentFilter.value === 'work' || currentFilter.value === 'side') {
+  if (categoryFilters.includes(currentFilter.value as ProjectCategory)) {
     return projects.filter((project) => project.category === currentFilter.value)
   }
-  return projects.filter((project) => project.platform === currentFilter.value)
+  if (platformFilters.includes(currentFilter.value as ProjectPlatform)) {
+    return projects.filter((project) => project.platform === currentFilter.value)
+  }
+  return projects
 })
 </script>
 

@@ -7,6 +7,7 @@ const filters: { label: string; value: ProjectFilterValue }[] = [
   { label: '전체', value: 'all' },
   { label: '실무', value: 'work' },
   { label: '개인', value: 'side' },
+  { label: '학습', value: 'study' },
   { label: 'Web', value: 'web' },
   { label: 'Mobile', value: 'mobile' },
   { label: 'Responsive', value: 'responsive' },
