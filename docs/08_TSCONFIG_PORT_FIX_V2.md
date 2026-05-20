@@ -43,6 +43,7 @@ src/components/WelcomeItem.vue
 src/components/icons/
 node_modules/
 pnpm-lock.yaml
+package-lock.json
 yarn.lock
 ```
 
@@ -53,8 +54,8 @@ cd C:\workspace
 Rename-Item vue-portfolio vue-portfolio_old
 # 새 ZIP을 C:\workspace\vue-portfolio 로 압축 해제
 cd C:\workspace\vue-portfolio
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 접속 주소:
@@ -66,12 +67,7 @@ http://localhost:8000
 ## 검증 명령
 
 ```bash
-npm run typecheck
-npm run build
-npm run preview
+pnpm typecheck
+pnpm build
+pnpm preview
 ```
-
-
-## npm 기준 보강
-
-이번 프로젝트는 npm 기준으로 실행합니다. `package-lock.json`은 npm 설치 재현성을 위해 유지하고, `pnpm-lock.yaml` 또는 `yarn.lock`이 남아 있다면 제거하세요.

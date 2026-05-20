@@ -4,8 +4,6 @@
 
 - `package.json`: Vue 3/Vite/TypeScript 기반 명령과 의존성 정의
 - `vite.config.ts`: Vue 플러그인과 `@` alias 설정
-- `package-lock.json`: npm 기준 설치 재현성을 위한 lock 파일
-- `public/_redirects`: Cloudflare Pages에서 Vue Router history mode 직접 접근을 index.html로 연결
 - `tsconfig.json`: 엄격한 TypeScript 설정
 - `eslint.config.js`: Vue/TypeScript/Prettier 린트 설정
 - `.prettierrc.json`: 코드 포맷 기준
@@ -50,7 +48,6 @@
 - `src/components/project/ProjectGrid.vue`: 프로젝트 그리드
 - `src/components/project/ProjectMetaList.vue`: 상세 메타 정보
 - `src/components/project/ProjectGallery.vue`: 상세 이미지 갤러리
-- `src/components/project/ProjectDetailTemplate.vue`: 데이터 기반 공통 프로젝트 상세 템플릿
 
 ## 페이지
 
