@@ -25,3 +25,16 @@ export const getPlatformLabel = (platform: string): string => {
       return platform
   }
 }
+
+export const getCategoryLabel = (category: string): string => {
+  switch (category) {
+    case 'work':
+      return '실무'
+    case 'side':
+      return '개인'
+    case 'study':
+      return '학습'
+    default:
+      return category
+  }
+}

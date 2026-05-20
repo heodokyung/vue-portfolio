@@ -106,3 +106,6 @@ supabase/.temp/
 android/*.jks
 android/*.keystore
 android/keystore.properties
+# Package manager lockfiles for pnpm-only project
+package-lock.json
+npm-shrinkwrap.json

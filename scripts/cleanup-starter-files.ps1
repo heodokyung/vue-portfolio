@@ -14,7 +14,9 @@ $paths = @(
   'src/components/WelcomeItem.vue',
   'src/components/icons',
   'public/assets/portfolio/thumb_img_project/h_w.tt',
-  'public/assets/portfolio/thumb_img_project/#Uc81c#Ubaa9-#Uc5c6#Uc74c-2.png'
+  'public/assets/portfolio/thumb_img_project/#Uc81c#Ubaa9-#Uc5c6#Uc74c-2.png',
+  'package-lock.json',
+  'npm-shrinkwrap.json'
 )
 
 foreach ($path in $paths) {

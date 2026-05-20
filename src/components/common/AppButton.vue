@@ -1,5 +1,7 @@
 <script setup lang="ts">
-withDefaults(
+import { computed } from 'vue'
+
+const props = withDefaults(
   defineProps<{
     to?: string
     href?: string
@@ -11,6 +13,8 @@ withDefaults(
     size: 'md',
   },
 )
+
+const isExternalHref = computed(() => Boolean(props.href?.startsWith('http')))
 </script>
 
 <template>
@@ -22,8 +26,8 @@ withDefaults(
     class="app-button"
     :class="[`app-button--${variant}`, `app-button--${size}`]"
     :href="href"
-    target="_blank"
-    rel="noreferrer noopener"
+    :target="isExternalHref ? '_blank' : undefined"
+    :rel="isExternalHref ? 'noreferrer noopener' : undefined"
   >
     <slot />
   </a>
@@ -39,12 +43,15 @@ withDefaults(
   justify-content: center;
   min-height: 44px;
   gap: 8px;
+  border: 1px solid transparent;
   border-radius: 999px;
   font-weight: 800;
+  line-height: 1.2;
   transition:
-    transform 0.18s ease,
-    background 0.18s ease,
-    border-color 0.18s ease;
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .app-button:hover {
@@ -64,6 +71,7 @@ withDefaults(
 .app-button--primary {
   background: var(--color-primary);
   color: #fff;
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--color-primary) 22%, transparent);
 }
 
 .app-button--primary:hover {
@@ -71,12 +79,17 @@ withDefaults(
 }
 
 .app-button--ghost {
-  border: 1px solid var(--color-border);
+  border-color: var(--color-border);
   background: var(--color-surface);
   color: var(--color-heading);
 }
 
+.app-button--ghost:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 44%, var(--color-border));
+}
+
 .app-button--subtle {
+  border-color: color-mix(in srgb, var(--color-primary) 18%, transparent);
   background: var(--color-primary-soft);
   color: var(--color-primary-strong);
 }

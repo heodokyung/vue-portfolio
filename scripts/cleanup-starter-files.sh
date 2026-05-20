@@ -11,4 +11,7 @@ rm -f src/components/HelloWorld.vue src/components/TheWelcome.vue src/components
 rm -f 'public/assets/portfolio/thumb_img_project/h_w.tt'
 rm -f 'public/assets/portfolio/thumb_img_project/#Uc81c#Ubaa9-#Uc5c6#Uc74c-2.png'
 
+# pnpm 전환 후 npm lockfile 제거
+rm -f package-lock.json npm-shrinkwrap.json
+
 echo 'Vue starter/duplicate files and unused assets cleaned.'
