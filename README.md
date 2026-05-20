@@ -1,5 +1,4 @@
 # vue-portfolio
-
 Vue 3 + Vite + TypeScript + SCSS 기반 포트폴리오 리뉴얼 프로젝트입니다.
 
 ## 실행
