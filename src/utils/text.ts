@@ -1,3 +1,5 @@
+import type { ProjectFilterValue } from '@/types/portfolio'
+
 export const stripHtml = (value: string): string =>
   value
     .replace(/<br\s*\/?>/gi, ' ')
@@ -37,4 +39,10 @@ export const getCategoryLabel = (category: string): string => {
     default:
       return category
   }
+}
+
+export const getProjectFilterLabel = (filter: ProjectFilterValue): string => {
+  if (filter === 'all') return '전체'
+  if (filter === 'web' || filter === 'mobile' || filter === 'responsive') return getPlatformLabel(filter)
+  return getCategoryLabel(filter)
 }

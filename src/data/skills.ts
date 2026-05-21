@@ -4,7 +4,7 @@ export const skills = [
   {
     "id": "html",
     "name": "HTML5&CSS3",
-    "summary": "웹표준, 웹 접근성을 준수하고 HTML5, CSS3를 활용하여 시멘틱한 마크업을 사용합니다.",
+    "summary": "웹표준과 웹 접근성을 고려해 HTML5, CSS3 기반의 시맨틱 마크업을 작성합니다.",
     "url": "https://www.w3schools.com/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_html.png",
     "group": "frontend"
@@ -12,7 +12,7 @@ export const skills = [
   {
     "id": "sass",
     "name": "Sass/Scss",
-    "summary": "Sass/Scss를 활용하여 CSS를 컴파일 합니다. 간결하고 재사용, 확장성이 가능한 CSS 코드를 사용하려 합니다.",
+    "summary": "Sass/SCSS를 활용해 반복 스타일을 구조화하고 재사용 가능한 CSS 코드를 작성합니다.",
     "url": "https://sass-lang.com/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_sass.png",
     "group": "frontend"
@@ -20,7 +20,7 @@ export const skills = [
   {
     "id": "script",
     "name": "JavaScript",
-    "summary": "JavaScript의 ES5, ES6 문법을 활용하여 웹/앱 환경에 최적화 된 모션과 기능을 구현하도록 노력합니다.",
+    "summary": "JavaScript ES5/ES6 문법을 활용해 웹·앱 환경의 UI 인터랙션과 기능을 구현합니다.",
     "url": "https://www.w3schools.com/js/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_script.png",
     "group": "frontend"
@@ -28,7 +28,7 @@ export const skills = [
   {
     "id": "vue",
     "name": "Vue",
-    "summary": "Vue3로 Front-End 화면을 구현합니다. 더마켓을 Vue3환경에서 초기 환경 셋팅부터 공통 부분 요소의 컴포넌트 및 구조를 만드는 작업을 하였습니다.",
+    "summary": "Vue3 기반 프론트엔드 화면을 구현하고, 더마켓 Vue3 전환 과정에서 초기 구조와 공통 컴포넌트 작업을 진행했습니다.",
     "url": "https://ko.vuejs.org/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_vue.png",
     "group": "frontend"
@@ -36,7 +36,7 @@ export const skills = [
   {
     "id": "react",
     "name": "React",
-    "summary": "React로 Front-End 화면을 구현합니다. Finnq 웹사이트 개편을 React로 구현하였습니다. React의 상태관리를 위해 Recoil을 사용합니다.",
+    "summary": "React 기반 화면 구현 경험이 있으며, Finnq 웹사이트 개편에서 React와 상태관리 구조를 활용했습니다.",
     "url": "https://ko.legacy.reactjs.org/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_react.png",
     "group": "frontend"
@@ -44,7 +44,7 @@ export const skills = [
   {
     "id": "next",
     "name": "Next/Nuxt",
-    "summary": "React/Vue 가상 돔 환경의 SSR(Server Side Rendering)을 구현할 수 있도록 사용하였습니다.",
+    "summary": "React/Vue 생태계의 SSR 구조를 이해하고 Next/Nuxt 기반 화면 구현 경험을 쌓았습니다.",
     "url": "https://nextjs.org/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_next.png",
     "group": "frontend"
@@ -52,7 +52,7 @@ export const skills = [
   {
     "id": "github",
     "name": "Github",
-    "summary": "작업물의 히스토리르 관리하고 효율적으로 작업을 진행하기 위해 깃헙을 통한 버전관리를 사용하였습니다.",
+    "summary": "작업 히스토리를 관리하고 협업 효율을 높이기 위해 GitHub 기반 버전관리를 사용합니다.",
     "url": "https://github.com/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_github.png",
     "group": "workflow"
@@ -60,7 +60,7 @@ export const skills = [
   {
     "id": "gitLab",
     "name": "GitLab",
-    "summary": "개발에 작업물을 전달하고 CI/CD를 통한 배포 관리를 위해 깃랩을 통해서 작업물을 전달하고 관리합니다.",
+    "summary": "GitLab을 활용해 소스 형상관리, 작업물 전달, 배포 흐름을 관리합니다.",
     "url": "https://about.gitlab.com/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_gitlab.png",
     "group": "workflow"
@@ -68,7 +68,7 @@ export const skills = [
   {
     "id": "zeplin",
     "name": "Zeplin",
-    "summary": "디자이너와 협업을 위해 제플린을 통해 디자인을 전달받고 작업하였고 코멘트로 수정사항과 피드백을 전달하였습니다.",
+    "summary": "Zeplin을 통해 디자인 산출물을 확인하고, 코멘트로 수정사항과 피드백을 주고받았습니다.",
     "url": "https://zeplin.io/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_zeplin.png",
     "group": "collaboration"
@@ -76,7 +76,7 @@ export const skills = [
   {
     "id": "jira",
     "name": "Jira",
-    "summary": "Jira를 통하여 신규서비스 및 수정사항, 히스토리를 관리하며 소스코드를 배포,수정합니다.",
+    "summary": "Jira를 통해 신규 서비스, 수정사항, 이슈 히스토리를 관리하며 운영 반영 흐름을 추적합니다.",
     "url": "https://ko.atlassian.com/software/jira",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_jira.png",
     "group": "workflow"
@@ -84,7 +84,7 @@ export const skills = [
   {
     "id": "wiki",
     "name": "Wiki Confluence",
-    "summary": "Wiki Confluence를 통해 이슈사항을 히스토리를 남겨서 모두가 확인하고 반복된 실수를 하지 않도록 공유하였습니다.",
+    "summary": "Confluence에 이슈와 처리 과정을 문서화해 반복 실수를 줄이고 팀 내 공유를 강화했습니다.",
     "url": "https://ko.atlassian.com/software/confluence",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_wiki.png",
     "group": "workflow"
@@ -92,7 +92,7 @@ export const skills = [
   {
     "id": "slack",
     "name": "Slack",
-    "summary": "Slack을 통해 이슈사항을 공유하고 프로젝트별로 채널을 만들어 업무의 상황과 이슈를 공유하여 효율을 높입니다.",
+    "summary": "Slack 프로젝트 채널을 통해 업무 상황과 이슈를 빠르게 공유하고 협업 효율을 높입니다.",
     "url": "https://slack.com/",
     "image": "/assets/portfolio/thumb_img_skill/ico_skill_slack.png",
     "group": "collaboration"

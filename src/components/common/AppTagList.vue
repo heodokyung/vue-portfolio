@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ items: string[] }>()
+defineProps<{ items: readonly string[] }>()
 </script>
 
 <template>
