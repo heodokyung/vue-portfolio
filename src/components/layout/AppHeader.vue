@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppContainer from '@/components/common/AppContainer.vue'
+import { profile } from '@/data/profile'
 import { ref } from 'vue'
 
 const isOpen = ref(false)
@@ -35,7 +36,8 @@ const toggleMenu = () => {
         <RouterLink to="/" @click="closeMenu">Home</RouterLink>
         <RouterLink to="/projects" @click="closeMenu">Projects</RouterLink>
         <RouterLink to="/about" @click="closeMenu">About</RouterLink>
-        <a href="https://github.com/heodokyung" target="_blank" rel="noreferrer noopener" @click="closeMenu">GitHub</a>
+        <RouterLink :to="{ path: '/', hash: '#contact' }" @click="closeMenu">Contact</RouterLink>
+        <a :href="profile.github" target="_blank" rel="noreferrer noopener" @click="closeMenu">GitHub</a>
       </nav>
     </AppContainer>
   </header>
@@ -136,6 +138,12 @@ const toggleMenu = () => {
 
   .site-header__nav.is-open {
     display: flex;
+  }
+
+  .site-header__nav a {
+    display: flex;
+    align-items: center;
+    min-height: 46px;
   }
 }
 </style>

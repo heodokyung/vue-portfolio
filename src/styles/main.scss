@@ -2,6 +2,10 @@
 @use './reset';
 @use './a11y';
 
+html {
+  scroll-padding-top: calc(var(--header-height) + 18px);
+}
+
 #app {
   min-height: 100vh;
 }

@@ -40,6 +40,21 @@ const strengthItems = [
     description: '커머스, 금융, 공공 프로젝트에서 기존 화면을 안정적으로 개선한 경험이 있습니다.',
   },
 ]
+
+const contactItems = [
+  {
+    title: 'Email',
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+    description: '프로젝트 협업, 포트폴리오 검토, 채용 관련 연락을 받을 수 있습니다.',
+  },
+  {
+    title: 'GitHub',
+    value: 'github.com/heodokyung',
+    href: profile.github,
+    description: 'Vue, React, UI 구조화 관련 저장소와 작업 흐름을 확인할 수 있습니다.',
+  },
+]
 </script>
 
 <template>
@@ -134,6 +149,34 @@ const strengthItems = [
           <p>{{ career.summary }}</p>
         </li>
       </ol>
+    </AppContainer>
+  </AppSection>
+
+  <AppSection id="contact">
+    <AppContainer>
+      <div class="contact-panel">
+        <div class="contact-panel__content">
+          <AppSectionTitle
+            eyebrow="Contact"
+            title="운영 가능한 UI 구조가 필요한 프로젝트라면 편하게 연락 주세요."
+            description="웹표준, 접근성, 반응형 UI, Vue3/React 기반 화면 개발과 기존 서비스 개편 업무를 중심으로 협업할 수 있습니다."
+          />
+          <div class="contact-panel__actions">
+            <AppButton :href="`mailto:${profile.email}`" size="lg">메일 보내기</AppButton>
+            <AppButton to="/projects" variant="ghost" size="lg">프로젝트 다시 보기</AppButton>
+          </div>
+        </div>
+
+        <ul class="contact-list" aria-label="연락 가능한 채널">
+          <li v-for="item in contactItems" :key="item.title">
+            <span>{{ item.title }}</span>
+            <a :href="item.href" :target="item.href.startsWith('http') ? '_blank' : undefined" rel="noreferrer noopener">
+              {{ item.value }}
+            </a>
+            <p>{{ item.description }}</p>
+          </li>
+        </ul>
+      </div>
     </AppContainer>
   </AppSection>
 </template>
@@ -412,6 +455,70 @@ const strengthItems = [
   font-weight: 800;
 }
 
+.contact-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  gap: clamp(24px, 5vw, 56px);
+  align-items: center;
+  padding: clamp(28px, 5vw, 52px);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, var(--color-border));
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 100% 0, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 34%),
+    var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.contact-panel__content :deep(.section-title) {
+  margin-bottom: 0;
+}
+
+.contact-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.contact-list {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-list li {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-primary-soft) 24%, var(--color-surface));
+}
+
+.contact-list span {
+  color: var(--color-primary-strong);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-list a {
+  width: fit-content;
+  color: var(--color-heading);
+  font-size: clamp(1rem, 2vw, 1.14rem);
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.contact-list a:hover {
+  color: var(--color-primary-strong);
+}
+
+.contact-list p {
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
 @media (max-width: 1080px) {
   .strength-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -420,7 +527,8 @@ const strengthItems = [
 
 @media (max-width: 900px) {
   .hero__inner,
-  .skill-list {
+  .skill-list,
+  .contact-panel {
     grid-template-columns: 1fr;
   }
 
