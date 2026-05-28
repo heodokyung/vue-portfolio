@@ -9,28 +9,10 @@ import { projects } from '@/data/projects'
 
 const route = useRoute()
 const project = computed(() => projects.find((item) => item.id === route.params.projectId))
-const relatedProjects = computed(() => {
-  if (!project.value) return []
-
-  return projects
-    .filter((item) => item.id !== project.value?.id)
-    .map((item) => {
-      let score = 0
-      if (item.company && item.company === project.value?.company) score += 4
-      if (item.category === project.value?.category) score += 3
-      if (item.platform === project.value?.platform) score += 2
-      if (item.featured) score += 1
-      return { item, score }
-    })
-    .filter(({ score }) => score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map(({ item }) => item)
-    .slice(0, 4)
-})
 </script>
 
 <template>
-  <ProjectDetailTemplate v-if="project" :project="project" :related-projects="relatedProjects" />
+  <ProjectDetailTemplate v-if="project" :project="project" />
 
   <AppSection v-else>
     <AppContainer class="not-found-panel">

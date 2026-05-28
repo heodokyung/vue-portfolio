@@ -13,14 +13,14 @@ import { getCategoryLabel, getPlatformLabel } from '@/utils/text'
 
 const props = defineProps<{
   project: Project
-  relatedProjects: Project[]
 }>()
 
 const router = useRouter()
 
 const guideLinks = [
-  { label: 'Frontend Guide', href: 'https://github.com/heodokyung/frontend-guide' },
-  { label: 'Frontend Study', href: 'https://github.com/heodokyung/frontend-study' },
+  { label: 'Markup Guide', href: 'https://github.com/heodokyung/frontend-guide' },
+  { label: 'UI Study Log', href: 'https://github.com/heodokyung/frontend-study' },
+  { label: 'GitHub', href: 'https://github.com/heodokyung' },
 ]
 
 const platformLabel = computed(() => getPlatformLabel(props.project.platform))
@@ -91,15 +91,6 @@ const galleryDescription = computed(() => {
   return '웹 프로젝트는 큰 대표 화면과 이어지는 브라우저 프레임 갤러리로 구성해, 상세 이미지의 가독성을 우선했습니다.'
 })
 
-const getRelatedReason = (item: Project) => {
-  if (item.company && item.company === props.project.company) return '같은 회사/서비스'
-  if (item.platform === props.project.platform && item.category === props.project.category) {
-    return `${getPlatformLabel(item.platform)} · ${getCategoryLabel(item.category)}`
-  }
-  if (item.platform === props.project.platform) return `같은 ${getPlatformLabel(item.platform)} 유형`
-  return getCategoryLabel(item.category)
-}
-
 const goBackToPreviousList = () => {
   if (window.history.state?.back) {
     router.back()
@@ -158,14 +149,6 @@ const goBackToPreviousList = () => {
   <AppSection>
     <AppContainer class="detail-layout">
       <aside class="detail-layout__aside" aria-label="프로젝트 핵심 정보와 바로가기">
-        <nav class="detail-nav" aria-label="상세 페이지 바로가기">
-          <a href="#overview">Overview</a>
-          <a v-if="visibleCaseStudyItems.length" href="#case-study">문제/해결</a>
-          <a href="#responsibility">담당 범위</a>
-          <a v-if="project.media.length" href="#gallery">이미지</a>
-          <a v-if="relatedProjects.length" href="#related">관련 프로젝트</a>
-        </nav>
-
         <ProjectMetaList
           :items="[
             { label: '기간', value: project.period.label },
@@ -253,19 +236,6 @@ const goBackToPreviousList = () => {
           <ProjectGallery :items="project.media" />
         </section>
 
-        <section v-if="relatedProjects.length" id="related" class="detail-section" aria-labelledby="related-title">
-          <p class="section-kicker">Related</p>
-          <h2 id="related-title">같은 유형의 프로젝트</h2>
-          <p class="related-description">
-            단순히 플랫폼만 같다고 묶지 않고, 같은 회사/서비스, 프로젝트 성격, 화면 환경이 비슷한 순서로 정리했습니다.
-          </p>
-          <div class="related-list">
-            <RouterLink v-for="item in relatedProjects" :key="item.id" :to="`/projects/${item.id}`">
-              <span>{{ item.title }}</span>
-              <small>{{ getRelatedReason(item) }}</small>
-            </RouterLink>
-          </div>
-        </section>
       </article>
     </AppContainer>
   </AppSection>
@@ -430,7 +400,6 @@ const goBackToPreviousList = () => {
   gap: 14px;
 }
 
-.detail-nav,
 .aside-card,
 .project-links,
 .detail-section,
@@ -441,7 +410,6 @@ const goBackToPreviousList = () => {
   box-shadow: var(--shadow-soft);
 }
 
-.detail-nav,
 .aside-card,
 .project-links {
   display: grid;
@@ -449,22 +417,6 @@ const goBackToPreviousList = () => {
   padding: 16px;
 }
 
-.detail-nav a {
-  display: flex;
-  align-items: center;
-  min-height: 38px;
-  padding: 0 12px;
-  border-radius: var(--radius-sm);
-  color: var(--color-muted);
-  font-size: 0.9rem;
-  font-weight: 900;
-}
-
-.detail-nav a:hover,
-.detail-nav a:focus-visible {
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-}
 
 .aside-card__label,
 .section-kicker,
@@ -565,15 +517,37 @@ const goBackToPreviousList = () => {
 
 .case-study-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-auto-columns: minmax(260px, 1fr);
+  grid-auto-flow: column;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: thin;
 }
 
 .case-card {
+  position: relative;
   display: grid;
   align-content: start;
-  gap: 14px;
-  padding: clamp(20px, 3vw, 28px);
+  gap: 12px;
+  min-width: 0;
+  padding: clamp(18px, 2.4vw, 24px);
+  scroll-snap-align: start;
+}
+
+.case-card::before {
+  position: absolute;
+  top: 28px;
+  right: -12px;
+  width: 24px;
+  height: 2px;
+  background: color-mix(in srgb, var(--color-warm) 70%, var(--color-border));
+  content: '';
+}
+
+.case-card:last-child::before {
+  display: none;
 }
 
 .case-card--problem {
@@ -620,41 +594,6 @@ const goBackToPreviousList = () => {
   font-size: 1rem;
 }
 
-.related-list {
-  display: grid;
-  gap: 10px;
-}
-
-.related-list a {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
-  align-items: center;
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
-  background: var(--color-surface-strong);
-  color: var(--color-heading);
-  font-weight: 900;
-}
-
-.related-list span {
-  overflow-wrap: anywhere;
-}
-
-.related-list small {
-  flex: 0 0 auto;
-  padding: 5px 8px;
-  border-radius: 999px;
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-  font-weight: 900;
-}
-
-@media (max-width: 1024px) {
-  .case-study-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 @media (max-width: 900px) {
   .project-hero__inner,
@@ -683,10 +622,6 @@ const goBackToPreviousList = () => {
   }
 
   .overview-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .related-list a {
     grid-template-columns: 1fr;
   }
 

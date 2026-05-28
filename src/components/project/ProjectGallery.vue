@@ -1,11 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { ProjectMedia } from '@/types/portfolio'
 
 const props = defineProps<{ items: ProjectMedia[] }>()
 
+const selectedIndex = ref(0)
+
 const isMobileGallery = computed(() => props.items.length > 1 && props.items.every((item) => item.variant === 'mobile'))
 const isWebGallery = computed(() => !isMobileGallery.value)
+const selectedItem = computed(() => props.items[selectedIndex.value] ?? props.items[0])
+
+watch(
+  () => props.items,
+  () => {
+    selectedIndex.value = 0
+  },
+)
 </script>
 
 <template>
@@ -26,23 +36,32 @@ const isWebGallery = computed(() => !isMobileGallery.value)
       </div>
     </div>
 
-    <div v-else-if="isWebGallery" class="web-gallery">
-      <figure
-        v-for="(item, index) in items"
-        :key="item.src"
-        class="web-gallery__item"
-        :class="{ 'web-gallery__item--lead': index === 0 }"
-      >
-        <div class="web-gallery__browser">
-          <div class="web-gallery__bar" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <img :src="item.src" :alt="item.alt" loading="lazy" />
-        </div>
-        <figcaption v-if="item.caption">{{ item.caption }}</figcaption>
+    <div v-else-if="isWebGallery" class="web-showcase">
+      <p class="web-showcase__hint">PC 화면은 크게 보고, 필요한 경우 이미지를 눌러 원본 크기로 확인할 수 있습니다.</p>
+      <figure v-if="selectedItem" class="web-showcase__lead">
+        <a :href="selectedItem.src" target="_blank" rel="noreferrer noopener" class="web-showcase__browser">
+          <span class="web-showcase__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+          <img :src="selectedItem.src" :alt="selectedItem.alt" loading="lazy" />
+        </a>
+        <figcaption>
+          <strong>Screen {{ selectedIndex + 1 }}</strong>
+          <span>{{ selectedItem.caption || selectedItem.alt }}</span>
+        </figcaption>
       </figure>
+
+      <div v-if="items.length > 1" class="web-showcase__thumbs" aria-label="PC 상세 화면 썸네일 목록">
+        <button
+          v-for="(item, index) in items"
+          :key="item.src"
+          type="button"
+          :class="{ 'is-active': index === selectedIndex }"
+          :aria-pressed="index === selectedIndex"
+          @click="selectedIndex = index"
+        >
+          <img :src="item.src" :alt="`${item.alt} 썸네일`" loading="lazy" />
+          <span>Screen {{ index + 1 }}</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -59,7 +78,8 @@ const isWebGallery = computed(() => !isMobileGallery.value)
   min-width: 0;
 }
 
-.mobile-gallery__hint {
+.mobile-gallery__hint,
+.web-showcase__hint {
   width: fit-content;
   padding: 8px 12px;
   border-radius: 999px;
@@ -134,78 +154,119 @@ const isWebGallery = computed(() => !isMobileGallery.value)
   line-height: 1.55;
 }
 
-.mobile-gallery__item figcaption strong {
+.mobile-gallery__item figcaption strong,
+.web-showcase__lead figcaption strong {
   color: var(--color-heading);
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.web-gallery {
+.web-showcase {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
+  min-width: 0;
 }
 
-.web-gallery__item {
+.web-showcase__lead {
+  display: grid;
+  gap: 12px;
   min-width: 0;
-  overflow: hidden;
   margin: 0;
+}
+
+.web-showcase__browser {
+  display: grid;
+  overflow: hidden;
+  min-width: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-soft);
-}
-
-.web-gallery__item--lead {
-  grid-column: 1 / -1;
-}
-
-.web-gallery__browser {
-  overflow: hidden;
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 58%, transparent) 1px, transparent 1px) 0 0 / 30px 30px,
     var(--color-surface-strong);
+  box-shadow: var(--shadow-card);
 }
 
-.web-gallery__bar {
+.web-showcase__bar {
   display: flex;
   gap: 7px;
-  padding: 12px 14px;
+  padding: 13px 15px;
   border-bottom: 1px solid var(--color-border);
   background: var(--color-surface);
 }
 
-.web-gallery__bar span {
+.web-showcase__bar i {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: color-mix(in srgb, var(--color-muted) 28%, transparent);
 }
 
-.web-gallery__browser img {
+.web-showcase__browser img {
   display: block;
   width: 100%;
-  max-height: 720px;
+  max-height: min(82vh, 900px);
   object-fit: contain;
 }
 
-.web-gallery__item:not(.web-gallery__item--lead) .web-gallery__browser img {
-  max-height: 420px;
+.web-showcase__lead figcaption {
+  display: grid;
+  gap: 5px;
+  color: var(--color-muted);
+  line-height: 1.55;
 }
 
-.web-gallery__item figcaption {
-  padding: 14px 18px;
+.web-showcase__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.web-showcase__thumbs button {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
   color: var(--color-muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-align: left;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.web-showcase__thumbs button:hover,
+.web-showcase__thumbs button:focus-visible,
+.web-showcase__thumbs button.is-active {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--color-warm) 70%, var(--color-border));
+  color: var(--color-heading);
+  box-shadow: var(--shadow-soft);
+}
+
+.web-showcase__thumbs img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background: var(--color-surface-strong);
+  object-fit: cover;
+  object-position: top center;
+}
+
+@media (max-width: 900px) {
+  .web-showcase__thumbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 780px) {
-  .web-gallery {
-    grid-template-columns: 1fr;
-  }
-
   .mobile-gallery__rail {
     grid-auto-columns: minmax(188px, 236px);
   }
@@ -228,6 +289,10 @@ const isWebGallery = computed(() => !isMobileGallery.value)
 
   .mobile-gallery__phone {
     min-height: 372px;
+  }
+
+  .web-showcase__thumbs {
+    grid-template-columns: 1fr;
   }
 }
 </style>

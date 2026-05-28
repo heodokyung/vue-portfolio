@@ -8,22 +8,25 @@ import { careers } from '@/data/careers'
 import { profile } from '@/data/profile'
 import { projects } from '@/data/projects'
 import { skills } from '@/data/skills'
+import { getCategoryLabel, getPlatformLabel } from '@/utils/text'
 
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 6)
 const workProjects = projects.filter((project) => project.category === 'work')
-const mobileProjects = projects.filter((project) => project.platform === 'mobile')
+const workWebProjects = projects.filter((project) => project.category === 'work' && project.platform === 'web')
+const workMobileProjects = projects.filter((project) => project.category === 'work' && project.platform === 'mobile')
 const responsiveProjects = projects.filter((project) => project.platform === 'responsive')
+const sideStudyProjects = projects.filter((project) => project.category !== 'work')
 const coreSkills = skills.filter((skill) => ['frontend', 'workflow'].includes(skill.group)).slice(0, 8)
 const visibleAboutItems = aboutItems.slice(0, 5)
 
-const heroTitle = '웹을 만드는 기준을 화면으로 구현하는 UI Developer'
+const heroTitle = '웹표준을 기준으로 화면을 설계하는 UI Developer'
 const heroDescription =
-  '웹표준과 접근성, 마크업 컨벤션, 반응형 UI를 기반으로 운영 서비스의 화면을 안정적으로 만들고 개선합니다. 퍼블리셔의 꼼꼼함 위에 JavaScript 인터랙션과 Vue·React 화면 구현 경험을 더해, 오래 유지되는 UI 구조를 지향합니다.'
+  '퍼블리셔의 마크업 감각과 UI 개발자의 구조화 사이에서 일합니다. 웹표준, 접근성, 반응형, SCSS 컨벤션을 기준으로 운영 가능한 화면을 만들고, Vue·React 프로젝트 안에서 실제 데이터와 컴포넌트 흐름에 맞는 UI를 구현합니다.'
 
 const heroStats = [
-  { label: '실무 프로젝트', value: `${workProjects.length}+`, description: '커머스·금융·공공·브랜드 운영/개편' },
-  { label: 'UI 경력 흐름', value: '10y+', description: '마크업, 접근성, 운영 UI, Vue/React 대응' },
-  { label: '대표 사례', value: `${featuredProjects.length}`, description: '현재 포트폴리오에서 먼저 보여줄 케이스' },
+  { label: 'Work Archive', value: `${workProjects.length}+`, description: '커머스·금융·공공·브랜드 실무 경험' },
+  { label: 'UI Career', value: '10y+', description: '마크업·반응형·운영 UI·Vue/React 대응' },
+  { label: 'Case Study', value: `${featuredProjects.length}`, description: '먼저 봐야 할 대표 프로젝트' },
 ]
 
 const identityCards = [
@@ -44,23 +47,32 @@ const identityCards = [
   },
 ]
 
-const projectSegments = [
+const projectBoardGroups = [
   {
-    title: '운영/개편 실무',
-    count: workProjects.length,
-    description: '이미 운영 중인 서비스의 기존 UX를 지키면서 변경 요청과 신규 화면을 안정적으로 반영한 경험입니다.',
+    title: 'Work Web UI',
+    eyebrow: 'PC · Web',
+    description: '금융, 커머스, 공공, 브랜드 사이트의 화면 구조와 운영/개편 흐름을 다룬 작업입니다.',
+    projects: workWebProjects,
   },
   {
-    title: '모바일 UI',
-    count: mobileProjects.length,
+    title: 'Mobile UI',
+    eyebrow: 'Mobile',
     description: '세로 화면의 정보 밀도, 터치 영역, 스크롤 흐름, 이미지 비율을 중심으로 정리한 프로젝트입니다.',
+    projects: workMobileProjects,
   },
   {
-    title: '반응형/웹 UI',
-    count: responsiveProjects.length + projects.filter((project) => project.platform === 'web').length,
-    description: 'PC 웹, 반응형 웹, 금융/공공/브랜드 사이트의 화면 구조와 콘텐츠 가독성을 다룬 프로젝트입니다.',
+    title: 'Responsive / Hybrid',
+    eyebrow: 'Responsive',
+    description: '하나의 화면 구조가 여러 해상도에서 무너지지 않도록 조정한 반응형/복합 UI 작업입니다.',
+    projects: responsiveProjects,
   },
-]
+  {
+    title: 'Side · Study',
+    eyebrow: 'Learning',
+    description: 'Vue, React, JavaScript 인터랙션을 개인 학습과 실험으로 확장한 작업입니다.',
+    projects: sideStudyProjects,
+  },
+].filter((group) => group.projects.length > 0)
 
 const processItems = ['웹표준 구조 확인', '접근성/대체 텍스트 점검', 'SCSS 네이밍 정리', '반응형 QA', '운영 반영 히스토리 관리']
 
@@ -97,21 +109,21 @@ const contactItems = [
 </script>
 
 <template>
-  <main class="one-page" aria-labelledby="home-title">
-    <section id="intro" class="hero-lab" aria-labelledby="home-title">
-      <AppContainer class="hero-lab__inner">
-        <div class="hero-lab__content">
-          <p class="hero-lab__eyebrow">Markup Convention · Accessible UI · Responsive Screen</p>
+  <main class="workbench-page" aria-labelledby="home-title">
+    <section id="intro" class="hero-workbench" aria-labelledby="home-title">
+      <AppContainer class="hero-workbench__inner">
+        <div class="hero-workbench__content">
+          <p class="hero-workbench__eyebrow">Markup-first UI Developer</p>
           <h1 id="home-title">{{ heroTitle }}</h1>
-          <p class="hero-lab__description">{{ heroDescription }}</p>
+          <p class="hero-workbench__description">{{ heroDescription }}</p>
 
-          <div class="hero-lab__actions" aria-label="주요 이동 링크">
-            <AppButton to="/#projects" size="lg">프로젝트 보기</AppButton>
-            <AppButton to="/#work" variant="ghost" size="lg">경력 흐름 보기</AppButton>
+          <div class="hero-workbench__actions" aria-label="주요 이동 링크">
+            <AppButton to="/#projects" size="lg">프로젝트 보드 보기</AppButton>
+            <AppButton to="/#work" variant="ghost" size="lg">경력 로드 보기</AppButton>
             <AppButton :href="profile.github" variant="subtle" size="lg">GitHub</AppButton>
           </div>
 
-          <dl class="hero-lab__stats" aria-label="포트폴리오 요약 지표">
+          <dl class="hero-workbench__stats" aria-label="포트폴리오 요약 지표">
             <div v-for="stat in heroStats" :key="stat.label">
               <dt>{{ stat.label }}</dt>
               <dd>{{ stat.value }}</dd>
@@ -120,19 +132,19 @@ const contactItems = [
           </dl>
         </div>
 
-        <aside class="ui-blueprint" aria-labelledby="blueprint-title">
-          <div class="ui-blueprint__code" aria-hidden="true">
-            <div class="ui-blueprint__dots"><span></span><span></span><span></span></div>
-            <p>UI BLUEPRINT</p>
-            <code>&lt;ProjectCard</code>
-            <code>  role="link"</code>
-            <code>  :alt="screen.description"</code>
-            <code>  @media="mobile / tablet / desktop"</code>
-            <code>/&gt;</code>
+        <aside class="markup-console" aria-labelledby="console-title">
+          <div class="markup-console__screen">
+            <div class="markup-console__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p class="markup-console__label">UI WORKBENCH</p>
+            <code>&lt;section class="accessible-screen"&gt;</code>
+            <code>  &lt;h2&gt;구조를 먼저 설계합니다&lt;/h2&gt;</code>
+            <code>  &lt;button aria-label="명확한 액션" /&gt;</code>
+            <code>  @media (min-width: 768px) { ... }</code>
+            <code>&lt;/section&gt;</code>
           </div>
-          <div class="ui-blueprint__note">
-            <strong id="blueprint-title">나는 화면을 코드의 기준으로 정리합니다.</strong>
-            <p>화면을 예쁘게 옮기는 것에서 끝내지 않고, 다음 사람이 수정할 수 있는 구조와 사용자가 접근할 수 있는 흐름으로 만듭니다.</p>
+          <div class="markup-console__note">
+            <strong id="console-title">포트폴리오의 기준을 “화면 제작 과정”으로 바꿨습니다.</strong>
+            <p>단순 카드 배치가 아니라, 마크업 · 반응형 · 접근성 · 운영 UI가 한 화면 안에서 읽히도록 구성합니다.</p>
           </div>
         </aside>
       </AppContainer>
@@ -160,31 +172,48 @@ const contactItems = [
       </AppContainer>
     </section>
 
-    <section id="projects" class="portfolio-section" aria-labelledby="projects-title">
+    <section id="projects" class="portfolio-section portfolio-section--projects" aria-labelledby="projects-title">
       <AppContainer>
         <div class="section-heading section-heading--split">
           <div>
-            <p>Project Board</p>
-            <h2 id="projects-title">같은 프로젝트처럼 보이지 않도록, 작업 성격을 먼저 구분합니다.</h2>
+            <p>Project Workbench</p>
+            <h2 id="projects-title">아카이브로 숨기지 않고, 홈에서 작업량과 성격이 바로 보이게 합니다.</h2>
           </div>
           <p>
-            대표 프로젝트는 단순 썸네일 나열이 아니라 운영/개편, 모바일 UI, 웹/반응형 UI처럼 어떤 문제를 다뤘는지 먼저 보이도록 재구성했습니다.
+            대표 프로젝트만 보여주고 끝내지 않습니다. 실무 Web, Mobile, Responsive, Side/Study를 한 화면에서 구분해 “무엇을 얼마나 해왔는지”가 바로 읽히도록 바꿨습니다.
           </p>
         </div>
 
-        <div class="project-segments" aria-label="프로젝트 유형 구분">
-          <article v-for="segment in projectSegments" :key="segment.title">
-            <span>{{ segment.count }}</span>
-            <h3>{{ segment.title }}</h3>
-            <p>{{ segment.description }}</p>
-          </article>
+        <div class="featured-lab" aria-label="대표 프로젝트 케이스">
+          <div class="featured-lab__header">
+            <div>
+              <span>Lead Cases</span>
+              <strong>먼저 봐야 할 대표 프로젝트</strong>
+            </div>
+            <AppButton to="/projects" variant="subtle">전체 아카이브 열기</AppButton>
+          </div>
+          <ProjectGrid :projects="featuredProjects" />
         </div>
 
-        <div class="section-toolbar">
-          <strong>Featured Case Studies</strong>
-          <AppButton to="/projects" variant="subtle">전체 아카이브 보기</AppButton>
+        <div class="experience-map" aria-label="전체 프로젝트 경험 맵">
+          <article v-for="group in projectBoardGroups" :key="group.title" class="experience-lane">
+            <header>
+              <span>{{ group.eyebrow }}</span>
+              <div>
+                <h3>{{ group.title }}</h3>
+                <p>{{ group.description }}</p>
+              </div>
+              <strong>{{ group.projects.length }}</strong>
+            </header>
+            <div class="experience-lane__list">
+              <RouterLink v-for="project in group.projects" :key="project.id" :to="`/projects/${project.id}`">
+                <span>{{ getPlatformLabel(project.platform) }}</span>
+                <strong>{{ project.title }}</strong>
+                <small>{{ project.company || getCategoryLabel(project.category) }}</small>
+              </RouterLink>
+            </div>
+          </article>
         </div>
-        <ProjectGrid :projects="featuredProjects" />
       </AppContainer>
     </section>
 
@@ -318,47 +347,60 @@ const contactItems = [
 </template>
 
 <style scoped lang="scss">
-.one-page {
+.workbench-page {
   background:
-    radial-gradient(circle at 8% 4%, color-mix(in srgb, var(--color-warm) 10%, transparent), transparent 28%),
+    radial-gradient(circle at 8% 4%, color-mix(in srgb, var(--color-warm) 13%, transparent), transparent 28%),
     radial-gradient(circle at 92% 18%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 30%),
     var(--color-bg);
 }
 
-.hero-lab {
+.hero-workbench {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(76px, 10vw, 138px) 0 clamp(54px, 8vw, 96px);
+  padding: clamp(78px, 10vw, 138px) 0 clamp(60px, 8vw, 104px);
   background:
-    linear-gradient(90deg, rgb(255 255 255 / 7%) 1px, transparent 1px) 0 0 / 36px 36px,
-    linear-gradient(180deg, #111827 0%, #172033 78%, var(--color-bg) 78%);
+    linear-gradient(90deg, rgb(255 255 255 / 7%) 1px, transparent 1px) 0 0 / 34px 34px,
+    linear-gradient(180deg, #282c35 0%, #1f2530 72%, var(--color-bg) 72%);
   color: #f8fafc;
 }
 
-.hero-lab::before {
+.hero-workbench::before {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   background:
-    radial-gradient(circle at 16% 20%, rgb(244 183 64 / 18%), transparent 28%),
-    radial-gradient(circle at 84% 18%, rgb(24 160 168 / 22%), transparent 30%);
+    linear-gradient(90deg, rgb(40 44 53 / 84%), rgb(40 44 53 / 55%)),
+    url('/assets/legacy/bg-legacy-visual.jpg') center / cover;
   content: '';
 }
 
-.hero-lab__inner {
+.hero-workbench::after {
+  position: absolute;
+  right: -8vw;
+  bottom: -10vw;
+  z-index: -1;
+  width: min(44vw, 560px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, #ffe246 25%, transparent);
+  filter: blur(8px);
+  content: '';
+}
+
+.hero-workbench__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(330px, 0.94fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.98fr);
   gap: clamp(30px, 6vw, 78px);
   align-items: center;
 }
 
-.hero-lab__content {
+.hero-workbench__content {
   display: grid;
   gap: 24px;
 }
 
-.hero-lab__eyebrow,
+.hero-workbench__eyebrow,
 .section-heading > p,
 .motion-panel__text > p,
 .contact-panel > div > p {
@@ -368,52 +410,51 @@ const contactItems = [
   text-transform: uppercase;
 }
 
-.hero-lab h1 {
-  max-width: 900px;
+.hero-workbench h1 {
+  max-width: 940px;
   color: #fff;
-  font-size: clamp(2.8rem, 7.6vw, 5.7rem);
-  line-height: 0.98;
-  letter-spacing: -0.085em;
+  font-size: clamp(3rem, 8.2vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.095em;
 }
 
-.hero-lab__description {
+.hero-workbench__description {
   max-width: 760px;
-  color: rgb(226 232 240 / 86%);
-  font-size: clamp(1.05rem, 1.8vw, 1.22rem);
-  line-height: 1.82;
+  color: rgb(226 232 240 / 88%);
+  font-size: clamp(1.05rem, 1.8vw, 1.24rem);
+  line-height: 1.86;
 }
 
-.hero-lab__actions,
-.contact-panel__actions,
-.section-toolbar {
+.hero-workbench__actions,
+.contact-panel__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
 }
 
-.hero-lab__stats {
+.hero-workbench__stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  max-width: 820px;
+  max-width: 840px;
 }
 
-.hero-lab__stats div {
+.hero-workbench__stats div {
   padding: 18px;
-  border: 1px solid rgb(255 255 255 / 12%);
+  border: 1px solid rgb(255 255 255 / 13%);
   border-radius: var(--radius-md);
-  background: rgb(255 255 255 / 7%);
+  background: rgb(255 255 255 / 8%);
   backdrop-filter: blur(12px);
 }
 
-.hero-lab__stats dt {
-  color: rgb(226 232 240 / 72%);
+.hero-workbench__stats dt {
+  color: rgb(226 232 240 / 74%);
   font-size: 0.82rem;
   font-weight: 850;
 }
 
-.hero-lab__stats dd {
+.hero-workbench__stats dd {
   margin-top: 8px;
   color: #fff;
   font-size: clamp(1.6rem, 3vw, 2.25rem);
@@ -421,26 +462,26 @@ const contactItems = [
   line-height: 1;
 }
 
-.hero-lab__stats span {
+.hero-workbench__stats span {
   display: block;
   margin-top: 8px;
-  color: rgb(226 232 240 / 72%);
+  color: rgb(226 232 240 / 74%);
   font-size: 0.82rem;
   line-height: 1.5;
 }
 
-.ui-blueprint {
+.markup-console {
   display: grid;
   gap: 18px;
   padding: clamp(20px, 4vw, 34px);
-  border: 1px solid rgb(255 255 255 / 12%);
+  border: 1px solid rgb(255 255 255 / 14%);
   border-radius: 34px;
-  background: rgb(248 250 252 / 9%);
-  box-shadow: 0 28px 80px rgb(0 0 0 / 28%);
+  background: rgb(15 23 42 / 42%);
+  box-shadow: 0 28px 80px rgb(0 0 0 / 34%);
   backdrop-filter: blur(18px);
 }
 
-.ui-blueprint__code {
+.markup-console__screen {
   display: grid;
   gap: 10px;
   overflow: hidden;
@@ -448,50 +489,50 @@ const contactItems = [
   border: 1px solid rgb(255 255 255 / 12%);
   border-radius: 26px;
   background:
-    linear-gradient(90deg, rgb(255 255 255 / 8%) 1px, transparent 1px) 0 0 / 22px 22px,
+    linear-gradient(90deg, rgb(255 255 255 / 7%) 1px, transparent 1px) 0 0 / 22px 22px,
     #07111f;
   color: var(--color-code-text);
 }
 
-.ui-blueprint__dots {
+.markup-console__bar {
   display: flex;
   gap: 7px;
   margin-bottom: 4px;
 }
 
-.ui-blueprint__dots span {
+.markup-console__bar span {
   width: 9px;
   height: 9px;
   border-radius: 50%;
   background: rgb(255 255 255 / 38%);
 }
 
-.ui-blueprint__code p {
+.markup-console__label {
   color: var(--color-warm);
   font-size: 0.78rem;
   font-weight: 950;
   letter-spacing: 0.12em;
 }
 
-.ui-blueprint__code code {
+.markup-console__screen code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
   font-size: clamp(0.82rem, 1.35vw, 0.98rem);
   line-height: 1.55;
   white-space: normal;
 }
 
-.ui-blueprint__note {
+.markup-console__note {
   display: grid;
   gap: 8px;
 }
 
-.ui-blueprint__note strong {
+.markup-console__note strong {
   color: #fff;
   font-size: clamp(1.28rem, 2.6vw, 1.75rem);
   letter-spacing: -0.045em;
 }
 
-.ui-blueprint__note p {
+.markup-console__note p {
   color: rgb(226 232 240 / 78%);
   line-height: 1.72;
 }
@@ -505,10 +546,16 @@ const contactItems = [
   padding-top: clamp(42px, 7vw, 84px);
 }
 
+.portfolio-section--projects {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 64%, transparent) 1px, transparent 1px) 0 0 / 34px 34px,
+    linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+}
+
 .portfolio-section--dark {
   background:
     linear-gradient(90deg, rgb(255 255 255 / 6%) 1px, transparent 1px) 0 0 / 34px 34px,
-    #172033;
+    #282c35;
   color: #e5edf5;
 }
 
@@ -556,7 +603,6 @@ const contactItems = [
 }
 
 .identity-cards,
-.project-segments,
 .skill-board,
 .about-strip,
 .resource-grid {
@@ -569,11 +615,12 @@ const contactItems = [
 }
 
 .identity-cards article,
-.project-segments article,
 .skill-board article,
 .about-strip article,
 .resource-grid a,
-.contact-list li {
+.contact-list li,
+.featured-lab,
+.experience-lane {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
@@ -581,7 +628,6 @@ const contactItems = [
 }
 
 .identity-cards article,
-.project-segments article,
 .resource-grid a,
 .contact-list li {
   display: grid;
@@ -600,46 +646,141 @@ const contactItems = [
 }
 
 .identity-cards h3,
-.project-segments h3,
 .skill-board h3,
 .about-strip h3,
-.resource-grid strong {
+.resource-grid strong,
+.experience-lane h3 {
   color: var(--color-heading);
   font-size: 1.1rem;
   letter-spacing: -0.025em;
 }
 
 .identity-cards p,
-.project-segments p,
 .skill-board p,
 .about-strip p,
 .resource-grid p,
-.contact-list p {
+.contact-list p,
+.experience-lane p {
   color: var(--color-muted);
   line-height: 1.68;
 }
 
-.project-segments {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-bottom: 24px;
-}
-
-.project-segments span {
-  width: fit-content;
-  color: var(--color-primary-strong);
-  font-size: 2rem;
-  font-weight: 950;
-  line-height: 1;
-}
-
-.section-toolbar {
-  justify-content: space-between;
+.featured-lab {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 3vw, 26px);
   margin-bottom: 18px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-warm) 10%, transparent), transparent 42%),
+    var(--color-surface);
 }
 
-.section-toolbar strong {
+.featured-lab__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.featured-lab__header div {
+  display: grid;
+  gap: 4px;
+}
+
+.featured-lab__header span,
+.experience-lane header > span {
+  color: var(--color-primary-strong);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.featured-lab__header strong {
   color: var(--color-heading);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.experience-map {
+  display: grid;
+  gap: 16px;
+}
+
+.experience-lane {
+  display: grid;
+  gap: 16px;
+  padding: clamp(18px, 3vw, 26px);
+}
+
+.experience-lane header {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+}
+
+.experience-lane header strong {
+  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-code-bg);
+  color: var(--color-warm);
   font-size: 1.1rem;
+}
+
+.experience-lane__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.experience-lane__list a {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  min-height: 104px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 78%, transparent);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 46%, transparent) 1px, transparent 1px) 0 0 / 20px 20px,
+    var(--color-surface-strong);
+  color: inherit;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.experience-lane__list a:hover,
+.experience-lane__list a:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-warm) 72%, var(--color-border));
+  box-shadow: var(--shadow-card);
+}
+
+.experience-lane__list a > span {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.experience-lane__list strong {
+  color: var(--color-heading);
+  line-height: 1.34;
+  overflow-wrap: anywhere;
+}
+
+.experience-lane__list small {
+  color: var(--color-muted);
+  line-height: 1.45;
 }
 
 .motion-panel {
@@ -693,7 +834,7 @@ const contactItems = [
   height: 16px;
   border: 3px solid var(--color-warm);
   border-radius: 50%;
-  background: #172033;
+  background: #282c35;
   content: '';
 }
 
@@ -747,6 +888,10 @@ const contactItems = [
   align-content: start;
   gap: 8px;
   padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .about-strip span,
@@ -820,6 +965,12 @@ const contactItems = [
   color: var(--color-primary-strong);
 }
 
+@media (max-width: 1120px) {
+  .experience-lane__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1080px) {
   .about-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -827,7 +978,7 @@ const contactItems = [
 }
 
 @media (max-width: 920px) {
-  .hero-lab__inner,
+  .hero-workbench__inner,
   .section-heading--split,
   .motion-panel,
   .motion-panel--skill,
@@ -836,25 +987,33 @@ const contactItems = [
     grid-template-columns: 1fr;
   }
 
-  .ui-blueprint {
+  .markup-console {
     order: -1;
   }
 
   .identity-cards,
-  .project-segments,
   .resource-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-lane header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .experience-lane header > span {
+    grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 720px) {
-  .hero-lab {
-    padding-top: 52px;
+  .hero-workbench {
+    padding-top: 54px;
   }
 
-  .hero-lab__stats,
+  .hero-workbench__stats,
   .skill-board,
-  .about-strip {
+  .about-strip,
+  .experience-lane__list {
     grid-template-columns: 1fr;
   }
 
@@ -863,16 +1022,16 @@ const contactItems = [
     gap: 8px;
   }
 
-  .hero-lab__actions,
+  .hero-workbench__actions,
   .contact-panel__actions,
-  .section-toolbar {
+  .featured-lab__header {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .hero-lab__actions > *,
+  .hero-workbench__actions > *,
   .contact-panel__actions > *,
-  .section-toolbar > * {
+  .featured-lab__header > * {
     width: 100%;
   }
 

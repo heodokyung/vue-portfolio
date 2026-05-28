@@ -108,6 +108,10 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundView },
   ],
   scrollBehavior(to, from, savedPosition) {
+    if (from.name === 'project-detail' && (to.name === 'home' || to.name === 'projects')) {
+      return restoreAfterRender(getRouteScroll(to))
+    }
+
     if (savedPosition) return restoreAfterRender(savedPosition.top)
 
     if (to.hash) {
@@ -115,10 +119,6 @@ const router = createRouter({
         el: to.hash,
         behavior: prefersReducedMotion() ? 'auto' : 'smooth',
       }
-    }
-
-    if (from.name === 'project-detail' && (to.name === 'home' || to.name === 'projects')) {
-      return restoreAfterRender(getRouteScroll(to))
     }
 
     if (to.name === 'project-detail') return { top: 0, behavior: 'auto' }
