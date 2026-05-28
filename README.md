@@ -1,7 +1,7 @@
 # Heo Do Kyung Portfolio
 
-Vue 3 + Vite + TypeScript + SCSS 기반의 신규 포트폴리오 프로젝트입니다.  
-기존 React 포트폴리오를 덮어쓰지 않고, 현업형 UI/Frontend Developer 포트폴리오로 새롭게 구성합니다.
+Vue 3 + Vite + TypeScript + SCSS + lottie-web 기반의 신규 포트폴리오 프로젝트입니다.  
+기존 React 포트폴리오를 덮어쓰지 않고, 현업형 UI Developer 포트폴리오로 새롭게 구성합니다.
 
 ## 목표
 
@@ -75,9 +75,12 @@ http://localhost:8000
 ```bash
 pnpm run lint
 pnpm run typecheck
+pnpm run content:audit
 pnpm run build
 pnpm run preview
 ```
+
+`content:audit`은 프로젝트 ID 중복, 이미지 경로 누락, 이미지 alt 누락, 임시 이관 문구 잔존 여부를 확인합니다.
 
 전체 점검을 한 번에 실행하려면 다음 명령을 사용합니다.
 
@@ -156,3 +159,11 @@ git rm package-lock.json
 - 실제 운영 도메인이 확정되면 OG 이미지와 canonical URL을 추가합니다.
 - 대표 프로젝트별 실제 공개 가능한 스크린샷이 있으면 `src/data/projects.ts`의 `media` 배열에 추가합니다.
 - 기존 React 포트폴리오 저장소는 삭제하지 말고 README에 Legacy 표시 후 archive/private를 검토합니다.
+
+
+## 이번 라운드 디자인 방향
+
+- 홈은 `Identity / Projects / Work / Skills / Guide / Contact`를 한 페이지 흐름으로 보여줍니다.
+- 기존 React legacy 포트폴리오의 Lottie 자산을 `public/assets/lottie`로 이관해 경력/기술/학습 섹션에 사용합니다.
+- `lottie-web`은 해당 JSON 모션을 Vue 환경에서 재생하기 위한 최소 런타임 의존성입니다.
+- 상세 페이지의 “이전 목록 위치로” 버튼은 상세 진입 전 스크롤 위치로 돌아가도록 설계했습니다.

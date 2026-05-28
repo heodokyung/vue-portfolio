@@ -13,8 +13,8 @@ import { skills } from '@/data/skills'
 const skillGroups = [
   {
     id: 'frontend',
-    title: 'Frontend UI',
-    description: 'Vue, React, TypeScript, JavaScript를 활용해 데이터와 화면 구조를 분리한 UI를 구현합니다.',
+    title: 'UI Development',
+    description: '마크업 기반의 화면 구현 역량 위에 JavaScript, Vue, React를 연결해 운영 가능한 UI를 구현합니다.',
     items: skills.filter((skill) => skill.group === 'frontend'),
   },
   {
@@ -100,7 +100,7 @@ const primaryCareers = careers.slice(0, 4)
       <AppSectionTitle
         eyebrow="Career"
         title="운영과 개편 경험을 바탕으로 UI 구조를 개선합니다."
-        description="커머스, 금융, 공공, 모바일 웹 프로젝트를 거치며 화면 구현뿐 아니라 운영 이슈 대응, 공통 UI 정리, 접근성 검수 경험을 쌓았습니다."
+        description="커머스, 금융, 공공, 모바일 웹 프로젝트를 거치며 마크업 컨벤션, 운영 이슈 대응, 공통 UI 정리, 접근성 검수 경험을 쌓았습니다."
       />
 
       <ol class="career-timeline">
@@ -160,7 +160,7 @@ const primaryCareers = careers.slice(0, 4)
       <AppSectionTitle
         eyebrow="History"
         title="자격, 교육, 접근성 활동"
-        description="웹표준과 접근성 기반을 쌓아온 이력과 프론트엔드 학습 이력을 함께 정리했습니다."
+        description="웹표준과 접근성 기반을 쌓아온 이력과 UI 개발 학습 이력을 함께 정리했습니다."
       />
       <div class="about-card-list">
         <article v-for="item in aboutItems" :key="item.id">

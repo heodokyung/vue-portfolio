@@ -10,12 +10,14 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.app.json",
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
-    "check": "pnpm run lint && pnpm run typecheck && pnpm run build",
-    "deploy:check": "pnpm install --no-frozen-lockfile && pnpm run check"
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run content:audit && pnpm run build",
+    "deploy:check": "pnpm install --no-frozen-lockfile && pnpm run check",
+    "content:audit": "node scripts/audit-portfolio-content.mjs"
   },
   "dependencies": {
     "vue": "3.5.13",
-    "vue-router": "4.5.0"
+    "vue-router": "4.5.0",
+    "lottie-web": "5.12.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "1.10.5",

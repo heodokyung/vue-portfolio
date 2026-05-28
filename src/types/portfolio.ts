@@ -18,6 +18,7 @@ export interface ProjectMedia {
   src: string
   alt: string
   caption?: string
+  variant?: ProjectPlatform | 'thumbnail'
 }
 
 export interface Project {

@@ -67,6 +67,7 @@ defineProps<{ project: Project }>()
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 58%, transparent) 1px, transparent 1px) 0 0 / 24px 24px,
     linear-gradient(135deg, color-mix(in srgb, var(--color-primary-soft) 72%, transparent), transparent),
     var(--color-surface-strong);
 }
@@ -74,6 +75,17 @@ defineProps<{ project: Project }>()
 .project-card__image--mobile {
   display: grid;
   place-items: center;
+}
+
+.project-card__image--mobile::before {
+  position: absolute;
+  width: min(50%, 168px);
+  aspect-ratio: 9 / 18.6;
+  border: 8px solid #111827;
+  border-radius: 26px;
+  background: #111827;
+  box-shadow: 0 18px 42px rgb(15 23 42 / 18%);
+  content: '';
 }
 
 .project-card__image img {
@@ -84,7 +96,11 @@ defineProps<{ project: Project }>()
 }
 
 .project-card__image--mobile img {
-  width: min(62%, 220px);
+  position: relative;
+  z-index: 1;
+  width: min(48%, 158px);
+  max-height: 86%;
+  border-radius: 14px;
   object-fit: contain;
 }
 
@@ -145,6 +161,7 @@ defineProps<{ project: Project }>()
   font-size: clamp(1.1rem, 2vw, 1.22rem);
   line-height: 1.35;
   letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
 }
 
 .project-card__summary {
@@ -176,8 +193,19 @@ defineProps<{ project: Project }>()
 }
 
 @media (max-width: 640px) {
+  .project-card__body {
+    padding: 18px;
+  }
+
   .project-card__summary {
     min-height: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .project-card__meta {
+    gap: 6px;
+    font-size: 0.78rem;
   }
 }
 </style>

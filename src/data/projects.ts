@@ -46,9 +46,34 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/cj_themarket_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/cj_themarket_m.png",
-        "alt": "CJ The Market Vue3 주요 화면 변경 개편 1차 대표 이미지",
-        "caption": "CJ The Market Vue3 주요 화면 변경 개편 1차 대표 이미지입니다. 프로젝트의 화면 유형과 담당 범위를 빠르게 확인할 수 있도록 정리했습니다."
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_1.webp",
+        "alt": "CJ THE MARKET App Summary1",
+        "caption": "CJ The Market Vue3 주요 화면 변경 개편 1차 상세 화면 1. CJ THE MARKET App Summary1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_2.webp",
+        "alt": "CJ THE MARKET App Summary2",
+        "caption": "CJ The Market Vue3 주요 화면 변경 개편 1차 상세 화면 2. CJ THE MARKET App Summary2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_3.webp",
+        "alt": "CJ THE MARKET App Summary3",
+        "caption": "CJ The Market Vue3 주요 화면 변경 개편 1차 상세 화면 3. CJ THE MARKET App Summary3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_4.webp",
+        "alt": "CJ THE MARKET App Summary4",
+        "caption": "CJ The Market Vue3 주요 화면 변경 개편 1차 상세 화면 4. CJ THE MARKET App Summary4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_5.webp",
+        "alt": "CJ THE MARKET App Summary5",
+        "caption": "CJ The Market Vue3 주요 화면 변경 개편 1차 상세 화면 5. CJ THE MARKET App Summary5",
+        "variant": "mobile"
       }
     ],
     "featured": true,
@@ -98,9 +123,28 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/cj_themarket_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/cj_themarket_w.png",
-        "alt": "CJ The Market 웹 사이트 UI개선 및 운영 대표 이미지",
-        "caption": "CJ The Market 웹 사이트 UI개선 및 운영 대표 이미지입니다. 프로젝트의 화면 유형과 담당 범위를 빠르게 확인할 수 있도록 정리했습니다."
+        "src": "/assets/portfolio/detail/w_themarket/cj_w_themarket_1.jpg",
+        "alt": "CJ 더마켓 메인",
+        "caption": "CJ The Market 웹 사이트 UI개선 및 운영 상세 화면 1. CJ 더마켓 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_themarket/cj_w_themarket_2.jpg",
+        "alt": "CJ 더마켓 전문관",
+        "caption": "CJ The Market 웹 사이트 UI개선 및 운영 상세 화면 2. CJ 더마켓 전문관",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_themarket/cj_w_themarket_3.jpg",
+        "alt": "CJ 더마켓 검색",
+        "caption": "CJ The Market 웹 사이트 UI개선 및 운영 상세 화면 3. CJ 더마켓 검색",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_themarket/cj_w_themarket_4.jpg",
+        "alt": "CJ 더마켓 리뷰",
+        "caption": "CJ The Market 웹 사이트 UI개선 및 운영 상세 화면 4. CJ 더마켓 리뷰",
+        "variant": "web"
       }
     ],
     "featured": true,
@@ -149,8 +193,34 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/cj_themarket_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/cj_themarket_m.png",
-        "alt": "CJ The Market 모바일 웹 UI개선 및 운영 대표 이미지"
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_1.webp",
+        "alt": "CJ THE MARKET App Summary1",
+        "caption": "CJ The Market 모바일 웹 UI개선 및 운영 상세 화면 1. CJ THE MARKET App Summary1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_2.webp",
+        "alt": "CJ THE MARKET App Summary2",
+        "caption": "CJ The Market 모바일 웹 UI개선 및 운영 상세 화면 2. CJ THE MARKET App Summary2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_3.webp",
+        "alt": "CJ THE MARKET App Summary3",
+        "caption": "CJ The Market 모바일 웹 UI개선 및 운영 상세 화면 3. CJ THE MARKET App Summary3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_4.webp",
+        "alt": "CJ THE MARKET App Summary4",
+        "caption": "CJ The Market 모바일 웹 UI개선 및 운영 상세 화면 4. CJ THE MARKET App Summary4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_themarket/cj_m_themarket_5.webp",
+        "alt": "CJ THE MARKET App Summary5",
+        "caption": "CJ The Market 모바일 웹 UI개선 및 운영 상세 화면 5. CJ THE MARKET App Summary5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -202,9 +272,28 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/finnq_w_v2.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/finnq_w_v2.png",
-        "alt": "Finnq 웹 사이트 React 전면 개편 및 운영 대표 이미지",
-        "caption": "Finnq 웹 사이트 React 전면 개편 및 운영 대표 이미지입니다. 프로젝트의 화면 유형과 담당 범위를 빠르게 확인할 수 있도록 정리했습니다."
+        "src": "/assets/portfolio/detail/w_finnq_v3/finnq_w_react_1.jpg",
+        "alt": "Finnq Web: 메인(intersection observer 적용) ",
+        "caption": "Finnq 웹 사이트 React 전면 개편 및 운영 상세 화면 1. Finnq Web: 메인(intersection observer 적용) ",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_v3/finnq_w_react_2.jpg",
+        "alt": "Finnq Web: 마이데이터 제휴(React Hook Form 적용)",
+        "caption": "Finnq 웹 사이트 React 전면 개편 및 운영 상세 화면 2. Finnq Web: 마이데이터 제휴(React Hook Form 적용)",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_v3/finnq_w_react_3.jpg",
+        "alt": "Finnq Web: 대출비교 메인",
+        "caption": "Finnq 웹 사이트 React 전면 개편 및 운영 상세 화면 3. Finnq Web: 대출비교 메인",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_v3/finnq_w_react_4.jpg",
+        "alt": "Finnq Web: 공동인증서",
+        "caption": "Finnq 웹 사이트 React 전면 개편 및 운영 상세 화면 4. Finnq Web: 공동인증서",
+        "variant": "responsive"
       }
     ],
     "featured": true,
@@ -256,9 +345,34 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/finnq_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/finnq_m.png",
-        "alt": "Finnq App 3.0 전면 개편 및 서비스 운영 대표 이미지",
-        "caption": "Finnq App 3.0 전면 개편 및 서비스 운영 대표 이미지입니다. 프로젝트의 화면 유형과 담당 범위를 빠르게 확인할 수 있도록 정리했습니다."
+        "src": "/assets/portfolio/detail/m_finnq_app_v2/img_m_finnq_app1.webp",
+        "alt": "Finnq App Summary1",
+        "caption": "Finnq App 3.0 전면 개편 및 서비스 운영 상세 화면 1. Finnq App Summary1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_finnq_app_v2/img_m_finnq_app2.webp",
+        "alt": "Finnq App Summary2",
+        "caption": "Finnq App 3.0 전면 개편 및 서비스 운영 상세 화면 2. Finnq App Summary2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_finnq_app_v2/img_m_finnq_app3.webp",
+        "alt": "Finnq App Summary3",
+        "caption": "Finnq App 3.0 전면 개편 및 서비스 운영 상세 화면 3. Finnq App Summary3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_finnq_app_v2/img_m_finnq_app4.webp",
+        "alt": "Finnq App Summary4",
+        "caption": "Finnq App 3.0 전면 개편 및 서비스 운영 상세 화면 4. Finnq App Summary4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_finnq_app_v2/img_m_finnq_app5.webp",
+        "alt": "Finnq App Summary5",
+        "caption": "Finnq App 3.0 전면 개편 및 서비스 운영 상세 화면 5. Finnq App Summary5",
+        "variant": "mobile"
       }
     ],
     "featured": true,
@@ -306,8 +420,22 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/toy_netflix_list.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/toy_netflix_list.png",
-        "alt": "개인프로젝트 - [React] Netflix Clone 대표 이미지"
+        "src": "/assets/portfolio/detail/w_toy_netflix/img_toy_netflix1.png",
+        "alt": "Netflix 메인",
+        "caption": "개인프로젝트 - [React] Netflix Clone 상세 화면 1. Netflix 메인",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_toy_netflix/img_toy_netflix2.png",
+        "alt": "Netflix 영화 목록",
+        "caption": "개인프로젝트 - [React] Netflix Clone 상세 화면 2. Netflix 영화 목록",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_toy_netflix/img_toy_netflix3.png",
+        "alt": "Netflix 검색 화면",
+        "caption": "개인프로젝트 - [React] Netflix Clone 상세 화면 3. Netflix 검색 화면",
+        "variant": "responsive"
       }
     ],
     "featured": false,
@@ -337,27 +465,44 @@ export const projects = [
       "JavaScript",
       "Hybrid App"
     ],
-    "summary": "개인프로젝트 - [React] Todo App 프로젝트에서 Frontend 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "React 기반 Todo App을 직접 구현하며 상태 변경, 목록 렌더링, 입력 폼, 완료 처리 같은 기본 인터랙션을 학습한 개인 프로젝트입니다. 작은 기능이라도 데이터 흐름과 UI 상태를 분리해 관리하는 연습을 중심으로 정리했습니다.",
+    "problem": "단순한 할 일 목록이라도 입력, 수정, 완료, 삭제 상태가 동시에 바뀌기 때문에 컴포넌트 상태와 화면 렌더링 흐름을 명확히 이해할 필요가 있었습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "React 컴포넌트 단위로 입력 영역, 목록 영역, 상태 표시 영역을 분리해 화면 구조를 구성했습니다.",
+      "할 일 데이터의 추가·완료·삭제 흐름을 기준으로 상태 변경 로직과 렌더링 조건을 정리했습니다.",
+      "반응형 화면에서도 입력 필드와 액션 버튼이 깨지지 않도록 기본 레이아웃과 터치 영역을 확인했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "React의 상태 기반 UI 렌더링 흐름을 실습 프로젝트로 정리했습니다.",
+      "작은 기능을 데이터와 화면 구조로 분리해 구현하는 기본기를 확인했습니다.",
+      "개인 학습 프로젝트는 대표 사례가 아닌 React 학습 아카이브로 분리했습니다."
     ],
     "tags": [
-      "Frontend",
-      "Web",
+      "React",
+      "State UI",
+      "Form",
       "Responsive",
       "Side Project"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/toy_todo_list.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/toy_todo_list.png",
-        "alt": "개인프로젝트 - [React] Todo App 대표 이미지"
+        "src": "/assets/portfolio/detail/w_toy_todo_list/img_toy_todos1.gif",
+        "alt": "Todo List App: 할일 입력 화면",
+        "caption": "개인프로젝트 - [React] Todo App 상세 화면 1. Todo List App: 할일 입력 화면",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_toy_todo_list/img_toy_todos2.gif",
+        "alt": "Todo List App: 할일 입력 후 진행중, 완료 상태 변경",
+        "caption": "개인프로젝트 - [React] Todo App 상세 화면 2. Todo List App: 할일 입력 후 진행중, 완료 상태 변경",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_toy_todo_list/img_toy_todos3.gif",
+        "alt": "Todo List App: 반응형 웹 구현 적용 화면",
+        "caption": "개인프로젝트 - [React] Todo App 상세 화면 3. Todo List App: 반응형 웹 구현 적용 화면",
+        "variant": "responsive"
       }
     ],
     "featured": false,
@@ -407,9 +552,40 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/w_finnq_transmission.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/w_finnq_transmission.png",
-        "alt": "마이데이터 전송요구동의 인증 개발 대표 이미지",
-        "caption": "마이데이터 전송요구동의 인증 개발 대표 이미지입니다. 프로젝트의 화면 유형과 담당 범위를 빠르게 확인할 수 있도록 정리했습니다."
+        "src": "/assets/portfolio/detail/w_finnq_transmission/img_mydata_finnq1.png",
+        "alt": "Finnq 마이데이터: 전송요구 통지서 웹",
+        "caption": "마이데이터 전송요구동의 인증 개발 상세 화면 1. Finnq 마이데이터: 전송요구 통지서 웹",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_transmission/img_mydata_finnq2.png",
+        "alt": "Finnq 마이데이터: 전송요구 통지서 웹(오류)",
+        "caption": "마이데이터 전송요구동의 인증 개발 상세 화면 2. Finnq 마이데이터: 전송요구 통지서 웹(오류)",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_transmission/img_mydata_finnq3.png",
+        "alt": "Finnq 마이데이터: 전송요구 통지서 웹(전송내역 통지서)",
+        "caption": "마이데이터 전송요구동의 인증 개발 상세 화면 3. Finnq 마이데이터: 전송요구 통지서 웹(전송내역 통지서)",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_transmission/img_mydata_finnq4.png",
+        "alt": "Finnq 마이데이터: 전송요구 통지서 모바일",
+        "caption": "마이데이터 전송요구동의 인증 개발 상세 화면 4. Finnq 마이데이터: 전송요구 통지서 모바일",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_transmission/img_mydata_finnq5.png",
+        "alt": "Finnq 마이데이터: 전송요구 통지서 모바일(오류)",
+        "caption": "마이데이터 전송요구동의 인증 개발 상세 화면 5. Finnq 마이데이터: 전송요구 통지서 모바일(오류)",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_transmission/img_mydata_finnq6.png",
+        "alt": "Finnq 마이데이터: 전송요구 통지서 모바일(전송내역 통지서)",
+        "caption": "마이데이터 전송요구동의 인증 개발 상세 화면 6. Finnq 마이데이터: 전송요구 통지서 모바일(전송내역 통지서)",
+        "variant": "responsive"
       }
     ],
     "featured": true,
@@ -438,27 +614,50 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "개인프로젝트 - [React] 암호화폐 랭킹 사이트 프로젝트에서 Frontend 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "React 기반 암호화폐 랭킹 화면을 구현하며 외부 데이터 목록을 카드·테이블형 UI로 구성한 개인 프로젝트입니다. API 데이터의 표시 순서, 숫자 정보의 가독성, 반응형 목록 UI를 학습하는 데 초점을 맞췄습니다.",
+    "problem": "시세·순위형 데이터는 항목 수가 많고 숫자 정보가 중심이기 때문에 모바일과 데스크톱에서 모두 읽기 쉬운 정보 구조가 필요했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "API 응답 데이터를 화면에 필요한 필드 중심으로 정리하고 목록 UI로 렌더링했습니다.",
+      "순위, 이름, 가격 정보처럼 우선순위가 높은 정보를 먼저 읽을 수 있도록 카드 구조와 텍스트 위계를 조정했습니다.",
+      "반응형 환경에서 데이터가 좁은 화면에 밀집되지 않도록 간격과 줄바꿈 기준을 확인했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "외부 데이터를 받아 목록형 UI로 구성하는 기본 프론트엔드 흐름을 연습했습니다.",
+      "숫자 중심 데이터의 가독성과 반응형 표현 방식을 학습했습니다.",
+      "React 학습 프로젝트로 분류해 실무 대표 프로젝트와 역할을 명확히 구분했습니다."
     ],
     "tags": [
-      "Frontend",
-      "Web",
+      "React",
+      "API",
+      "Data UI",
       "Responsive",
       "Side Project"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/toy_coin_list.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/toy_coin_list.png",
-        "alt": "개인프로젝트 - [React] 암호화폐 랭킹 사이트 대표 이미지"
+        "src": "/assets/portfolio/detail/w_toy_coin_list/img_toy_coin1.png",
+        "alt": "암호화폐 코인 리스트 화면(테마:Light Mode)",
+        "caption": "개인프로젝트 - [React] 암호화폐 랭킹 사이트 상세 화면 1. 암호화폐 코인 리스트 화면(테마:Light Mode)",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_toy_coin_list/img_toy_coin2.png",
+        "alt": "암호화폐 코인 리스트 화면(테마:Dark Mode)",
+        "caption": "개인프로젝트 - [React] 암호화폐 랭킹 사이트 상세 화면 2. 암호화폐 코인 리스트 화면(테마:Dark Mode)",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_toy_coin_list/img_toy_coin3.png",
+        "alt": "암호화폐 코인 상세 화면(차트 리스트)",
+        "caption": "개인프로젝트 - [React] 암호화폐 랭킹 사이트 상세 화면 3. 암호화폐 코인 상세 화면(차트 리스트)",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_toy_coin_list/img_toy_coin4.png",
+        "alt": "암호화폐 코인 상세 화면(가격 정보 갱신)",
+        "caption": "개인프로젝트 - [React] 암호화폐 랭킹 사이트 상세 화면 4. 암호화폐 코인 상세 화면(가격 정보 갱신)",
+        "variant": "responsive"
       }
     ],
     "featured": false,
@@ -508,9 +707,16 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/finnq_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/finnq_w.png",
-        "alt": "Finnq 웹 서비스 2.0 운영 대표 이미지",
-        "caption": "Finnq 웹 서비스 2.0 운영의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/w_finnq_v2/img_finnq_w_1.jpg",
+        "alt": "Finnq Web: WEB 메인 화면",
+        "caption": "Finnq 웹 서비스 2.0 운영 상세 화면 1. Finnq Web: WEB 메인 화면",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_finnq_v2/img_finnq_w_2.jpg",
+        "alt": "Finnq Web: MOBILE 메인 화면(반응형 웹)",
+        "caption": "Finnq 웹 서비스 2.0 운영 상세 화면 2. Finnq Web: MOBILE 메인 화면(반응형 웹)",
+        "variant": "responsive"
       }
     ],
     "featured": false,
@@ -560,9 +766,28 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/kebhana_w_open.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kebhana_w_open.png",
-        "alt": "KEB하나은행 기업뱅킹 고도화 구현 대표 이미지",
-        "caption": "KEB하나은행 기업뱅킹 고도화 구현 대표 이미지입니다. 프로젝트의 화면 유형과 담당 범위를 빠르게 확인할 수 있도록 정리했습니다."
+        "src": "/assets/portfolio/detail/w_kebhana_open/img_kebhana_open_1.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 통합개편: 메인",
+        "caption": "KEB하나은행 기업뱅킹 고도화 구현 상세 화면 1. KEB 하나은행 기업뱅킹 통합개편: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_open/img_kebhana_open_2.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 통합개편: 로그인",
+        "caption": "KEB하나은행 기업뱅킹 고도화 구현 상세 화면 2. KEB 하나은행 기업뱅킹 통합개편: 로그인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_open/img_kebhana_open_3.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 통합개편: 인증센터",
+        "caption": "KEB하나은행 기업뱅킹 고도화 구현 상세 화면 3. KEB 하나은행 기업뱅킹 통합개편: 인증센터",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_open/img_kebhana_open_4.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 통합개편: 발급수ㅈ수료 환불신청",
+        "caption": "KEB하나은행 기업뱅킹 고도화 구현 상세 화면 4. KEB 하나은행 기업뱅킹 통합개편: 발급수ㅈ수료 환불신청",
+        "variant": "web"
       }
     ],
     "featured": true,
@@ -613,9 +838,34 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/kebhana_m_app.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kebhana_m_app.png",
-        "alt": "KEB하나은행 기업뱅킹 1Q bank App 구축 대표 이미지",
-        "caption": "KEB하나은행 기업뱅킹 1Q bank App 구축의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/m_hana_app/img_m_hana_app1.jpg",
+        "alt": "KEB 하나은행 App 페이지 스크린샷1",
+        "caption": "KEB하나은행 기업뱅킹 1Q bank App 구축 상세 화면 1. KEB 하나은행 App 페이지 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_hana_app/img_m_hana_app2.jpg",
+        "alt": "KEB 하나은행 App 페이지 스크린샷2",
+        "caption": "KEB하나은행 기업뱅킹 1Q bank App 구축 상세 화면 2. KEB 하나은행 App 페이지 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_hana_app/img_m_hana_app3.jpg",
+        "alt": "KEB 하나은행 App 페이지 스크린샷3",
+        "caption": "KEB하나은행 기업뱅킹 1Q bank App 구축 상세 화면 3. KEB 하나은행 App 페이지 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_hana_app/img_m_hana_app4.jpg",
+        "alt": "KEB 하나은행 App 페이지 스크린샷4",
+        "caption": "KEB하나은행 기업뱅킹 1Q bank App 구축 상세 화면 4. KEB 하나은행 App 페이지 스크린샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_hana_app/img_m_hana_app5.jpg",
+        "alt": "KEB 하나은행 App 페이지 스크린샷5",
+        "caption": "KEB하나은행 기업뱅킹 1Q bank App 구축 상세 화면 5. KEB 하나은행 App 페이지 스크린샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -665,9 +915,34 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/kebhana_w_com2.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kebhana_w_com2.png",
-        "alt": "KEB하나은행 기업뱅킹 통합 서비스 운영 대표 이미지",
-        "caption": "KEB하나은행 기업뱅킹 통합 서비스 운영의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/w_kebhana_company2/img_kebhana_combine_1.jpg",
+        "alt": "하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 메인",
+        "caption": "KEB하나은행 기업뱅킹 통합 서비스 운영 상세 화면 1. 하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_company2/img_kebhana_combine_2.jpg",
+        "alt": "하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): GNB 메뉴",
+        "caption": "KEB하나은행 기업뱅킹 통합 서비스 운영 상세 화면 2. 하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): GNB 메뉴",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_company2/img_kebhana_combine_3.jpg",
+        "alt": "하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 고객센터",
+        "caption": "KEB하나은행 기업뱅킹 통합 서비스 운영 상세 화면 3. 하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 고객센터",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_company2/img_kebhana_combine_4.jpg",
+        "alt": "하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 전체메뉴",
+        "caption": "KEB하나은행 기업뱅킹 통합 서비스 운영 상세 화면 4. 하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 전체메뉴",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_company2/img_kebhana_combine_5.jpg",
+        "alt": "하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 로그인",
+        "caption": "KEB하나은행 기업뱅킹 통합 서비스 운영 상세 화면 5. 하나은행 기업뱅킹 웹 사이트 통합 개편(운영 업무): 로그인",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -717,9 +992,34 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/kebhana_w_combine.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kebhana_w_combine.png",
-        "alt": "KEB하나은행 기업뱅킹 CBS 채널 통합개편 대표 이미지",
-        "caption": "KEB하나은행 기업뱅킹 CBS 채널 통합개편의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/w_kebhana_combine/img_kebhana_combine_1.jpg",
+        "alt": "하나은행 기업뱅킹 웹 채널 통합개편: 메인",
+        "caption": "KEB하나은행 기업뱅킹 CBS 채널 통합개편 상세 화면 1. 하나은행 기업뱅킹 웹 채널 통합개편: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_combine/img_kebhana_combine_2.jpg",
+        "alt": "하나은행 기업뱅킹 웹 채널 통합개편: GNB",
+        "caption": "KEB하나은행 기업뱅킹 CBS 채널 통합개편 상세 화면 2. 하나은행 기업뱅킹 웹 채널 통합개편: GNB",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_combine/img_kebhana_combine_3.jpg",
+        "alt": "하나은행 기업뱅킹 웹 채널 통합개편: 고객센터",
+        "caption": "KEB하나은행 기업뱅킹 CBS 채널 통합개편 상세 화면 3. 하나은행 기업뱅킹 웹 채널 통합개편: 고객센터",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_combine/img_kebhana_combine_4.jpg",
+        "alt": "하나은행 기업뱅킹 웹 채널 통합개편: 전체메뉴",
+        "caption": "KEB하나은행 기업뱅킹 CBS 채널 통합개편 상세 화면 4. 하나은행 기업뱅킹 웹 채널 통합개편: 전체메뉴",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_combine/img_kebhana_combine_5.jpg",
+        "alt": "하나은행 기업뱅킹 웹 채널 통합개편: 로그인",
+        "caption": "KEB하나은행 기업뱅킹 CBS 채널 통합개편 상세 화면 5. 하나은행 기업뱅킹 웹 채널 통합개편: 로그인",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -769,9 +1069,28 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/kebhana_w_com.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kebhana_w_com.png",
-        "alt": "KEB하나은행 기업뱅킹 서비스 운영 대표 이미지",
-        "caption": "KEB하나은행 기업뱅킹 서비스 운영의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/w_kebhana_company/img_kebhana_company_1.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 웹 페이지: 메인(Light 분리 Ver)",
+        "caption": "KEB하나은행 기업뱅킹 서비스 운영 상세 화면 1. KEB 하나은행 기업뱅킹 웹 페이지: 메인(Light 분리 Ver)",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_company/img_kebhana_company_2.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 웹 페이지: 로그인",
+        "caption": "KEB하나은행 기업뱅킹 서비스 운영 상세 화면 2. KEB 하나은행 기업뱅킹 웹 페이지: 로그인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_company/img_kebhana_company_3.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 웹 페이지: 상세페이지",
+        "caption": "KEB하나은행 기업뱅킹 서비스 운영 상세 화면 3. KEB 하나은행 기업뱅킹 웹 페이지: 상세페이지",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana_company/img_kebhana_company_4.jpg",
+        "alt": "KEB 하나은행 기업뱅킹 웹 페이지: FAQ",
+        "caption": "KEB하나은행 기업뱅킹 서비스 운영 상세 화면 4. KEB 하나은행 기업뱅킹 웹 페이지: FAQ",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -821,9 +1140,28 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/mirae_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/mirae_w.png",
-        "alt": "미래에셋대우 채널통합 TFT 시스템 구축 대표 이미지",
-        "caption": "미래에셋대우 채널통합 TFT 시스템 구축의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/w_mirae/img_mirae0.jpg",
+        "alt": "미래에셋대우 통합 웹: 메인",
+        "caption": "미래에셋대우 채널통합 TFT 시스템 구축 상세 화면 1. 미래에셋대우 통합 웹: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_mirae/img_mirae1.jpg",
+        "alt": "미래에셋대우 통합 웹: 금융상품 메인",
+        "caption": "미래에셋대우 채널통합 TFT 시스템 구축 상세 화면 2. 미래에셋대우 통합 웹: 금융상품 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_mirae/img_mirae2.jpg",
+        "alt": "미래에셋대우 통합 웹: 연금자산 메인",
+        "caption": "미래에셋대우 채널통합 TFT 시스템 구축 상세 화면 3. 미래에셋대우 통합 웹: 연금자산 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_mirae/img_mirae3.jpg",
+        "alt": "미래에셋대우 통합 웹: 이용안내/문의",
+        "caption": "미래에셋대우 채널통합 TFT 시스템 구축 상세 화면 4. 미래에셋대우 통합 웹: 이용안내/문의",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -873,9 +1211,28 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/kebhana_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kebhana_w.png",
-        "alt": "KEB하나은행 개인뱅킹 웹 통합개편 대표 이미지",
-        "caption": "KEB하나은행 개인뱅킹 웹 통합개편의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/w_kebhana/img_kebhana_1.jpg",
+        "alt": "KEB 하나은행 웹 개인뱅킹(DAY2): 메인",
+        "caption": "KEB하나은행 개인뱅킹 웹 통합개편 상세 화면 1. KEB 하나은행 웹 개인뱅킹(DAY2): 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana/img_kebhana_2.jpg",
+        "alt": "KEB 하나은행 웹 개인뱅킹(DAY2): 상품 메인",
+        "caption": "KEB하나은행 개인뱅킹 웹 통합개편 상세 화면 2. KEB 하나은행 웹 개인뱅킹(DAY2): 상품 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana/img_kebhana_3.jpg",
+        "alt": "KEB 하나은행 웹 개인뱅킹(DAY2): 골드클럽 메인",
+        "caption": "KEB하나은행 개인뱅킹 웹 통합개편 상세 화면 3. KEB 하나은행 웹 개인뱅킹(DAY2): 골드클럽 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_kebhana/img_kebhana_4.jpg",
+        "alt": "KEB 하나은행 웹 개인뱅킹(DAY2): 해외 공관 사이트",
+        "caption": "KEB하나은행 개인뱅킹 웹 통합개편 상세 화면 4. KEB 하나은행 웹 개인뱅킹(DAY2): 해외 공관 사이트",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -925,9 +1282,22 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/han_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/han_w.png",
-        "alt": "한국수력원자력 웹 사이트 통합개편 대표 이미지",
-        "caption": "한국수력원자력 웹 사이트 통합개편의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/w_han/img_w_han1.jpg",
+        "alt": "한국수력원자력 개편: 메인",
+        "caption": "한국수력원자력 웹 사이트 통합개편 상세 화면 1. 한국수력원자력 개편: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_han/img_w_han2.jpg",
+        "alt": "한국수력원자력 개편: 경영공시 서브 메인",
+        "caption": "한국수력원자력 웹 사이트 통합개편 상세 화면 2. 한국수력원자력 개편: 경영공시 서브 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_han/img_w_han3.jpg",
+        "alt": "한국수력원자력 개편: 홍보동영상",
+        "caption": "한국수력원자력 웹 사이트 통합개편 상세 화면 3. 한국수력원자력 개편: 홍보동영상",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -977,9 +1347,28 @@ export const projects = [
     "thumbnail": "/assets/portfolio/thumb_img_project/han_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/han_m.png",
-        "alt": "한국수력원자력 모바일 웹 사이트 통합개편 대표 이미지",
-        "caption": "한국수력원자력 모바일 웹 사이트 통합개편의 대표 화면입니다. 실제 프로젝트 상세 이미지는 운영 보안과 공개 가능 범위에 맞춰 추가 보강할 수 있습니다."
+        "src": "/assets/portfolio/detail/m_han/img_m_hansuone1.jpg",
+        "alt": "한국수력원자력 모바일 웹 페이지 스크린샷 Summary1",
+        "caption": "한국수력원자력 모바일 웹 사이트 통합개편 상세 화면 1. 한국수력원자력 모바일 웹 페이지 스크린샷 Summary1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_han/img_m_hansuone2.jpg",
+        "alt": "한국수력원자력 모바일 웹 페이지 스크린샷 Summary2",
+        "caption": "한국수력원자력 모바일 웹 사이트 통합개편 상세 화면 2. 한국수력원자력 모바일 웹 페이지 스크린샷 Summary2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_han/img_m_hansuone3.jpg",
+        "alt": "한국수력원자력 모바일 웹 페이지 스크린샷 Summary3",
+        "caption": "한국수력원자력 모바일 웹 사이트 통합개편 상세 화면 3. 한국수력원자력 모바일 웹 페이지 스크린샷 Summary3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_han/img_m_hansuone4.jpg",
+        "alt": "한국수력원자력 모바일 웹 페이지 스크린샷 Summary4",
+        "caption": "한국수력원자력 모바일 웹 사이트 통합개편 상세 화면 4. 한국수력원자력 모바일 웹 페이지 스크린샷 Summary4",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1007,25 +1396,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "TGI FRIDAYS 모바일 웹(KOR) 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "TGI FRIDAYS 국문 모바일 웹 구축에서 브랜드 콘텐츠와 매장·메뉴 정보를 모바일 화면에 맞게 구성한 UI 개발 프로젝트입니다. 작은 화면에서도 브랜드 이미지와 정보 탐색 흐름이 자연스럽게 이어지도록 마크업과 스타일을 구현했습니다.",
+    "problem": "브랜드 모바일 웹은 메뉴, 매장, 프로모션 정보를 빠르게 탐색해야 하며, 이미지 중심 콘텐츠가 많아 화면 비율과 로딩 상태에 따라 레이아웃이 흔들릴 수 있었습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "모바일 화면 기준으로 주요 콘텐츠 섹션, 이미지 영역, 버튼 영역의 정보 위계를 정리했습니다.",
+      "메뉴와 프로모션 콘텐츠가 길어져도 화면 흐름이 깨지지 않도록 반응형 마크업과 CSS를 적용했습니다.",
+      "국문 콘텐츠의 텍스트 길이와 줄바꿈을 고려해 가독성과 터치 영역을 함께 확인했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "브랜드 모바일 웹 구축 경험을 통해 이미지 중심 모바일 UI 구현 기준을 확보했습니다.",
+      "국문 콘텐츠 특성을 고려한 모바일 레이아웃과 CTA 배치 경험을 정리했습니다.",
+      "동일 브랜드의 영문 사이트와 함께 다국어 모바일 구축 경험으로 확장했습니다."
     ],
     "tags": [
-      "UI",
-      "Mobile"
+      "Mobile Web",
+      "Brand Site",
+      "HTML",
+      "CSS",
+      "UI"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/tgif_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/tgif_m.png",
-        "alt": "TGI FRIDAYS 모바일 웹(KOR) 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_tgif/img_m_tgi1.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷1",
+        "caption": "TGI FRIDAYS 모바일 웹(KOR) 구축 상세 화면 1. TGIF 모바일 웹 페이지 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif/img_m_tgi2.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷2",
+        "caption": "TGI FRIDAYS 모바일 웹(KOR) 구축 상세 화면 2. TGIF 모바일 웹 페이지 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif/img_m_tgi3.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷3",
+        "caption": "TGI FRIDAYS 모바일 웹(KOR) 구축 상세 화면 3. TGIF 모바일 웹 페이지 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif/img_m_tgi4.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷4",
+        "caption": "TGI FRIDAYS 모바일 웹(KOR) 구축 상세 화면 4. TGIF 모바일 웹 페이지 스크린샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif/img_m_tgi5.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷5",
+        "caption": "TGI FRIDAYS 모바일 웹(KOR) 구축 상세 화면 5. TGIF 모바일 웹 페이지 스크린샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1053,25 +1473,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "TGI FRIDAYS 모바일 웹(ENG) 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "TGI FRIDAYS 영문 모바일 웹 구축에서 국문 사이트와 동일한 브랜드 경험을 유지하면서 영문 콘텐츠에 맞는 모바일 UI를 구현했습니다. 언어별 텍스트 길이와 정보 구조 차이를 고려해 모바일 화면을 정리한 프로젝트입니다.",
+    "problem": "같은 브랜드라도 영문 콘텐츠는 텍스트 길이와 줄바꿈 방식이 달라 국문 사이트의 화면 구조를 그대로 적용하면 일부 UI 균형이 깨질 수 있었습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "국문 사이트에서 정의한 모바일 UI 패턴을 유지하되 영문 콘텐츠 길이에 맞춰 여백과 텍스트 영역을 점검했습니다.",
+      "메뉴, 매장, 프로모션 같은 주요 콘텐츠가 동일한 흐름으로 탐색되도록 섹션 구조를 정리했습니다.",
+      "이미지 중심 브랜드 화면에서 텍스트와 CTA가 겹치지 않도록 화면 폭별 레이아웃을 확인했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "동일 브랜드의 다국어 모바일 웹 구축 경험을 확보했습니다.",
+      "국문·영문 콘텐츠 차이를 고려한 모바일 UI 검수 기준을 정리했습니다.",
+      "브랜드 톤을 유지하면서 언어별 콘텐츠를 안정적으로 표현하는 경험을 쌓았습니다."
     ],
     "tags": [
-      "UI",
-      "Mobile"
+      "Mobile Web",
+      "Brand Site",
+      "Global",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/tgif_m_e.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/tgif_m_e.png",
-        "alt": "TGI FRIDAYS 모바일 웹(ENG) 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_tgif_e/img_m_tgi1.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷1",
+        "caption": "TGI FRIDAYS 모바일 웹(ENG) 구축 상세 화면 1. TGIF 모바일 웹 페이지 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif_e/img_m_tgi2.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷2",
+        "caption": "TGI FRIDAYS 모바일 웹(ENG) 구축 상세 화면 2. TGIF 모바일 웹 페이지 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif_e/img_m_tgi3.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷3",
+        "caption": "TGI FRIDAYS 모바일 웹(ENG) 구축 상세 화면 3. TGIF 모바일 웹 페이지 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif_e/img_m_tgi4.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷4",
+        "caption": "TGI FRIDAYS 모바일 웹(ENG) 구축 상세 화면 4. TGIF 모바일 웹 페이지 스크린샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_tgif_e/img_m_tgi5.jpg",
+        "alt": "TGIF 모바일 웹 페이지 스크린샷5",
+        "caption": "TGI FRIDAYS 모바일 웹(ENG) 구축 상세 화면 5. TGIF 모바일 웹 페이지 스크린샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1099,25 +1550,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "엔제리너스(KOR) 커피 모바일 웹 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "엔제리너스 국문 모바일 웹 구축에서 브랜드 소개, 메뉴, 매장 정보 등 사용자가 자주 찾는 콘텐츠를 모바일 환경에 맞춰 구현했습니다. 프랜차이즈 브랜드의 콘텐츠 구조와 모바일 탐색 흐름을 고려한 UI 개발 프로젝트입니다.",
+    "problem": "프랜차이즈 브랜드 모바일 웹은 메뉴 정보와 매장 탐색 동선이 중요해 이미지, 텍스트, 버튼의 우선순위를 작은 화면 안에서 명확히 구분해야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "메뉴·이벤트·매장 정보의 우선순위를 기준으로 모바일 섹션 구조를 구성했습니다.",
+      "브랜드 이미지가 강조되는 화면에서도 텍스트 가독성과 터치 가능한 버튼 영역을 유지했습니다.",
+      "콘텐츠 양이 늘어나는 경우에도 레이아웃이 무너지지 않도록 리스트와 카드 구조를 점검했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "프랜차이즈 브랜드 모바일 웹의 기본 탐색 구조를 구현한 경험을 정리했습니다.",
+      "이미지와 정보성 콘텐츠가 함께 있는 모바일 화면의 균형을 관리했습니다.",
+      "다국어 모바일 웹 구축 경험으로 이어지는 기반을 마련했습니다."
     ],
     "tags": [
-      "UI",
-      "Mobile"
+      "Mobile Web",
+      "Brand Site",
+      "Franchise",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/angel_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/angel_m.png",
-        "alt": "엔제리너스(KOR) 커피 모바일 웹 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_angel/img_m_angelcoffee1.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷1",
+        "caption": "엔제리너스(KOR) 커피 모바일 웹 구축 상세 화면 1. 엔제리너스 모바일 웹 페이지 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel/img_m_angelcoffee2.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷2",
+        "caption": "엔제리너스(KOR) 커피 모바일 웹 구축 상세 화면 2. 엔제리너스 모바일 웹 페이지 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel/img_m_angelcoffee3.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷3",
+        "caption": "엔제리너스(KOR) 커피 모바일 웹 구축 상세 화면 3. 엔제리너스 모바일 웹 페이지 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel/img_m_angelcoffee4.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷4",
+        "caption": "엔제리너스(KOR) 커피 모바일 웹 구축 상세 화면 4. 엔제리너스 모바일 웹 페이지 스크린샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel/img_m_angelcoffee5.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷5",
+        "caption": "엔제리너스(KOR) 커피 모바일 웹 구축 상세 화면 5. 엔제리너스 모바일 웹 페이지 스크린샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1145,25 +1627,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "엔제리너스(ENG) 커피 모바일 웹 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "엔제리너스 영문 모바일 웹 구축에서 국문 사이트의 브랜드 구조를 유지하면서 영문 사용자에게 맞는 콘텐츠 흐름을 구현했습니다. 다국어 브랜드 사이트의 모바일 화면 대응 경험을 정리한 프로젝트입니다.",
+    "problem": "영문 모바일 페이지는 국문과 다른 텍스트 길이, 줄바꿈, 메뉴 표기 방식이 있어 동일한 디자인 안에서도 세부 UI 검수가 필요했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "국문 모바일 웹의 정보 구조를 기준으로 영문 콘텐츠가 자연스럽게 들어갈 수 있도록 섹션과 텍스트 영역을 점검했습니다.",
+      "브랜드 이미지, 메뉴 정보, CTA의 배치가 화면 폭에 따라 어색해지지 않도록 반응형 스타일을 적용했습니다.",
+      "동일 브랜드 내 다국어 페이지 간 UI 일관성이 유지되도록 공통 패턴을 맞췄습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "영문 콘텐츠 기반 모바일 브랜드 사이트 구축 경험을 확보했습니다.",
+      "국문·영문 화면 간 일관성과 콘텐츠 차이를 함께 관리하는 기준을 경험했습니다.",
+      "다국어 프로젝트를 아카이브에서 명확히 구분해 보여줄 수 있게 정리했습니다."
     ],
     "tags": [
-      "UI",
-      "Mobile"
+      "Mobile Web",
+      "Brand Site",
+      "Global",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/angel_m_e.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/angel_m_e.png",
-        "alt": "엔제리너스(ENG) 커피 모바일 웹 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_angel_e/img_m_angelcoffee1.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷1",
+        "caption": "엔제리너스(ENG) 커피 모바일 웹 구축 상세 화면 1. 엔제리너스 모바일 웹 페이지 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel_e/img_m_angelcoffee2.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷2",
+        "caption": "엔제리너스(ENG) 커피 모바일 웹 구축 상세 화면 2. 엔제리너스 모바일 웹 페이지 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel_e/img_m_angelcoffee3.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷3",
+        "caption": "엔제리너스(ENG) 커피 모바일 웹 구축 상세 화면 3. 엔제리너스 모바일 웹 페이지 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel_e/img_m_angelcoffee4.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷4",
+        "caption": "엔제리너스(ENG) 커피 모바일 웹 구축 상세 화면 4. 엔제리너스 모바일 웹 페이지 스크린샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_angel_e/img_m_angelcoffee5.jpg",
+        "alt": "엔제리너스 모바일 웹 페이지 스크린샷5",
+        "caption": "엔제리너스(ENG) 커피 모바일 웹 구축 상세 화면 5. 엔제리너스 모바일 웹 페이지 스크린샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1191,25 +1704,50 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "롯데리아 모바일 웹(국문) 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "롯데리아 국문 모바일 웹 구축에서 메뉴, 프로모션, 매장 탐색 중심의 모바일 UI를 구현했습니다. 프랜차이즈 서비스 특성에 맞춰 빠른 정보 확인과 터치 기반 탐색 흐름을 고려한 프로젝트입니다.",
+    "problem": "패스트푸드 브랜드 모바일 웹은 사용자가 메뉴와 프로모션 정보를 빠르게 확인해야 하므로 이미지 중심 콘텐츠와 정보성 텍스트의 우선순위를 명확히 잡아야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "메뉴와 이벤트 콘텐츠를 모바일에서 빠르게 훑어볼 수 있도록 카드·리스트형 UI 구조를 구성했습니다.",
+      "CTA와 링크 영역은 손가락 터치를 고려해 충분한 높이와 간격을 확보했습니다.",
+      "상품 이미지와 텍스트 정보가 함께 노출되는 영역의 비율과 줄바꿈을 확인했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "브랜드 모바일 웹에서 정보 탐색성과 시각적 표현을 함께 고려한 UI 구현 경험을 확보했습니다.",
+      "프랜차이즈 브랜드 특유의 반복 콘텐츠를 모바일 화면에 안정적으로 배치했습니다.",
+      "초기 모바일 웹 구축 경험을 현재 반응형·운영 UI 역량의 기반 사례로 정리했습니다."
     ],
     "tags": [
+      "Mobile Web",
+      "Brand Site",
+      "Franchise",
       "UI",
-      "Mobile"
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/lotteria_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/lotteria_m.png",
-        "alt": "롯데리아 모바일 웹(국문) 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_lotteria/img_m_lotteria1.jpg",
+        "alt": "롯데리아 모바일 웹 페이지 스크린샷1",
+        "caption": "롯데리아 모바일 웹(국문) 구축 상세 화면 1. 롯데리아 모바일 웹 페이지 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_lotteria/img_m_lotteria2.jpg",
+        "alt": "롯데리아 모바일 웹 페이지 스크린샷2",
+        "caption": "롯데리아 모바일 웹(국문) 구축 상세 화면 2. 롯데리아 모바일 웹 페이지 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_lotteria/img_m_lotteria3.jpg",
+        "alt": "롯데리아 모바일 웹 페이지 스크린샷3",
+        "caption": "롯데리아 모바일 웹(국문) 구축 상세 화면 3. 롯데리아 모바일 웹 페이지 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_lotteria/img_m_lotteria4.jpg",
+        "alt": "롯데리아 모바일 웹 페이지 스크린샷4",
+        "caption": "롯데리아 모바일 웹(국문) 구축 상세 화면 4. 롯데리아 모바일 웹 페이지 스크린샷4",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1237,25 +1775,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "나뚜루 팝 모바일 웹(국문) 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "나뚜루 팝 모바일 웹 구축에서 제품 이미지와 브랜드 콘텐츠를 중심으로 한 모바일 UI를 구현했습니다. 제품군과 프로모션 콘텐츠가 작은 화면에서도 명확히 구분되도록 화면 구조를 정리한 프로젝트입니다.",
+    "problem": "디저트 브랜드 모바일 웹은 이미지 의존도가 높아 제품 사진과 설명 텍스트, 이벤트 정보가 한 화면에서 과밀해질 수 있었습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "제품 이미지와 설명 영역을 분리해 사용자가 콘텐츠를 빠르게 훑어볼 수 있도록 구성했습니다.",
+      "프로모션과 브랜드 소개 영역의 여백, 배경, 텍스트 계층을 모바일 기준으로 조정했습니다.",
+      "이미지 비율 차이에 따른 레이아웃 흔들림을 줄이기 위해 영역별 표시 기준을 점검했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "제품 중심 브랜드 사이트의 모바일 UI 구성 경험을 확보했습니다.",
+      "이미지 중심 화면에서도 정보 전달력을 유지하는 레이아웃 기준을 경험했습니다.",
+      "브랜드 모바일 구축 프로젝트를 아카이브형 사례로 정리했습니다."
     ],
     "tags": [
-      "UI",
-      "Mobile"
+      "Mobile Web",
+      "Brand Site",
+      "Product UI",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/natuur_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/natuur_m.png",
-        "alt": "나뚜루 팝 모바일 웹(국문) 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_natuur/img_m_natuur1.jpg",
+        "alt": "나뚜루 팝 모바일 웹 페이지 스크린샷1",
+        "caption": "나뚜루 팝 모바일 웹(국문) 구축 상세 화면 1. 나뚜루 팝 모바일 웹 페이지 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_natuur/img_m_natuur2.jpg",
+        "alt": "나뚜루 팝 모바일 웹 페이지 스크린샷2",
+        "caption": "나뚜루 팝 모바일 웹(국문) 구축 상세 화면 2. 나뚜루 팝 모바일 웹 페이지 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_natuur/img_m_natuur3.jpg",
+        "alt": "나뚜루 팝 모바일 웹 페이지 스크린샷3",
+        "caption": "나뚜루 팝 모바일 웹(국문) 구축 상세 화면 3. 나뚜루 팝 모바일 웹 페이지 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_natuur/img_m_natuur4.jpg",
+        "alt": "나뚜루 팝 모바일 웹 페이지 스크린샷4",
+        "caption": "나뚜루 팝 모바일 웹(국문) 구축 상세 화면 4. 나뚜루 팝 모바일 웹 페이지 스크린샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_natuur/img_m_natuur5.jpg",
+        "alt": "나뚜루 팝 모바일 웹 페이지 스크린샷5",
+        "caption": "나뚜루 팝 모바일 웹(국문) 구축 상세 화면 5. 나뚜루 팝 모바일 웹 페이지 스크린샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1283,25 +1852,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "크리스피 크림 도넛 모바일 웹(국문) 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "크리스피 크림 도넛 국문 모바일 웹 구축에서 제품, 매장, 이벤트 정보를 모바일 환경에 맞게 구현했습니다. 브랜드 이미지와 상품 정보를 균형 있게 보여주는 모바일 UI 개발 프로젝트입니다.",
+    "problem": "제품과 이벤트 이미지가 많은 브랜드 사이트는 화면 폭이 좁아질수록 정보가 산만해질 수 있어 명확한 섹션 구분과 이미지 처리 기준이 필요했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "제품·이벤트·매장 정보 섹션을 모바일 사용 흐름에 맞춰 구성했습니다.",
+      "이미지와 텍스트가 함께 노출되는 영역은 비율과 여백을 점검해 가독성을 유지했습니다.",
+      "버튼과 링크 요소는 모바일 터치 환경을 고려해 충분한 클릭 영역을 확보했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "제품 중심 모바일 브랜드 웹의 섹션 설계와 UI 구현 경험을 정리했습니다.",
+      "이미지 비율, 텍스트 길이, 터치 영역을 함께 고려한 모바일 QA 기준을 경험했습니다.",
+      "브랜드 프로젝트 아카이브에서 모바일 구축 경험을 보완하는 사례로 정리했습니다."
     ],
     "tags": [
+      "Mobile Web",
+      "Brand Site",
+      "Product UI",
       "UI",
-      "Mobile"
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/krispy_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/krispy_m.png",
-        "alt": "크리스피 크림 도넛 모바일 웹(국문) 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_krispy/img_m_krispy1.jpg",
+        "alt": "크리스피 크림 도넛 모바일 웹 스크린샷1",
+        "caption": "크리스피 크림 도넛 모바일 웹(국문) 구축 상세 화면 1. 크리스피 크림 도넛 모바일 웹 스크린샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_krispy/img_m_krispy2.jpg",
+        "alt": "크리스피 크림 도넛 모바일 웹 스크린샷2",
+        "caption": "크리스피 크림 도넛 모바일 웹(국문) 구축 상세 화면 2. 크리스피 크림 도넛 모바일 웹 스크린샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_krispy/img_m_krispy3.jpg",
+        "alt": "크리스피 크림 도넛 모바일 웹 스크린샷3",
+        "caption": "크리스피 크림 도넛 모바일 웹(국문) 구축 상세 화면 3. 크리스피 크림 도넛 모바일 웹 스크린샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_krispy/img_m_krispy4.jpg",
+        "alt": "크리스피 크림 도넛 모바일 웹 스크린샷4",
+        "caption": "크리스피 크림 도넛 모바일 웹(국문) 구축 상세 화면 4. 크리스피 크림 도넛 모바일 웹 스크린샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_krispy/img_m_krispy5.jpg",
+        "alt": "크리스피 크림 도넛 모바일 웹 스크린샷5",
+        "caption": "크리스피 크림 도넛 모바일 웹(국문) 구축 상세 화면 5. 크리스피 크림 도넛 모바일 웹 스크린샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1329,25 +1929,50 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "롯데푸드 파스퇴르 베네콜 웹 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "롯데푸드 파스퇴르 베네콜 웹 프로젝트에서 제품 브랜드 정보를 웹 화면에 맞춰 구현했습니다. 건강식품 브랜드의 설명형 콘텐츠를 사용자가 읽기 쉽도록 섹션과 정보 위계를 정리한 프로젝트입니다.",
+    "problem": "제품 브랜드 웹은 이미지, 설명 텍스트, 홍보 메시지가 함께 들어가기 때문에 정보가 길어져도 사용자가 핵심 내용을 쉽게 파악할 수 있어야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "제품 설명, 브랜드 메시지, 시각 자료 영역을 구분해 읽기 흐름을 정리했습니다.",
+      "웹 화면에서 긴 텍스트가 부담스럽지 않도록 섹션 간 여백과 제목 계층을 적용했습니다.",
+      "프로모션성 콘텐츠와 정보성 콘텐츠가 섞이지 않도록 화면 단위를 나눠 구현했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "제품 브랜드 웹의 정보 전달형 UI 구현 경험을 확보했습니다.",
+      "긴 설명 콘텐츠를 섹션 구조와 타이포그래피 위계로 정리하는 기준을 경험했습니다.",
+      "브랜드 웹 구축 프로젝트를 아카이브형 사례로 보강했습니다."
     ],
     "tags": [
-      "UI",
-      "Web"
+      "Web UI",
+      "Brand Site",
+      "Product",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/benecol_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/benecol_w.png",
-        "alt": "롯데푸드 파스퇴르 베네콜 웹 대표 이미지"
+        "src": "/assets/portfolio/detail/w_benecol/img_w_benecol1.jpg",
+        "alt": "롯데푸드 파스퇴르 베네콜 웹: 메인",
+        "caption": "롯데푸드 파스퇴르 베네콜 웹 상세 화면 1. 롯데푸드 파스퇴르 베네콜 웹: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_benecol/img_w_benecol2.jpg",
+        "alt": "롯데푸드 파스퇴르 베네콜 웹: 메인 Layer Popup ",
+        "caption": "롯데푸드 파스퇴르 베네콜 웹 상세 화면 2. 롯데푸드 파스퇴르 베네콜 웹: 메인 Layer Popup ",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_benecol/img_w_benecol3.jpg",
+        "alt": "롯데푸드 파스퇴르 베네콜 웹: 브랜드 스토리",
+        "caption": "롯데푸드 파스퇴르 베네콜 웹 상세 화면 3. 롯데푸드 파스퇴르 베네콜 웹: 브랜드 스토리",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_benecol/img_w_benecol4.jpg",
+        "alt": "롯데푸드 파스퇴르 베네콜 웹: FAQ",
+        "caption": "롯데푸드 파스퇴르 베네콜 웹 상세 화면 4. 롯데푸드 파스퇴르 베네콜 웹: FAQ",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -1375,25 +2000,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "애드캡슐소프트 모바일 웹 개편 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "애드캡슐소프트 모바일 웹 개편에서 회사 소개와 서비스 정보를 모바일 화면에 맞춰 재구성했습니다. 기업 정보성 콘텐츠를 작은 화면에서도 명확하게 읽을 수 있도록 구현한 모바일 개편 프로젝트입니다.",
+    "problem": "기업 소개형 모바일 웹은 텍스트 정보가 많고 화면 전환 없이 내용을 읽어야 하는 경우가 많아 정보 계층과 스크롤 흐름이 중요했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "회사 소개, 서비스, 연락 정보처럼 목적이 다른 콘텐츠를 섹션 단위로 나눠 구성했습니다.",
+      "모바일에서 긴 텍스트를 읽기 쉽도록 제목, 설명, 리스트의 타이포그래피 계층을 조정했습니다.",
+      "기존 웹에서 모바일로 전환될 때 필요한 이미지 크기와 여백 기준을 점검했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "기업 소개형 모바일 웹 개편 경험을 확보했습니다.",
+      "정보성 콘텐츠를 모바일 환경에 맞게 재배치하는 기준을 경험했습니다.",
+      "초기 모바일 개편 프로젝트를 현재 UI 구조화 역량의 기반 사례로 정리했습니다."
     ],
     "tags": [
-      "UI",
-      "Mobile"
+      "Mobile Web",
+      "Corporate",
+      "Renewal",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/adcapsule_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/adcapsule_m.png",
-        "alt": "애드캡슐소프트 모바일 웹 개편 대표 이미지"
+        "src": "/assets/portfolio/detail/m_adcap/img_m_adcapsule1.jpg",
+        "alt": "애드캡슐소프트 모바일 웹 스크린 이미지1",
+        "caption": "애드캡슐소프트 모바일 웹 개편 상세 화면 1. 애드캡슐소프트 모바일 웹 스크린 이미지1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_adcap/img_m_adcapsule2.jpg",
+        "alt": "애드캡슐소프트 모바일 웹 스크린 이미지2",
+        "caption": "애드캡슐소프트 모바일 웹 개편 상세 화면 2. 애드캡슐소프트 모바일 웹 스크린 이미지2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_adcap/img_m_adcapsule3.jpg",
+        "alt": "애드캡슐소프트 모바일 웹 스크린 이미지3",
+        "caption": "애드캡슐소프트 모바일 웹 개편 상세 화면 3. 애드캡슐소프트 모바일 웹 스크린 이미지3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_adcap/img_m_adcapsule4.jpg",
+        "alt": "애드캡슐소프트 모바일 웹 스크린 이미지4",
+        "caption": "애드캡슐소프트 모바일 웹 개편 상세 화면 4. 애드캡슐소프트 모바일 웹 스크린 이미지4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_adcap/img_m_adcapsule5.jpg",
+        "alt": "애드캡슐소프트 모바일 웹 스크린 이미지5",
+        "caption": "애드캡슐소프트 모바일 웹 개편 상세 화면 5. 애드캡슐소프트 모바일 웹 스크린 이미지5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1421,25 +2077,44 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "삼성증권 홈페이지 개편 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "삼성증권 홈페이지 개편에서 금융 서비스 웹 화면의 정보 구조와 신뢰감 있는 UI 구현을 담당했습니다. 금융 도메인 특성상 명확한 콘텐츠 위계와 안정적인 웹 화면 구성을 중요하게 다룬 프로젝트입니다.",
+    "problem": "금융 웹사이트는 정보량이 많고 사용자가 정확한 내용을 빠르게 찾아야 하므로, 화면 구조가 복잡해져도 콘텐츠 위계와 가독성이 유지되어야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "금융 상품·서비스 콘텐츠를 제목, 설명, 링크, 안내 영역으로 구분해 정보 위계를 정리했습니다.",
+      "웹 화면에서 신뢰감을 주는 여백, 정렬, 버튼 상태를 유지하도록 마크업과 CSS를 구현했습니다.",
+      "여러 화면 유형이 섞여도 일관된 UI 톤이 유지되도록 공통 스타일 기준을 맞췄습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "금융 도메인의 웹 개편 프로젝트 경험을 확보했습니다.",
+      "정보량이 많은 웹사이트에서 가독성과 신뢰감을 함께 고려한 UI 구현 기준을 경험했습니다.",
+      "현재 금융 프로젝트 경험을 설명하는 초기 사례로 아카이브를 보강했습니다."
     ],
     "tags": [
-      "UI",
-      "Responsive"
+      "Finance",
+      "Web UI",
+      "Renewal",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/samsung_stock_r.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/samsung_stock_r.png",
-        "alt": "삼성증권 홈페이지 개편 대표 이미지"
+        "src": "/assets/portfolio/detail/w_samsung/img_w_stock1.jpg",
+        "alt": "삼성증권, 삼성뱅킹 웹 페이지 개편: 메인",
+        "caption": "삼성증권 홈페이지 개편 상세 화면 1. 삼성증권, 삼성뱅킹 웹 페이지 개편: 메인",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_samsung/img_w_stock2.jpg",
+        "alt": "삼성증권, 삼성뱅킹 웹 페이지 개편: 추천상품",
+        "caption": "삼성증권 홈페이지 개편 상세 화면 2. 삼성증권, 삼성뱅킹 웹 페이지 개편: 추천상품",
+        "variant": "responsive"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_samsung/img_w_stock3.jpg",
+        "alt": "삼성증권, 삼성뱅킹 웹 페이지 개편: 스마트 검색",
+        "caption": "삼성증권 홈페이지 개편 상세 화면 3. 삼성증권, 삼성뱅킹 웹 페이지 개편: 스마트 검색",
+        "variant": "responsive"
       }
     ],
     "featured": false,
@@ -1467,25 +2142,56 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "클라우드 맥주 브랜드 사이트 구축 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "클라우드 맥주 브랜드 사이트 구축에서 캠페인성 콘텐츠와 브랜드 이미지를 모바일 화면에 맞게 구현했습니다. 시각적 인상이 중요한 브랜드 사이트에서 이미지와 메시지의 균형을 다룬 프로젝트입니다.",
+    "problem": "브랜드 캠페인 사이트는 시각 요소가 많아 모바일 화면에서 이미지가 과도하게 커지거나 핵심 메시지가 묻힐 수 있었습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "브랜드 이미지와 메시지 영역을 구분해 첫 화면에서 핵심 인상이 전달되도록 구성했습니다.",
+      "모바일 화면 폭에 맞춰 이미지 비율, 텍스트 위치, 버튼 영역을 점검했습니다.",
+      "캠페인성 콘텐츠가 스크롤 흐름 안에서 자연스럽게 이어지도록 섹션 간 간격을 조정했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "브랜드 캠페인형 모바일 사이트 구축 경험을 확보했습니다.",
+      "비주얼 중심 화면에서 메시지와 CTA가 묻히지 않도록 구성하는 기준을 경험했습니다.",
+      "브랜드·프로모션 프로젝트 아카이브를 보완했습니다."
     ],
     "tags": [
-      "UI",
-      "Mobile"
+      "Mobile Web",
+      "Brand Campaign",
+      "Visual UI",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/kloud_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kloud_m.png",
-        "alt": "클라우드 맥주 브랜드 사이트 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/m_kloudbeer/img_m_kloud1.jpg",
+        "alt": "클라우드 모바일 웹 스크린화면1",
+        "caption": "클라우드 맥주 브랜드 사이트 구축 상세 화면 1. 클라우드 모바일 웹 스크린화면1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_kloudbeer/img_m_kloud2.jpg",
+        "alt": "클라우드 모바일 웹 스크린화면2",
+        "caption": "클라우드 맥주 브랜드 사이트 구축 상세 화면 2. 클라우드 모바일 웹 스크린화면2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_kloudbeer/img_m_kloud3.jpg",
+        "alt": "클라우드 모바일 웹 스크린화면3",
+        "caption": "클라우드 맥주 브랜드 사이트 구축 상세 화면 3. 클라우드 모바일 웹 스크린화면3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_kloudbeer/img_m_kloud4.jpg",
+        "alt": "클라우드 모바일 웹 스크린화면4",
+        "caption": "클라우드 맥주 브랜드 사이트 구축 상세 화면 4. 클라우드 모바일 웹 스크린화면4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_kloudbeer/img_m_kloud5.jpg",
+        "alt": "클라우드 모바일 웹 스크린화면5",
+        "caption": "클라우드 맥주 브랜드 사이트 구축 상세 화면 5. 클라우드 모바일 웹 스크린화면5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1513,25 +2219,44 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "한국남동발전(KOR) 인터넷 웹 리뉴얼 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "한국남동발전 국문 인터넷 웹 리뉴얼에서 공공기관 웹사이트의 정보성 콘텐츠를 안정적으로 구현했습니다. 다양한 사용자가 접근하는 공공 웹 특성을 고려해 명확한 정보 구조와 웹표준 기반 화면 구성을 중점으로 다룬 프로젝트입니다.",
+    "problem": "공공기관 웹사이트는 공지, 기관 소개, 사업 정보 등 정보량이 많고 사용자층이 넓어 일관된 탐색 구조와 안정적인 마크업이 중요했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "정보성 콘텐츠를 섹션과 목록 단위로 정리해 사용자가 주요 내용을 빠르게 찾을 수 있도록 구성했습니다.",
+      "웹표준 기반 마크업과 CSS 구조를 적용해 다양한 브라우저 환경에서 화면 안정성을 확보했습니다.",
+      "국문 콘텐츠 특성에 맞게 제목, 본문, 링크 영역의 가독성을 확인했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "공공기관 웹 리뉴얼 프로젝트의 UI 구현 경험을 확보했습니다.",
+      "정보량이 많은 웹사이트에서 탐색성과 가독성을 유지하는 기준을 경험했습니다.",
+      "웹표준과 공공 웹 구축 경험을 보여주는 아카이브 사례로 정리했습니다."
     ],
     "tags": [
-      "UI",
-      "Web"
+      "Public Web",
+      "Web Standard",
+      "Renewal",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/kosep_w_kr.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kosep_w_kr.png",
-        "alt": "한국남동발전(KOR) 인터넷 웹 리뉴얼 대표 이미지"
+        "src": "/assets/portfolio/detail/w_namdong_k/namdong_kr1.jpg",
+        "alt": "남동발전 국문 사이트 개편: 메인",
+        "caption": "한국남동발전(KOR) 인터넷 웹 리뉴얼 상세 화면 1. 남동발전 국문 사이트 개편: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_namdong_k/namdong_kr2.jpg",
+        "alt": "남동발전 국문 사이트 개편: 페이지 상세",
+        "caption": "한국남동발전(KOR) 인터넷 웹 리뉴얼 상세 화면 2. 남동발전 국문 사이트 개편: 페이지 상세",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_namdong_k/namdong_kr3.jpg",
+        "alt": "남동발전 국문 사이트 개편: 정보공개 상세",
+        "caption": "한국남동발전(KOR) 인터넷 웹 리뉴얼 상세 화면 3. 남동발전 국문 사이트 개편: 정보공개 상세",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -1559,25 +2284,44 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "한국남동발전(ENG) 인터넷 웹 리뉴얼 프로젝트에서 UI Development 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "한국남동발전 영문 인터넷 웹 리뉴얼에서 공공기관의 영문 정보성 콘텐츠를 웹 화면에 맞게 구현했습니다. 국문 사이트와의 일관성을 유지하면서 영문 콘텐츠 특성에 맞춰 UI를 정리한 프로젝트입니다.",
+    "problem": "영문 공공 웹사이트는 국문과 다른 텍스트 길이와 콘텐츠 구성을 가지므로, 동일한 화면 체계 안에서도 언어별 가독성 검수가 필요했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "국문 웹 리뉴얼의 정보 구조를 유지하면서 영문 콘텐츠가 자연스럽게 들어갈 수 있도록 레이아웃을 점검했습니다.",
+      "영문 제목과 본문 길이에 맞춰 줄바꿈, 여백, 링크 영역의 안정성을 확인했습니다.",
+      "공공 웹사이트에 필요한 명확한 정보 구조와 웹표준 기반 마크업을 유지했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "공공기관 영문 웹 리뉴얼 프로젝트 경험을 확보했습니다.",
+      "다국어 웹사이트에서 일관성과 언어별 가독성을 함께 관리하는 기준을 경험했습니다.",
+      "국문·영문 공공 웹 구축 경험을 함께 보여줄 수 있도록 아카이브를 보강했습니다."
     ],
     "tags": [
-      "UI",
-      "Web"
+      "Public Web",
+      "Global",
+      "Web Standard",
+      "HTML",
+      "CSS"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/kosep_w_en.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/kosep_w_en.png",
-        "alt": "한국남동발전(ENG) 인터넷 웹 리뉴얼 대표 이미지"
+        "src": "/assets/portfolio/detail/w_namdong_e/namdong_en1.jpg",
+        "alt": "남동발전 영문 사이트 개편: 메인",
+        "caption": "한국남동발전(ENG) 인터넷 웹 리뉴얼 상세 화면 1. 남동발전 영문 사이트 개편: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_namdong_e/namdong_en2.jpg",
+        "alt": "남동발전 영문 사이트 개편: 페이지 상세",
+        "caption": "한국남동발전(ENG) 인터넷 웹 리뉴얼 상세 화면 2. 남동발전 영문 사이트 개편: 페이지 상세",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_namdong_e/namdong_en3.jpg",
+        "alt": "남동발전 영문 사이트 개편: SOCIAL VOLUNTEERS",
+        "caption": "한국남동발전(ENG) 인터넷 웹 리뉴얼 상세 화면 3. 남동발전 영문 사이트 개편: SOCIAL VOLUNTEERS",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -1605,25 +2349,44 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "롯데맴버스 차세대 멤버스 홈페이지 프로젝트에서 Backend 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "롯데멤버스 차세대 멤버스 홈페이지 프로젝트에서 기존 데이터 기준 Backend 역할을 담당한 초기 경력 프로젝트입니다. 신규 포트폴리오에서는 UI 중심 대표 사례와 구분해 서비스 구축·협업 경험을 보여주는 아카이브로 정리했습니다.",
+    "problem": "차세대 멤버십 서비스는 웹 화면과 서비스 로직이 함께 맞물려 동작하므로, 초기 경력 단계에서 화면과 데이터 흐름을 함께 이해해야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "기존 데이터 기준 Backend 역할 범위 안에서 서비스 화면과 연결되는 기능 구현 흐름을 경험했습니다.",
+      "멤버십 서비스의 웹 화면, 데이터 처리, 협업 산출물이 맞물리는 구조를 파악했습니다.",
+      "현재 포트폴리오에서는 UI 대표 사례와 혼동되지 않도록 초기 구축 경험 아카이브로 분리했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "멤버십 서비스 구축 프로젝트에서 백엔드 역할과 협업 흐름을 경험했습니다.",
+      "프론트엔드 전환 이전의 서비스 구조 이해 경험을 포트폴리오 맥락에 맞게 정리했습니다.",
+      "초기 경력 프로젝트를 과장하지 않고 아카이브성 사례로 보강했습니다."
     ],
     "tags": [
       "Backend",
-      "Web"
+      "Membership",
+      "Web",
+      "Service Build",
+      "Archive"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/lotte_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/lotte_w.png",
-        "alt": "롯데맴버스 차세대 멤버스 홈페이지 대표 이미지"
+        "src": "/assets/portfolio/detail/w_lotte/img_w_lotte1.jpg",
+        "alt": "롯데멤버스 메인 페이지 통합 개편: 메인",
+        "caption": "롯데맴버스 차세대 멤버스 홈페이지 상세 화면 1. 롯데멤버스 메인 페이지 통합 개편: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_lotte/img_w_lotte2.jpg",
+        "alt": "롯데멤버스 메인 페이지 통합 개편: 제휴서 찾기",
+        "caption": "롯데맴버스 차세대 멤버스 홈페이지 상세 화면 2. 롯데멤버스 메인 페이지 통합 개편: 제휴서 찾기",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_lotte/img_w_lotte3.jpg",
+        "alt": "롯데멤버스 메인 페이지 통합 개편: 통합 비밀번호",
+        "caption": "롯데맴버스 차세대 멤버스 홈페이지 상세 화면 3. 롯데멤버스 메인 페이지 통합 개편: 통합 비밀번호",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -1652,25 +2415,56 @@ export const projects = [
       "JavaScript",
       "Hybrid App"
     ],
-    "summary": "롯데맴버스 차세대 모바일 App 프로젝트에서 Backend 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "롯데멤버스 차세대 모바일 App 프로젝트에서 기존 데이터 기준 Backend 역할을 담당한 초기 경력 프로젝트입니다. 모바일 서비스 구축 흐름과 하이브리드 앱 환경을 이해한 경험으로 아카이브에 정리했습니다.",
+    "problem": "모바일 앱 프로젝트는 화면, 데이터, 서비스 연동이 함께 움직이기 때문에 담당 역할 외에도 전체 서비스 흐름을 이해하는 것이 중요했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "기존 데이터 기준 Backend 역할 범위에서 모바일 App 서비스 구축 과정에 참여했습니다.",
+      "Hybrid App 환경에서 화면과 기능이 연결되는 전체 흐름을 경험했습니다.",
+      "현재 포트폴리오에서는 UI 개발 대표 사례와 구분해 초기 모바일 서비스 경험으로 정리했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "모바일 앱 구축 프로젝트에서 백엔드 역할과 협업 구조를 경험했습니다.",
+      "하이브리드 앱 환경에 대한 초기 이해를 쌓았습니다.",
+      "현재 모바일 UI 작업의 배경이 되는 서비스 구조 이해 경험으로 아카이브를 보강했습니다."
     ],
     "tags": [
       "Backend",
-      "Mobile"
+      "Mobile App",
+      "Hybrid App",
+      "Membership",
+      "Archive"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/lotte_m.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/lotte_m.png",
-        "alt": "롯데맴버스 차세대 모바일 App 대표 이미지"
+        "src": "/assets/portfolio/detail/m_lotte/img_m_lottemembers1.png",
+        "alt": "롯데맴버스 화면 스크린 샷1",
+        "caption": "롯데맴버스 차세대 모바일 App 상세 화면 1. 롯데맴버스 화면 스크린 샷1",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_lotte/img_m_lottemembers2.png",
+        "alt": "롯데맴버스 화면 스크린 샷2",
+        "caption": "롯데맴버스 차세대 모바일 App 상세 화면 2. 롯데맴버스 화면 스크린 샷2",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_lotte/img_m_lottemembers3.png",
+        "alt": "롯데맴버스 화면 스크린 샷3",
+        "caption": "롯데맴버스 차세대 모바일 App 상세 화면 3. 롯데맴버스 화면 스크린 샷3",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_lotte/img_m_lottemembers4.png",
+        "alt": "롯데맴버스 화면 스크린 샷4",
+        "caption": "롯데맴버스 차세대 모바일 App 상세 화면 4. 롯데맴버스 화면 스크린 샷4",
+        "variant": "mobile"
+      },
+      {
+        "src": "/assets/portfolio/detail/m_lotte/img_m_lottemembers5.png",
+        "alt": "롯데맴버스 화면 스크린 샷5",
+        "caption": "롯데맴버스 차세대 모바일 App 상세 화면 5. 롯데맴버스 화면 스크린 샷5",
+        "variant": "mobile"
       }
     ],
     "featured": false,
@@ -1698,25 +2492,44 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "청소년 자원봉사 활동정보서비스 시스템 구축 프로젝트에서 Backend 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "청소년 자원봉사 활동정보서비스 시스템 구축에서 기존 데이터 기준 Backend 역할을 담당한 공공 서비스 프로젝트입니다. 사용자 활동 정보를 다루는 서비스 구축 경험을 초기 경력 아카이브로 정리했습니다.",
+    "problem": "공공 서비스형 시스템은 사용자 정보와 활동 데이터가 연결되므로 화면 뒤의 서비스 흐름과 데이터 처리 구조를 안정적으로 이해해야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "기존 데이터 기준 Backend 역할 범위에서 서비스 구축 과정에 참여했습니다.",
+      "사용자 활동 정보가 화면과 기능으로 연결되는 흐름을 프로젝트 단위로 경험했습니다.",
+      "신규 포트폴리오에서는 UI 대표 사례와 구분해 공공 서비스 구축 경험으로 분리했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "공공 서비스 구축 프로젝트의 협업 흐름과 기능 구현 과정을 경험했습니다.",
+      "사용자 활동 데이터 기반 시스템의 구조를 이해하는 데 도움이 된 초기 경력 사례입니다.",
+      "현재 프론트엔드 작업에서 서비스 구조를 함께 고려하는 배경 경험으로 정리했습니다."
     ],
     "tags": [
       "Backend",
-      "Web"
+      "Public Service",
+      "Web",
+      "Service Build",
+      "Archive"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/doval_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/doval_w.png",
-        "alt": "청소년 자원봉사 활동정보서비스 시스템 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/w_dovol/img_dovol1.jpg",
+        "alt": "청소년 자원봉사 DOVOL 개편: 메인",
+        "caption": "청소년 자원봉사 활동정보서비스 시스템 구축 상세 화면 1. 청소년 자원봉사 DOVOL 개편: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_dovol/img_dovol2.jpg",
+        "alt": "청소년 자원봉사 DOVOL 개편: 통합회원/전환",
+        "caption": "청소년 자원봉사 활동정보서비스 시스템 구축 상세 화면 2. 청소년 자원봉사 DOVOL 개편: 통합회원/전환",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_dovol/img_dovol3.jpg",
+        "alt": "청소년 자원봉사 DOVOL 개편: 봉사활동 검색/신청",
+        "caption": "청소년 자원봉사 활동정보서비스 시스템 구축 상세 화면 3. 청소년 자원봉사 DOVOL 개편: 봉사활동 검색/신청",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -1744,25 +2557,32 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "외교통상부 통합문서 관리 시스템 구축 프로젝트에서 Backend 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "외교통상부 통합문서 관리 시스템 구축에서 기존 데이터 기준 Backend 역할을 담당한 공공기관 프로젝트입니다. 문서 관리형 시스템의 구축 흐름과 협업 경험을 초기 경력 아카이브로 정리했습니다.",
+    "problem": "문서 관리 시스템은 정보 등록, 조회, 권한, 관리 흐름이 중요해 화면 뒤에서 동작하는 서비스 구조를 안정적으로 이해해야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "기존 데이터 기준 Backend 역할 범위 안에서 통합문서 관리 시스템 구축 과정에 참여했습니다.",
+      "문서 정보가 등록·조회·관리되는 서비스 흐름을 프로젝트 단위로 경험했습니다.",
+      "현재 포트폴리오에서는 UI 대표 프로젝트와 분리해 시스템 구축 경험으로 정리했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "공공기관 시스템 구축 프로젝트의 협업 및 기능 구현 흐름을 경험했습니다.",
+      "문서 관리형 서비스 구조에 대한 초기 실무 이해를 쌓았습니다.",
+      "프론트엔드 전환 이전의 서비스 구조 이해 경험으로 아카이브를 보강했습니다."
     ],
     "tags": [
       "Backend",
-      "Web"
+      "Public System",
+      "Document System",
+      "Web",
+      "Archive"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/mofat_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/mofat_w.png",
-        "alt": "외교통상부 통합문서 관리 시스템 구축 대표 이미지"
+        "src": "/assets/portfolio/detail/w_mofat/img_mofat.jpg",
+        "alt": "외교통상부 대표 이미지(내부 시스템이라 상세보기 화면이 없습니다.)",
+        "caption": "외교통상부 통합문서 관리 시스템 구축 상세 화면 1. 외교통상부 대표 이미지(내부 시스템이라 상세보기 화면이 없습니다.)",
+        "variant": "web"
       }
     ],
     "featured": false,
@@ -1790,25 +2610,44 @@ export const projects = [
       "SCSS",
       "JavaScript"
     ],
-    "summary": "Ramada HOTEL Casino 웹 사이트 운영 프로젝트에서 Backend 역할을 담당했습니다. 기존 포트폴리오 데이터에서 1차 이관한 항목으로, 상세 성과 문장은 다음 단계에서 케이스 스터디 형태로 보강이 필요합니다.",
-    "problem": "기존 상세 페이지는 프로젝트별 개별 파일로 분리되어 있어 유지보수 비용이 높았습니다.",
+    "summary": "Ramada HOTEL Casino 웹 사이트 운영에서 기존 데이터 기준 Backend 역할을 담당한 초기 운영 프로젝트입니다. 운영 중인 웹사이트의 유지보수 흐름과 서비스 대응 경험을 아카이브로 정리했습니다.",
+    "problem": "운영 중인 웹사이트는 신규 구축과 달리 기존 화면과 기능을 유지하면서 필요한 변경을 안정적으로 반영해야 했습니다.",
     "solution": [
-      "프로젝트 데이터를 정규화해 공통 상세 템플릿에서 렌더링할 수 있도록 구성했습니다.",
-      "플랫폼(web/mobile/responsive) 값에 따라 동일 상세 페이지 안에서 표현 방식을 달리할 수 있게 설계했습니다."
+      "기존 데이터 기준 Backend 역할 범위에서 웹사이트 운영과 유지보수 흐름을 경험했습니다.",
+      "운영 환경에서 기존 기능을 고려하며 변경사항을 반영하는 기준을 익혔습니다.",
+      "현재 포트폴리오에서는 최신 UI 프로젝트와 구분해 초기 운영 경험으로 정리했습니다."
     ],
     "result": [
-      "37개 상세 페이지를 데이터 기반 구조로 통합할 수 있는 기반을 마련했습니다.",
-      "향후 프로젝트 추가 시 데이터만 추가하면 목록과 상세가 함께 갱신됩니다."
+      "운영 서비스의 유지보수와 변경 대응 경험을 초기 경력에서 확보했습니다.",
+      "기존 기능을 유지하면서 필요한 수정을 반영하는 운영 관점을 경험했습니다.",
+      "현재 운영형 UI 프로젝트를 설명하는 배경 경험으로 아카이브를 보강했습니다."
     ],
     "tags": [
       "Backend",
-      "Web"
+      "Operation",
+      "Web",
+      "Maintenance",
+      "Archive"
     ],
     "thumbnail": "/assets/portfolio/thumb_img_project/ramada_w.png",
     "media": [
       {
-        "src": "/assets/portfolio/thumb_img_project/ramada_w.png",
-        "alt": "Ramada HOTEL Casino 웹 사이트 운영 대표 이미지"
+        "src": "/assets/portfolio/detail/w_ramada/img_w_ramada1.jpg",
+        "alt": "Ramada 웹 페이지: 메인",
+        "caption": "Ramada HOTEL Casino 웹 사이트 운영 상세 화면 1. Ramada 웹 페이지: 메인",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_ramada/img_w_ramada2.jpg",
+        "alt": "Ramada 웹 페이지: 카지노 소개",
+        "caption": "Ramada HOTEL Casino 웹 사이트 운영 상세 화면 2. Ramada 웹 페이지: 카지노 소개",
+        "variant": "web"
+      },
+      {
+        "src": "/assets/portfolio/detail/w_ramada/img_w_ramada3.jpg",
+        "alt": "Ramada 웹 페이지: 이용안내",
+        "caption": "Ramada HOTEL Casino 웹 사이트 운영 상세 화면 3. Ramada 웹 페이지: 이용안내",
+        "variant": "web"
       }
     ],
     "featured": false,

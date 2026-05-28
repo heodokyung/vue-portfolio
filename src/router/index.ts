@@ -8,6 +8,11 @@ import { profile } from '@/data/profile'
 import { projects } from '@/data/projects'
 
 const siteTitle = 'Heo Do Kyung Portfolio'
+const routeScrollPrefix = 'portfolio:route-scroll:'
+
+if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual'
+}
 
 const setMetaContent = (selector: string, content: string) => {
   const element = document.head.querySelector<HTMLMetaElement>(selector)
@@ -19,10 +24,31 @@ const getProjectId = (route: RouteLocationNormalizedLoaded) => {
   return Array.isArray(projectId) ? projectId[0] : projectId
 }
 
+const getRouteScrollKey = (route: RouteLocationNormalizedLoaded) =>
+  `${routeScrollPrefix}${String(route.name ?? 'unknown')}:${route.fullPath.split('#')[0]}`
+
+const saveRouteScroll = (route: RouteLocationNormalizedLoaded) => {
+  if (!route.name || typeof window === 'undefined') return
+  sessionStorage.setItem(getRouteScrollKey(route), String(window.scrollY))
+}
+
+const getRouteScroll = (route: RouteLocationNormalizedLoaded) => {
+  if (typeof window === 'undefined') return 0
+  const stored = Number(sessionStorage.getItem(getRouteScrollKey(route)) ?? 0)
+  return Number.isFinite(stored) ? stored : 0
+}
+
+const restoreAfterRender = (top: number) =>
+  new Promise<{ top: number; behavior: ScrollBehavior }>((resolve) => {
+    window.requestAnimationFrame(() => {
+      window.setTimeout(() => resolve({ top, behavior: 'auto' }), 60)
+    })
+  })
+
 const getRouteMeta = (route: RouteLocationNormalizedLoaded) => {
   if (route.name === 'home') {
     return {
-      title: `${profile.nameKo} | UI/Frontend Developer Portfolio`,
+      title: `${profile.nameKo} | UI Developer Portfolio`,
       description: profile.headline,
     }
   }
@@ -30,14 +56,14 @@ const getRouteMeta = (route: RouteLocationNormalizedLoaded) => {
   if (route.name === 'projects') {
     return {
       title: `Projects | ${siteTitle}`,
-      description: '웹표준, 접근성, 반응형 UI, Vue3/React 기반 UI 개발 프로젝트를 정리한 아카이브입니다.',
+      description: '웹표준, 접근성, 반응형 UI, Vue3/React 화면 구현 프로젝트를 정리한 아카이브입니다.',
     }
   }
 
   if (route.name === 'about') {
     return {
       title: `About | ${siteTitle}`,
-      description: 'UI/Frontend Developer 허도경의 경력, 기술 스택, 작업 기준을 정리한 페이지입니다.',
+      description: 'UI Developer 허도경의 경력, 기술 스택, 마크업 컨벤션과 작업 기준을 정리한 페이지입니다.',
     }
   }
 
@@ -81,11 +107,32 @@ const router = createRouter({
     { path: '/about', name: 'about', component: AboutView },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundView },
   ],
-  scrollBehavior(to, _from, savedPosition) {
-    if (savedPosition) return savedPosition
-    if (to.hash) return { el: to.hash, behavior: prefersReducedMotion() ? 'auto' : 'smooth' }
-    return { top: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return restoreAfterRender(savedPosition.top)
+
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+      }
+    }
+
+    if (from.name === 'project-detail' && (to.name === 'home' || to.name === 'projects')) {
+      return restoreAfterRender(getRouteScroll(to))
+    }
+
+    if (to.name === 'project-detail') return { top: 0, behavior: 'auto' }
+
+    return { top: 0, behavior: 'auto' }
   },
+})
+
+router.beforeEach((to, from) => {
+  saveRouteScroll(from)
+
+  if (to.name !== 'project-detail' && from.name !== 'project-detail' && !to.hash) {
+    sessionStorage.removeItem(getRouteScrollKey(to))
+  }
 })
 
 router.afterEach((to) => {
