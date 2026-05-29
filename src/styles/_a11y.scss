@@ -32,14 +32,22 @@
   border: 0;
 }
 
-
+/*
+  접근성 보정:
+  이전 전역 reduce-motion 규칙은 모든 transition-duration을 강제로 0.01ms로 줄여
+  버튼/카드 hover 같은 짧은 UI 피드백까지 끊겨 보이게 만들 수 있었습니다.
+  이제 전역에서는 스크롤/키프레임 애니메이션만 줄이고,
+  개별 컴포넌트의 큰 모션은 해당 컴포넌트에서 별도로 제어합니다.
+*/
 @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto !important;
+  }
+
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }

@@ -64,6 +64,11 @@ export interface Career {
   highlights: string[]
 }
 
+export interface AboutItemLink {
+  label: string
+  href: string
+}
+
 export interface AboutItem {
   id: string
   type: 'certificate' | 'activity' | 'education'
@@ -72,4 +77,5 @@ export interface AboutItem {
   organization?: string | null
   summary?: string | null
   url?: string | null
+  links?: AboutItemLink[]
 }

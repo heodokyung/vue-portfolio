@@ -31,18 +31,18 @@ export const getPlatformLabel = (platform: string): string => {
 export const getCategoryLabel = (category: string): string => {
   switch (category) {
     case 'work':
-      return '실무'
+      return 'Work'
     case 'side':
-      return '개인'
+      return 'Study'
     case 'study':
-      return '학습'
+      return 'Study'
     default:
       return category
   }
 }
 
 export const getProjectFilterLabel = (filter: ProjectFilterValue): string => {
-  if (filter === 'all') return '전체'
+  if (filter === 'all') return 'All'
   if (filter === 'web' || filter === 'mobile' || filter === 'responsive') return getPlatformLabel(filter)
   return getCategoryLabel(filter)
 }

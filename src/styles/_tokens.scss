@@ -1,53 +1,47 @@
 :root {
   color-scheme: light;
-  --color-bg: #f6f8fb;
+  --color-bg: #f6f8fc;
+  --color-bg-soft: #eef4fb;
   --color-surface: #ffffff;
-  --color-surface-strong: #edf5f8;
-  --color-text: #172033;
-  --color-heading: #0f172a;
+  --color-surface-strong: #f9fbff;
+  --color-surface-raised: #ffffff;
+  --color-text: #263043;
+  --color-heading: #101827;
   --color-muted: #667085;
-  --color-border: #d9e4ea;
-  --color-primary: #256f8f;
-  --color-primary-strong: #174f68;
-  --color-primary-soft: #e4f1f6;
-  --color-accent: #18a0a8;
-  --color-warm: #ffe246;
-  --color-grid-line: #d6e5eb;
-  --color-code-bg: #282c35;
-  --color-code-line: #323846;
-  --color-code-text: #f7f1b5;
-  --shadow-card: 0 16px 40px rgb(15 23 42 / 8%);
-  --shadow-soft: 0 8px 24px rgb(15 23 42 / 6%);
+  --color-border: #d9e2ec;
+  --color-border-strong: #c6d3e1;
+  --color-primary: #3157f6;
+  --color-primary-strong: #2447cf;
+  --color-primary-soft: #edf2ff;
+  --color-accent: #24c7b8;
+  --color-accent-soft: #e9fbf8;
+  --color-warm: #ffdf3f;
+  --color-warm-soft: #fff7cc;
+  --color-coral: #ff8a6c;
+  --color-coral-soft: #fff0eb;
+  --color-lavender: #a99cff;
+  --color-lavender-soft: #f1efff;
+  --color-ink: #151b2e;
+  --color-grid-line: #e2e8f0;
+  --color-code-bg: #0f172a;
+  --color-code-line: #25324a;
+  --color-code-text: #fff1a8;
+  --shadow-card: 0 12px 26px rgb(15 23 42 / 8%);
+  --shadow-soft: 0 4px 12px rgb(15 23 42 / 6%);
+  --shadow-flat: 6px 6px 0 rgb(16 24 39 / 8%);
+  --shadow-pop: 10px 10px 0 rgb(49 87 246 / 10%);
   --transition-fast: 0.18s ease;
   --transition-base: 0.22s ease;
   --radius-sm: 10px;
   --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
-  --container: 1120px;
-  --header-height: 72px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --container: 1180px;
+  --header-height: 68px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color-scheme: dark;
-    --color-bg: #111827;
-    --color-surface: #172033;
-    --color-surface-strong: #1f2a3d;
-    --color-text: #e5edf5;
-    --color-heading: #ffffff;
-    --color-muted: #a8b3c3;
-    --color-border: #2d3b52;
-    --color-primary: #6bb6d1;
-    --color-primary-strong: #9cd7ed;
-    --color-primary-soft: #163042;
-    --color-accent: #58d6c8;
-    --color-warm: #ffd166;
-    --color-grid-line: #24364d;
-    --color-code-bg: #0a1220;
-    --color-code-line: #19304a;
-    --color-code-text: #f7f1b5;
-    --shadow-card: 0 16px 40px rgb(0 0 0 / 24%);
-    --shadow-soft: 0 8px 24px rgb(0 0 0 / 18%);
+    color-scheme: light;
   }
 }

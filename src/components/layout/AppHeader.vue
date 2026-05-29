@@ -1,23 +1,23 @@
 <script setup lang="ts">
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import AppContainer from '@/components/common/AppContainer.vue'
 import { profile } from '@/data/profile'
-import { ref } from 'vue'
 
 const isOpen = ref(false)
+const scrollProgress = ref(0)
+const isAtTop = computed(() => scrollProgress.value <= 0.01)
 
-const primaryLinks = [
-  { label: 'Identity', to: '/#identity' },
-  { label: 'Projects', to: '/#projects' },
-  { label: 'Work', to: '/#work' },
-  { label: 'Skills', to: '/#skills' },
-  { label: 'Guide', to: '/#guide' },
+const sectionLinks = [
+  { label: 'Project', to: '/#projects' },
+  { label: 'Career', to: '/#work' },
+  { label: 'Skill', to: '/#skills' },
   { label: 'Contact', to: '/#contact' },
 ]
 
 const externalLinks = [
   { label: 'GitHub', href: profile.github },
   { label: 'Study', href: 'https://github.com/heodokyung/frontend-study' },
-  { label: 'UI Guide', href: 'https://github.com/heodokyung/frontend-guide' },
+  { label: 'Guide', href: 'https://github.com/heodokyung/frontend-guide' },
 ]
 
 const closeMenu = () => {
@@ -27,15 +27,40 @@ const closeMenu = () => {
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
 }
+
+const updateScrollProgress = () => {
+  const documentElement = document.documentElement
+  const scrollableHeight = documentElement.scrollHeight - window.innerHeight
+
+  if (scrollableHeight <= 0) {
+    scrollProgress.value = 0
+    return
+  }
+
+  const currentScroll = window.scrollY || documentElement.scrollTop
+  scrollProgress.value = Math.min(1, Math.max(0, currentScroll / scrollableHeight))
+}
+
+onMounted(() => {
+  updateScrollProgress()
+  window.addEventListener('scroll', updateScrollProgress, { passive: true })
+  window.addEventListener('resize', updateScrollProgress)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateScrollProgress)
+  window.removeEventListener('resize', updateScrollProgress)
+})
 </script>
 
 <template>
-  <header class="site-header">
+  <header class="site-header" :class="{ 'is-at-top': isAtTop }" :style="{ '--scroll-progress': scrollProgress }">
     <AppContainer class="site-header__inner">
       <RouterLink class="site-header__brand" to="/" aria-label="홈으로 이동" @click="closeMenu">
-        <span aria-hidden="true">HDK</span>
+        <span>HEO.D.K</span>
         <strong>UI Developer</strong>
       </RouterLink>
+
       <button
         class="site-header__toggle"
         type="button"
@@ -48,26 +73,28 @@ const toggleMenu = () => {
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </button>
+
       <nav id="site-navigation" class="site-header__nav" :class="{ 'is-open': isOpen }" aria-label="주요 메뉴">
-        <div class="site-header__nav-group" aria-label="페이지 섹션">
-          <RouterLink v-for="link in primaryLinks" :key="link.to" :to="link.to" @click="closeMenu">
-            {{ link.label }}
-          </RouterLink>
-        </div>
-        <div class="site-header__nav-group site-header__nav-group--external" aria-label="외부 링크">
-          <a
-            v-for="link in externalLinks"
-            :key="link.href"
-            :href="link.href"
-            target="_blank"
-            rel="noreferrer noopener"
-            @click="closeMenu"
-          >
-            {{ link.label }}
-          </a>
-        </div>
+        <RouterLink v-for="link in sectionLinks" :key="link.to" :to="link.to" @click="closeMenu">
+          {{ link.label }}
+        </RouterLink>
+        <span class="site-header__divider" aria-hidden="true"></span>
+        <a
+          v-for="link in externalLinks"
+          :key="link.href"
+          :href="link.href"
+          target="_blank"
+          rel="noreferrer noopener"
+          @click="closeMenu"
+        >
+          {{ link.label }}
+        </a>
       </nav>
     </AppContainer>
+
+    <div class="site-header__progress" aria-hidden="true">
+      <span></span>
+    </div>
   </header>
 </template>
 
@@ -77,9 +104,9 @@ const toggleMenu = () => {
   top: 0;
   z-index: 50;
   min-height: var(--header-height);
-  border-bottom: 1px solid rgb(255 255 255 / 10%);
-  background: color-mix(in srgb, var(--color-code-bg) 92%, transparent);
-  backdrop-filter: blur(18px);
+  border-bottom: 2px solid var(--color-heading);
+  background: rgb(255 255 255 / 94%);
+  backdrop-filter: blur(12px);
 }
 
 .site-header__inner {
@@ -90,90 +117,132 @@ const toggleMenu = () => {
 }
 
 .site-header__brand {
+  position: relative;
   display: inline-flex;
-  align-items: center;
   gap: 10px;
-  color: #fff;
-  font-size: 1rem;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 10px;
+  color: var(--color-heading);
   font-weight: 950;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  transition:
+    padding 180ms ease,
+    background-color 180ms ease;
+}
+
+.site-header__brand::before,
+.site-header__brand::after {
+  position: absolute;
+  inset: -2px;
+  opacity: 0;
+  content: '';
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header__brand::before {
+  border-top: 2px solid var(--color-heading);
+  border-bottom: 2px solid var(--color-heading);
+  transform: scale3d(0, 1, 1);
+}
+
+.site-header__brand::after {
+  border-right: 2px solid var(--color-heading);
+  border-left: 2px solid var(--color-heading);
+  transform: scale3d(1, 0, 1);
+}
+
+.site-header.is-at-top .site-header__brand {
+  min-height: 46px;
+  padding: 9px 13px;
+}
+
+.site-header.is-at-top .site-header__brand:hover::before,
+.site-header.is-at-top .site-header__brand:focus-visible::before,
+.site-header.is-at-top .site-header__brand:hover::after,
+.site-header.is-at-top .site-header__brand:focus-visible::after {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
 }
 
 .site-header__brand span {
-  display: grid;
-  min-width: 46px;
-  min-height: 36px;
-  place-items: center;
-  border: 1px solid rgb(255 255 255 / 22%);
-  border-radius: 8px;
-  background: rgb(255 255 255 / 6%);
-  color: var(--color-warm);
-  font-size: 0.94rem;
-  letter-spacing: 0.06em;
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+}
+
+.site-header__brand span::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 4px;
+  background: var(--color-warm);
+  content: '';
+  transform: scaleX(0.75);
+  transform-origin: left center;
+  transition: transform 180ms ease;
+}
+
+.site-header.is-at-top .site-header__brand:hover span::after,
+.site-header.is-at-top .site-header__brand:focus-visible span::after {
+  transform: scaleX(1);
+}
+
+.site-header:not(.is-at-top) .site-header__brand span::after {
+  transform: scaleX(0);
 }
 
 .site-header__brand strong {
+  position: relative;
+  z-index: 1;
+  color: var(--color-primary-strong);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.site-header__nav,
-.site-header__nav-group {
+.site-header__nav {
   display: flex;
+  gap: 3px;
   align-items: center;
 }
 
-.site-header__nav {
-  gap: 12px;
-}
-
-.site-header__nav-group {
-  gap: 4px;
-}
-
-.site-header__nav-group--external {
-  position: relative;
-  padding-left: 12px;
-}
-
-.site-header__nav-group--external::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 1px;
-  height: 18px;
-  background: rgb(255 255 255 / 18%);
-  content: '';
-  transform: translateY(-50%);
-}
-
 .site-header__nav a {
+  display: inline-flex;
   min-height: 38px;
-  padding: 8px 10px;
+  align-items: center;
+  padding: 0 10px;
   border-radius: 999px;
-  color: rgb(226 232 240 / 76%);
-  font-size: 0.84rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
   font-weight: 850;
 }
 
 .site-header__nav a:hover,
+.site-header__nav a:focus-visible,
 .site-header__nav a.router-link-active {
-  background: rgb(255 255 255 / 9%);
-  color: #fff;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
 }
 
-.site-header__nav-group--external a:hover {
-  color: var(--color-warm);
+.site-header__divider {
+  width: 1px;
+  height: 18px;
+  margin: 0 8px;
+  background: var(--color-border-strong);
 }
 
 .site-header__toggle {
   display: none;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgb(255 255 255 / 16%);
-  border-radius: 999px;
-  background: rgb(255 255 255 / 8%);
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--color-heading);
+  border-radius: 14px;
+  background: var(--color-warm);
 }
 
 .site-header__toggle span:not(.visually-hidden) {
@@ -182,62 +251,88 @@ const toggleMenu = () => {
   height: 2px;
   margin: 4px auto;
   border-radius: 2px;
-  background: #fff;
+  background: var(--color-heading);
 }
 
-@media (max-width: 1080px) {
+.site-header__progress {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 5px;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.site-header__progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary-strong);
+  opacity: 0.86;
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left center;
+  transition: transform 80ms linear;
+}
+
+.site-header.is-at-top .site-header__progress span {
+  opacity: 0;
+}
+
+@media (max-width: 960px) {
+  .site-header__brand {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
   .site-header__brand strong {
     display: none;
   }
 
-  .site-header__nav a {
-    padding-inline: 8px;
-  }
-}
-
-@media (max-width: 860px) {
   .site-header__toggle {
     display: block;
   }
 
   .site-header__nav {
     position: absolute;
-    top: calc(var(--header-height) - 4px);
+    top: calc(var(--header-height) + 10px);
     right: 12px;
     left: 12px;
     display: none;
-    flex-direction: column;
-    align-items: stretch;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
     padding: 12px;
-    border: 1px solid rgb(255 255 255 / 12%);
+    border: 2px solid var(--color-heading);
     border-radius: var(--radius-lg);
-    background: var(--color-code-bg);
-    box-shadow: var(--shadow-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-flat);
   }
 
   .site-header__nav.is-open {
-    display: flex;
-  }
-
-  .site-header__nav-group {
     display: grid;
-    gap: 4px;
   }
 
-  .site-header__nav-group--external {
-    padding-top: 10px;
-    padding-left: 0;
-    border-top: 1px solid rgb(255 255 255 / 12%);
-  }
-
-  .site-header__nav-group--external::before {
+  .site-header__divider {
     display: none;
   }
 
   .site-header__nav a {
-    display: flex;
-    align-items: center;
-    min-height: 46px;
+    justify-content: center;
+    min-height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-surface-strong);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__brand,
+  .site-header__brand::before,
+  .site-header__brand::after,
+  .site-header__brand span::after,
+  .site-header__progress span {
+    transition: none;
   }
 }
 </style>

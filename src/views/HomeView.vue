@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import AppButton from '@/components/common/AppButton.vue'
 import AppContainer from '@/components/common/AppContainer.vue'
 import AppLottieMotion from '@/components/common/AppLottieMotion.vue'
@@ -8,231 +9,222 @@ import { careers } from '@/data/careers'
 import { profile } from '@/data/profile'
 import { projects } from '@/data/projects'
 import { skills } from '@/data/skills'
-import { getCategoryLabel, getPlatformLabel } from '@/utils/text'
+import type { Project } from '@/types/portfolio'
 
-const featuredProjects = projects.filter((project) => project.featured).slice(0, 6)
+const totalProjects = projects.length
 const workProjects = projects.filter((project) => project.category === 'work')
-const workWebProjects = projects.filter((project) => project.category === 'work' && project.platform === 'web')
-const workMobileProjects = projects.filter((project) => project.category === 'work' && project.platform === 'mobile')
+const mobileProjects = projects.filter((project) => project.platform === 'mobile')
+const webProjects = projects.filter((project) => project.platform === 'web')
 const responsiveProjects = projects.filter((project) => project.platform === 'responsive')
-const sideStudyProjects = projects.filter((project) => project.category !== 'work')
-const coreSkills = skills.filter((skill) => ['frontend', 'workflow'].includes(skill.group)).slice(0, 8)
-const visibleAboutItems = aboutItems.slice(0, 5)
+const coreSkills = skills
+const visibleAboutItems = aboutItems
 
-const heroTitle = '웹표준을 기준으로 화면을 설계하는 UI Developer'
-const heroDescription =
-  '퍼블리셔의 마크업 감각과 UI 개발자의 구조화 사이에서 일합니다. 웹표준, 접근성, 반응형, SCSS 컨벤션을 기준으로 운영 가능한 화면을 만들고, Vue·React 프로젝트 안에서 실제 데이터와 컴포넌트 흐름에 맞는 UI를 구현합니다.'
+type HomeProjectFilter = 'all' | 'web' | 'mobile' | 'responsive' | 'backend' | 'study'
 
-const heroStats = [
-  { label: 'Work Archive', value: `${workProjects.length}+`, description: '커머스·금융·공공·브랜드 실무 경험' },
-  { label: 'UI Career', value: '10y+', description: '마크업·반응형·운영 UI·Vue/React 대응' },
-  { label: 'Case Study', value: `${featuredProjects.length}`, description: '먼저 봐야 할 대표 프로젝트' },
+const selectedFilter = ref<HomeProjectFilter>('all')
+
+const isBackendProject = (project: Project) =>
+  [...project.stack, ...project.role, ...project.tags].some((item) => /back[- ]?end|backend/i.test(item))
+
+const projectFilters: Array<{ label: string; value: HomeProjectFilter; count: number }> = [
+  { label: 'All', value: 'all', count: totalProjects },
+  { label: 'Web', value: 'web', count: webProjects.length },
+  { label: 'Mobile', value: 'mobile', count: mobileProjects.length },
+  { label: 'Responsive', value: 'responsive', count: responsiveProjects.length },
+  { label: 'Back-end', value: 'backend', count: projects.filter(isBackendProject).length },
+  { label: 'Study', value: 'study', count: projects.filter((project) => project.category !== 'work').length },
+]
+
+const getProjectTime = (project: Project) => {
+  const end = project.period.end ?? '9999-12-31'
+  const start = project.period.start ?? '0000-01-01'
+  return `${end}-${start}`
+}
+
+const sortedProjects = computed(() => [...projects].sort((a, b) => getProjectTime(b).localeCompare(getProjectTime(a))))
+
+const visibleProjects = computed(() =>
+  sortedProjects.value.filter((project) => {
+    if (selectedFilter.value === 'all') return true
+    if (selectedFilter.value === 'backend') return isBackendProject(project)
+    if (selectedFilter.value === 'study') return project.category !== 'work'
+    return project.platform === selectedFilter.value
+  }),
+)
+
+const processItems = [
+  '시맨틱 마크업',
+  '접근성 체크',
+  '반응형 기준',
+  'SCSS 컨벤션',
+  '운영 영향 범위',
 ]
 
 const identityCards = [
   {
-    title: 'Markup Convention',
-    code: '<main> · <section> · aria',
-    description: '화면을 만들기 전에 구조, 네이밍, 상태 클래스, 대체 텍스트, 키보드 이동 기준을 먼저 잡습니다.',
+    title: '마크업의 기준을 세웁니다',
+    text: '화면을 예쁘게만 붙이는 것이 아니라, 제목 구조·역할·대체 텍스트·키보드 이동까지 함께 확인합니다.',
   },
   {
-    title: 'Responsive UI',
-    code: '@media · clamp · grid',
-    description: '모바일, 태블릿, 데스크톱에서 정보 밀도와 터치 영역이 무너지지 않도록 레이아웃을 조정합니다.',
+    title: '운영 화면을 이해합니다',
+    text: '서비스는 한 번 만들고 끝나지 않기 때문에 수정이 반복되어도 흔들리지 않는 구조와 네이밍을 중요하게 봅니다.',
   },
   {
-    title: 'Vue · React Screen',
-    code: 'props · data · component',
-    description: '정적인 퍼블리싱 산출물을 실제 데이터와 라우팅 흐름에 맞는 화면 단위로 연결합니다.',
+    title: 'Vue와 React 화면을 다룹니다',
+    text: '퍼블리싱 경험을 바탕으로 컴포넌트 단위 화면 구현, 상태에 따른 UI 변화, 반응형 대응까지 연결합니다.',
   },
 ]
-
-const projectBoardGroups = [
-  {
-    title: 'Work Web UI',
-    eyebrow: 'PC · Web',
-    description: '금융, 커머스, 공공, 브랜드 사이트의 화면 구조와 운영/개편 흐름을 다룬 작업입니다.',
-    projects: workWebProjects,
-  },
-  {
-    title: 'Mobile UI',
-    eyebrow: 'Mobile',
-    description: '세로 화면의 정보 밀도, 터치 영역, 스크롤 흐름, 이미지 비율을 중심으로 정리한 프로젝트입니다.',
-    projects: workMobileProjects,
-  },
-  {
-    title: 'Responsive / Hybrid',
-    eyebrow: 'Responsive',
-    description: '하나의 화면 구조가 여러 해상도에서 무너지지 않도록 조정한 반응형/복합 UI 작업입니다.',
-    projects: responsiveProjects,
-  },
-  {
-    title: 'Side · Study',
-    eyebrow: 'Learning',
-    description: 'Vue, React, JavaScript 인터랙션을 개인 학습과 실험으로 확장한 작업입니다.',
-    projects: sideStudyProjects,
-  },
-].filter((group) => group.projects.length > 0)
-
-const processItems = ['웹표준 구조 확인', '접근성/대체 텍스트 점검', 'SCSS 네이밍 정리', '반응형 QA', '운영 반영 히스토리 관리']
 
 const studyLinks = [
   {
     title: 'Frontend Study',
-    value: 'github.com/heodokyung/frontend-study',
-    href: 'https://github.com/heodokyung/frontend-study',
-    description: 'Vue, React, UI 개발 학습과 실험 기록을 분리해 관리하는 저장소입니다.',
+    description: 'React, Vue, JavaScript 학습 기록을 한곳에 정리한 저장소입니다.',
+    links: [{ label: 'Repo', href: 'https://github.com/heodokyung/frontend-study' }],
   },
   {
     title: 'Frontend Guide',
-    value: 'github.com/heodokyung/frontend-guide',
-    href: 'https://github.com/heodokyung/frontend-guide',
-    description: '마크업 컨벤션, 접근성, SCSS/CSS 기준을 정리하는 가이드 저장소입니다.',
+    description: '마크업 컨벤션, 접근성, SCSS 기준을 작업 가이드로 정리한 저장소입니다.',
+    links: [{ label: 'Repo', href: 'https://github.com/heodokyung/frontend-guide' }],
   },
 ]
 
-const contactItems = [
-  {
-    title: 'Email',
-    value: profile.email,
-    href: `mailto:${profile.email}`,
-    description: '포트폴리오 검토, 채용, 프로젝트 협업 관련 연락을 받을 수 있습니다.',
-  },
-  {
-    title: 'GitHub',
-    value: 'github.com/heodokyung',
-    href: profile.github,
-    description: 'Vue, React, UI 구조화 관련 저장소와 작업 흐름을 확인할 수 있습니다.',
-  },
-  ...studyLinks,
-]
+const getAboutTypeLabel = (type: string) => {
+  if (type === 'certificate') return '자격증'
+  if (type === 'activity') return '활동'
+  return '교육'
+}
+
+const getSkillInitials = (name: string) =>
+  name
+    .replace(/&/g, ' ')
+    .split(/[\s/]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word.charAt(0).toUpperCase())
+    .join('')
+
+const getAboutTypeClass = (type: string) => `about-list__type about-list__type--${type}`
 </script>
 
 <template>
-  <main class="workbench-page" aria-labelledby="home-title">
-    <section id="intro" class="hero-workbench" aria-labelledby="home-title">
-      <AppContainer class="hero-workbench__inner">
-        <div class="hero-workbench__content">
-          <p class="hero-workbench__eyebrow">Markup-first UI Developer</p>
-          <h1 id="home-title">{{ heroTitle }}</h1>
-          <p class="hero-workbench__description">{{ heroDescription }}</p>
+  <main class="home-page" aria-labelledby="home-title">
+    <section id="intro" class="hero" aria-labelledby="home-title">
+      <AppContainer class="hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow">UI Developer</p>
+          <h1 id="home-title">백엔드에서 출발해, 화면의 완성도를 높이는 UI Developer입니다.</h1>
+          <p class="hero__description">
+            Java·ASP 기반 개발부터 웹표준, 접근성, 반응형 퍼블리싱, Vue·React 화면 구현까지 경험했습니다. 기획과 디자인 의도를 실제 사용자가 만나는 화면으로 옮기고, 오래 운영되는 서비스에서도 무너지지 않는 UI 구조를 고민합니다.
+          </p>
 
-          <div class="hero-workbench__actions" aria-label="주요 이동 링크">
-            <AppButton to="/#projects" size="lg">프로젝트 보드 보기</AppButton>
-            <AppButton to="/#work" variant="ghost" size="lg">경력 로드 보기</AppButton>
+          <div class="hero__actions" aria-label="주요 이동 링크">
+            <AppButton to="/#projects" size="lg">프로젝트 보기</AppButton>
+            <AppButton to="/#work" variant="ghost" size="lg">경력 보기</AppButton>
             <AppButton :href="profile.github" variant="subtle" size="lg">GitHub</AppButton>
           </div>
 
-          <dl class="hero-workbench__stats" aria-label="포트폴리오 요약 지표">
-            <div v-for="stat in heroStats" :key="stat.label">
-              <dt>{{ stat.label }}</dt>
-              <dd>{{ stat.value }}</dd>
-              <span>{{ stat.description }}</span>
+          <dl class="hero__stats" aria-label="포트폴리오 요약">
+            <div>
+              <dt>Project</dt>
+              <dd>{{ totalProjects }}</dd>
+            </div>
+            <div>
+              <dt>Career</dt>
+              <dd>{{ careers.length }}</dd>
+            </div>
+            <div>
+              <dt>Skill</dt>
+              <dd>{{ coreSkills.length }}</dd>
             </div>
           </dl>
         </div>
 
-        <aside class="markup-console" aria-labelledby="console-title">
-          <div class="markup-console__screen">
-            <div class="markup-console__bar" aria-hidden="true"><span></span><span></span><span></span></div>
-            <p class="markup-console__label">UI WORKBENCH</p>
-            <code>&lt;section class="accessible-screen"&gt;</code>
-            <code>  &lt;h2&gt;구조를 먼저 설계합니다&lt;/h2&gt;</code>
-            <code>  &lt;button aria-label="명확한 액션" /&gt;</code>
-            <code>  @media (min-width: 768px) { ... }</code>
+        <aside class="flat-stage" aria-labelledby="flat-stage-title">
+          <div class="flat-stage__chips" aria-hidden="true">
+            <span>HTML</span>
+            <span>a11y</span>
+            <span>UI</span>
+          </div>
+          <div class="code-note">
+            <span class="code-note__dot" aria-hidden="true"></span>
+            <p>UI Developer</p>
+            <code>&lt;section class="service-screen"&gt;</code>
+            <code>  semantic · responsive · accessible</code>
+            <code>  @media: mobile / tablet / desktop</code>
             <code>&lt;/section&gt;</code>
           </div>
-          <div class="markup-console__note">
-            <strong id="console-title">포트폴리오의 기준을 “화면 제작 과정”으로 바꿨습니다.</strong>
-            <p>단순 카드 배치가 아니라, 마크업 · 반응형 · 접근성 · 운영 UI가 한 화면 안에서 읽히도록 구성합니다.</p>
+          <div class="flat-stage__caption">
+            <strong id="flat-stage-title">화면을 만들 때 먼저 보는 기준</strong>
+            <p>구조, 접근성, 반응형, 운영 수정 가능성.</p>
           </div>
         </aside>
       </AppContainer>
     </section>
 
-    <section id="identity" class="portfolio-section portfolio-section--identity" aria-labelledby="identity-title">
+    <section id="identity" class="home-section" aria-labelledby="identity-title">
       <AppContainer>
-        <div class="section-heading section-heading--split">
-          <div>
-            <p>Identity</p>
-            <h2 id="identity-title">퍼블리셔의 꼼꼼함과 UI 개발자의 구조화 사이에서 일합니다.</h2>
-          </div>
-          <p>
-            이 포트폴리오는 순수 프론트엔드 엔지니어를 과장해 보이기보다, 웹표준과 접근성을 지키고 Vue/React 화면 구현까지 대응하는 실무형 UI 개발자라는 방향에 맞춰 구성했습니다.
-          </p>
+        <div class="section-heading">
+          <p>Strength</p>
+          <h2 id="identity-title">화면의 첫인상보다, 오래 유지되는 구조를 먼저 봅니다.</h2>
         </div>
 
-        <div class="identity-cards">
+        <div class="identity-list">
           <article v-for="item in identityCards" :key="item.title">
-            <code>{{ item.code }}</code>
             <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
+            <p>{{ item.text }}</p>
           </article>
         </div>
       </AppContainer>
     </section>
 
-    <section id="projects" class="portfolio-section portfolio-section--projects" aria-labelledby="projects-title">
+    <section id="projects" class="home-section home-section--projects" aria-labelledby="projects-title">
       <AppContainer>
-        <div class="section-heading section-heading--split">
+        <div class="project-board-head">
           <div>
-            <p>Project Workbench</p>
-            <h2 id="projects-title">아카이브로 숨기지 않고, 홈에서 작업량과 성격이 바로 보이게 합니다.</h2>
+            <p class="eyebrow">Project</p>
+            <h2 id="projects-title">작업한 화면들</h2>
+            <p>최신 작업부터 과거 프로젝트까지 한곳에서 볼 수 있도록 정리했습니다.</p>
           </div>
+          <div class="project-board-head__count" aria-label="현재 표시 프로젝트 수">
+            <strong>{{ visibleProjects.length }}</strong>
+            <span>projects</span>
+          </div>
+        </div>
+
+        <div class="project-filter" aria-label="프로젝트 필터">
+          <button
+            v-for="filter in projectFilters"
+            :key="filter.value"
+            type="button"
+            :class="{ 'is-active': selectedFilter === filter.value }"
+            :aria-pressed="selectedFilter === filter.value"
+            @click="selectedFilter = filter.value"
+          >
+            <span>{{ filter.label }}</span>
+            <strong>{{ filter.count }}</strong>
+          </button>
+        </div>
+
+        <ProjectGrid :projects="visibleProjects" />
+      </AppContainer>
+    </section>
+
+    <section id="work" class="home-section home-section--work" aria-labelledby="work-title">
+      <AppContainer class="motion-layout">
+        <div class="motion-layout__text">
+          <p class="eyebrow">Career</p>
+          <h2 id="work-title">백엔드 개발에서 퍼블리싱, 그리고 UI 개발까지 이어왔습니다.</h2>
           <p>
-            대표 프로젝트만 보여주고 끝내지 않습니다. 실무 Web, Mobile, Responsive, Side/Study를 한 화면에서 구분해 “무엇을 얼마나 해왔는지”가 바로 읽히도록 바꿨습니다.
+            Java·ASP 개발 경험을 시작으로 웹표준과 접근성 중심의 퍼블리싱을 거쳤고, 현재는 커머스와 금융 서비스에서 Vue·React 기반 화면 구현과 운영 개선을 맡고 있습니다.
           </p>
         </div>
-
-        <div class="featured-lab" aria-label="대표 프로젝트 케이스">
-          <div class="featured-lab__header">
-            <div>
-              <span>Lead Cases</span>
-              <strong>먼저 봐야 할 대표 프로젝트</strong>
-            </div>
-            <AppButton to="/projects" variant="subtle">전체 아카이브 열기</AppButton>
-          </div>
-          <ProjectGrid :projects="featuredProjects" />
-        </div>
-
-        <div class="experience-map" aria-label="전체 프로젝트 경험 맵">
-          <article v-for="group in projectBoardGroups" :key="group.title" class="experience-lane">
-            <header>
-              <span>{{ group.eyebrow }}</span>
-              <div>
-                <h3>{{ group.title }}</h3>
-                <p>{{ group.description }}</p>
-              </div>
-              <strong>{{ group.projects.length }}</strong>
-            </header>
-            <div class="experience-lane__list">
-              <RouterLink v-for="project in group.projects" :key="project.id" :to="`/projects/${project.id}`">
-                <span>{{ getPlatformLabel(project.platform) }}</span>
-                <strong>{{ project.title }}</strong>
-                <small>{{ project.company || getCategoryLabel(project.category) }}</small>
-              </RouterLink>
-            </div>
-          </article>
-        </div>
+        <AppLottieMotion src="/assets/lottie/career-road.json" label="자전거를 타고 이동하는 커리어 로드 모션" />
       </AppContainer>
-    </section>
 
-    <section id="work" class="portfolio-section portfolio-section--dark" aria-labelledby="work-title">
       <AppContainer>
-        <div class="motion-panel motion-panel--work">
-          <div class="motion-panel__text">
-            <p>Career Road</p>
-            <h2 id="work-title">지금까지 지나온 길을 한 화면에서 확인할 수 있게 정리했습니다.</h2>
-            <p>
-              홈에서는 더 이상 일부 경력만 보여주지 않습니다. 전체 경력 흐름을 한 페이지 안에서 보여주고, About은 보조 상세 페이지로만 남깁니다.
-            </p>
-          </div>
-          <AppLottieMotion src="/assets/lottie/career-road.json" label="자전거를 타고 이동하는 경력 흐름 모션" />
-        </div>
-
-        <ol class="career-road" aria-label="전체 경력 흐름">
+        <ol class="career-list" aria-label="경력 목록">
           <li v-for="career in careers" :key="career.id">
-            <span>{{ career.period }}</span>
+            <div class="career-list__period">{{ career.period }}</div>
             <div>
               <h3>{{ career.company }}</h3>
               <p>{{ career.summary }}</p>
@@ -245,101 +237,111 @@ const contactItems = [
       </AppContainer>
     </section>
 
-    <section id="skills" class="portfolio-section" aria-labelledby="skills-title">
-      <AppContainer>
-        <div class="motion-panel motion-panel--skill">
-          <AppLottieMotion src="/assets/lottie/skill-coding.json" label="코딩 화면을 다루는 UI 개발 모션" />
-          <div class="motion-panel__text">
-            <p>Skill & Standard</p>
-            <h2 id="skills-title">기술명보다, 화면 품질을 만드는 기준을 먼저 보여줍니다.</h2>
-            <p>
-              HTML/CSS/SCSS/JavaScript를 기반으로 웹표준, 접근성, 반응형 QA, Vue·React 화면 구현까지 이어지는 작업 기준을 정리했습니다.
-            </p>
-          </div>
+    <section id="skills" class="home-section" aria-labelledby="skills-title">
+      <AppContainer class="motion-layout motion-layout--reverse">
+        <div class="motion-layout__text">
+          <p class="eyebrow">Skill</p>
+          <h2 id="skills-title">기술은 화면 품질을 지키는 기준입니다.</h2>
+          <p>
+            HTML, CSS, JavaScript부터 Vue, React, 협업 도구까지 실제 프로젝트에서 사용해온 기술을 빠짐없이 정리했습니다.
+          </p>
         </div>
+        <AppLottieMotion src="/assets/lottie/skill-coding.json" label="코딩 작업을 표현한 플랫 모션" />
+      </AppContainer>
 
-        <div class="skill-board">
+      <AppContainer>
+        <div class="skill-grid">
           <article v-for="skill in coreSkills" :key="skill.id">
-            <img v-if="skill.image" :src="skill.image" :alt="`${skill.name} 아이콘`" loading="lazy" />
-            <div>
+            <div class="skill-grid__icon" aria-hidden="true">
+              <img v-if="skill.image" :src="skill.image" alt="" loading="lazy" />
+              <span v-else>{{ getSkillInitials(skill.name) }}</span>
+            </div>
+            <div class="skill-grid__content">
               <h3>{{ skill.name }}</h3>
               <p>{{ skill.summary }}</p>
             </div>
           </article>
         </div>
+
+        <div class="process-strip" aria-label="작업 기준">
+          <span v-for="item in processItems" :key="item">{{ item }}</span>
+        </div>
       </AppContainer>
     </section>
 
-    <section id="about" class="portfolio-section portfolio-section--compact" aria-labelledby="about-title">
-      <AppContainer>
-        <div class="motion-panel motion-panel--about">
-          <div class="motion-panel__text">
-            <p>Certificate & Learning</p>
-            <h2 id="about-title">자격증, 접근성 활동, 학습 기록도 같은 흐름 안에서 보여줍니다.</h2>
-            <p>
-              별도 탭으로 숨기기보다, UI 개발자로서의 기준을 만든 과정으로 이어지게 구성했습니다.
-            </p>
-          </div>
-          <AppLottieMotion src="/assets/lottie/about-note.json" label="노트북으로 기록하고 학습하는 모션" />
+    <section id="about" class="home-section home-section--note" aria-labelledby="about-title">
+      <AppContainer class="motion-layout">
+        <div class="motion-layout__text">
+          <p class="eyebrow">Learning</p>
+          <h2 id="about-title">배운 것과 활동한 기록도 함께 남겼습니다.</h2>
+          <p>
+            자격증, 접근성 활동, React 학습, 웹표준 교육 등 기존 포트폴리오에 있던 이력은 빠짐없이 옮겼습니다.
+          </p>
         </div>
+        <AppLottieMotion src="/assets/lottie/about-note.json" label="노트북으로 기록하는 학습 모션" />
+      </AppContainer>
 
-        <div class="about-strip">
+      <AppContainer>
+        <div class="about-list">
           <article v-for="item in visibleAboutItems" :key="item.id">
-            <span>{{ item.type }}</span>
-            <h3>{{ item.title }}</h3>
-            <p v-if="item.period">{{ item.period }}</p>
-            <p v-if="item.summary">{{ item.summary }}</p>
-            <a v-if="item.url" :href="item.url" target="_blank" rel="noreferrer noopener">바로가기</a>
+            <span :class="getAboutTypeClass(item.type)">{{ getAboutTypeLabel(item.type) }}</span>
+            <div class="about-list__body">
+              <h3>{{ item.title }}</h3>
+              <p v-if="item.period">{{ item.period }}</p>
+              <p v-if="item.summary">{{ item.summary }}</p>
+              <div v-if="item.links?.length" class="about-list__links" aria-label="학습 결과 링크">
+                <a
+                  v-for="link in item.links"
+                  :key="link.href"
+                  :href="link.href"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {{ link.label }}
+                </a>
+              </div>
+            </div>
           </article>
         </div>
       </AppContainer>
     </section>
 
-    <section id="guide" class="portfolio-section portfolio-section--guide" aria-labelledby="guide-title">
+    <section id="guide" class="home-section" aria-labelledby="guide-title">
       <AppContainer>
-        <div class="section-heading section-heading--split">
-          <div>
-            <p>Study & Guide</p>
-            <h2 id="guide-title">GitHub는 유지하고, 학습과 작업 가이드는 별도 링크로 구분합니다.</h2>
-          </div>
-          <p>
-            포트폴리오 안에서 나라는 사람의 기준이 보이도록, 코드 저장소와 학습/가이드 저장소의 역할을 분리했습니다.
-          </p>
+        <div class="section-heading">
+          <p>Guide</p>
+          <h2 id="guide-title">공부한 내용은 다시 작업 기준으로 정리합니다.</h2>
         </div>
-        <div class="resource-grid">
-          <a v-for="link in studyLinks" :key="link.title" :href="link.href" target="_blank" rel="noreferrer noopener">
-            <span>{{ link.title }}</span>
-            <strong>{{ link.value }}</strong>
-            <p>{{ link.description }}</p>
-          </a>
+        <div class="link-cards">
+          <article v-for="link in studyLinks" :key="link.title">
+            <strong>{{ link.title }}</strong>
+            <span>{{ link.description }}</span>
+            <div class="link-cards__actions">
+              <a
+                v-for="item in link.links"
+                :key="item.href"
+                :href="item.href"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {{ item.label }}
+              </a>
+            </div>
+          </article>
         </div>
       </AppContainer>
     </section>
 
-    <section id="contact" class="portfolio-section portfolio-section--contact" aria-labelledby="contact-title">
-      <AppContainer>
-        <div class="contact-panel">
-          <div>
-            <p>Contact</p>
-            <h2 id="contact-title">웹표준과 UI 구조를 함께 보는 작업자가 필요하다면 연락 주세요.</h2>
-            <p>
-              반응형 UI, 접근성 점검, SCSS 구조화, Vue3/React 화면 구현, 기존 서비스 개편 업무를 중심으로 협업할 수 있습니다.
-            </p>
-            <div class="contact-panel__actions">
-              <AppButton :href="`mailto:${profile.email}`" size="lg">메일 보내기</AppButton>
-              <AppButton to="/#projects" variant="ghost" size="lg">프로젝트 다시 보기</AppButton>
-            </div>
-          </div>
-
-          <ul class="contact-list" aria-label="연락 가능한 채널">
-            <li v-for="item in contactItems" :key="item.title">
-              <span>{{ item.title }}</span>
-              <a :href="item.href" :target="item.href.startsWith('http') ? '_blank' : undefined" rel="noreferrer noopener">
-                {{ item.value }}
-              </a>
-              <p>{{ item.description }}</p>
-            </li>
-          </ul>
+    <section id="contact" class="home-section home-section--contact" aria-labelledby="contact-title">
+      <AppContainer class="contact-panel">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">서비스 화면을 함께 다듬을 UI Developer가 필요하다면 연락 주세요.</h2>
+          <p>채용, 프로젝트 협업, 포트폴리오 검토 관련 연락을 편하게 남겨주세요.</p>
+        </div>
+        <div class="contact-panel__actions">
+          <AppButton :href="`mailto:${profile.email}`" size="lg">메일 보내기</AppButton>
+          <AppButton :href="profile.github" variant="subtle" size="lg">GitHub 보기</AppButton>
         </div>
       </AppContainer>
     </section>
@@ -347,85 +349,74 @@ const contactItems = [
 </template>
 
 <style scoped lang="scss">
-.workbench-page {
+.home-page {
+  background: var(--color-bg);
+}
+
+.hero,
+.home-section {
+  padding: clamp(44px, 7vw, 82px) 0;
+}
+
+.hero {
+  border-bottom: 2px solid var(--color-heading);
   background:
-    radial-gradient(circle at 8% 4%, color-mix(in srgb, var(--color-warm) 13%, transparent), transparent 28%),
-    radial-gradient(circle at 92% 18%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 30%),
-    var(--color-bg);
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(0deg, var(--color-grid-line) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--color-bg-soft);
 }
 
-.hero-workbench {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: clamp(78px, 10vw, 138px) 0 clamp(60px, 8vw, 104px);
-  background:
-    linear-gradient(90deg, rgb(255 255 255 / 7%) 1px, transparent 1px) 0 0 / 34px 34px,
-    linear-gradient(180deg, #282c35 0%, #1f2530 72%, var(--color-bg) 72%);
-  color: #f8fafc;
-}
-
-.hero-workbench::before {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(90deg, rgb(40 44 53 / 84%), rgb(40 44 53 / 55%)),
-    url('/assets/legacy/bg-legacy-visual.jpg') center / cover;
-  content: '';
-}
-
-.hero-workbench::after {
-  position: absolute;
-  right: -8vw;
-  bottom: -10vw;
-  z-index: -1;
-  width: min(44vw, 560px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: color-mix(in srgb, #ffe246 25%, transparent);
-  filter: blur(8px);
-  content: '';
-}
-
-.hero-workbench__inner {
+.hero__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.98fr);
-  gap: clamp(30px, 6vw, 78px);
+  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.95fr);
+  gap: clamp(32px, 7vw, 76px);
   align-items: center;
 }
 
-.hero-workbench__content {
+.hero__content,
+.motion-layout__text,
+.section-heading,
+.contact-panel > div:first-child {
   display: grid;
-  gap: 24px;
+  gap: 14px;
 }
 
-.hero-workbench__eyebrow,
-.section-heading > p,
-.motion-panel__text > p,
-.contact-panel > div > p {
-  color: var(--color-warm);
+.eyebrow,
+.section-heading > p {
+  color: var(--color-primary-strong);
+  font-size: 0.78rem;
   font-weight: 950;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.hero-workbench h1 {
-  max-width: 940px;
-  color: #fff;
-  font-size: clamp(3rem, 8.2vw, 6.5rem);
-  line-height: 0.94;
-  letter-spacing: -0.095em;
+.hero h1,
+.section-heading h2,
+.motion-layout h2,
+.project-board-head h2,
+.contact-panel h2 {
+  color: var(--color-heading);
+  letter-spacing: -0.055em;
 }
 
-.hero-workbench__description {
-  max-width: 760px;
-  color: rgb(226 232 240 / 88%);
-  font-size: clamp(1.05rem, 1.8vw, 1.24rem);
-  line-height: 1.86;
+.hero h1 {
+  max-width: 11.2em;
+  font-size: clamp(2.1rem, 4.3vw, 3.15rem);
+  line-height: 1.03;
 }
 
-.hero-workbench__actions,
+.hero__description,
+.motion-layout p:not(.eyebrow),
+.project-board-head p,
+.contact-panel p,
+.flat-stage__caption p {
+  max-width: 720px;
+  color: var(--color-muted);
+  font-size: clamp(0.98rem, 1.35vw, 1.08rem);
+  line-height: 1.82;
+}
+
+.hero__actions,
 .contact-panel__actions {
   display: flex;
   flex-wrap: wrap;
@@ -433,610 +424,619 @@ const contactItems = [
   align-items: center;
 }
 
-.hero-workbench__stats {
+.hero__stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  max-width: 840px;
+  max-width: 560px;
+  margin: 8px 0 0;
 }
 
-.hero-workbench__stats div {
-  padding: 18px;
-  border: 1px solid rgb(255 255 255 / 13%);
+.hero__stats div,
+.identity-list article,
+.skill-grid article,
+.about-list article,
+.link-cards article,
+.contact-panel {
+  border: 2px solid var(--color-heading);
   border-radius: var(--radius-md);
-  background: rgb(255 255 255 / 8%);
-  backdrop-filter: blur(12px);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-flat);
 }
 
-.hero-workbench__stats dt {
-  color: rgb(226 232 240 / 74%);
-  font-size: 0.82rem;
+.hero__stats div {
+  padding: 14px 16px;
+}
+
+.hero__stats dt {
+  color: var(--color-muted);
+  font-size: 0.76rem;
   font-weight: 850;
 }
 
-.hero-workbench__stats dd {
-  margin-top: 8px;
-  color: #fff;
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
+.hero__stats dd {
+  margin: 4px 0 0;
+  color: var(--color-heading);
+  font-size: clamp(1.45rem, 3vw, 2.05rem);
   font-weight: 950;
-  line-height: 1;
-}
-
-.hero-workbench__stats span {
-  display: block;
-  margin-top: 8px;
-  color: rgb(226 232 240 / 74%);
-  font-size: 0.82rem;
-  line-height: 1.5;
-}
-
-.markup-console {
-  display: grid;
-  gap: 18px;
-  padding: clamp(20px, 4vw, 34px);
-  border: 1px solid rgb(255 255 255 / 14%);
-  border-radius: 34px;
-  background: rgb(15 23 42 / 42%);
-  box-shadow: 0 28px 80px rgb(0 0 0 / 34%);
-  backdrop-filter: blur(18px);
-}
-
-.markup-console__screen {
-  display: grid;
-  gap: 10px;
-  overflow: hidden;
-  padding: 22px;
-  border: 1px solid rgb(255 255 255 / 12%);
-  border-radius: 26px;
-  background:
-    linear-gradient(90deg, rgb(255 255 255 / 7%) 1px, transparent 1px) 0 0 / 22px 22px,
-    #07111f;
-  color: var(--color-code-text);
-}
-
-.markup-console__bar {
-  display: flex;
-  gap: 7px;
-  margin-bottom: 4px;
-}
-
-.markup-console__bar span {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgb(255 255 255 / 38%);
-}
-
-.markup-console__label {
-  color: var(--color-warm);
-  font-size: 0.78rem;
-  font-weight: 950;
-  letter-spacing: 0.12em;
-}
-
-.markup-console__screen code {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-  font-size: clamp(0.82rem, 1.35vw, 0.98rem);
-  line-height: 1.55;
-  white-space: normal;
-}
-
-.markup-console__note {
-  display: grid;
-  gap: 8px;
-}
-
-.markup-console__note strong {
-  color: #fff;
-  font-size: clamp(1.28rem, 2.6vw, 1.75rem);
   letter-spacing: -0.045em;
 }
 
-.markup-console__note p {
-  color: rgb(226 232 240 / 78%);
-  line-height: 1.72;
-}
-
-.portfolio-section {
-  padding: clamp(64px, 9vw, 112px) 0;
-  scroll-margin-top: calc(var(--header-height) + 16px);
-}
-
-.portfolio-section--identity {
-  padding-top: clamp(42px, 7vw, 84px);
-}
-
-.portfolio-section--projects {
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 64%, transparent) 1px, transparent 1px) 0 0 / 34px 34px,
-    linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
-}
-
-.portfolio-section--dark {
-  background:
-    linear-gradient(90deg, rgb(255 255 255 / 6%) 1px, transparent 1px) 0 0 / 34px 34px,
-    #282c35;
-  color: #e5edf5;
-}
-
-.portfolio-section--guide {
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 58%, transparent) 1px, transparent 1px) 0 0 / 36px 36px,
-    var(--color-surface-strong);
-}
-
-.section-heading {
+.flat-stage {
+  position: relative;
   display: grid;
-  gap: 14px;
-  margin-bottom: clamp(24px, 4vw, 36px);
-}
-
-.section-heading--split {
-  grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.68fr);
-  gap: clamp(20px, 5vw, 64px);
-  align-items: end;
-}
-
-.section-heading h2,
-.motion-panel h2,
-.contact-panel h2 {
-  color: var(--color-heading);
-  font-size: clamp(2rem, 5vw, 3.7rem);
-  line-height: 1.04;
-  letter-spacing: -0.075em;
-}
-
-.portfolio-section--dark .section-heading h2,
-.portfolio-section--dark .motion-panel h2 {
-  color: #fff;
-}
-
-.section-heading > p:last-child,
-.motion-panel__text > p:last-child,
-.contact-panel > div > p:not(:first-child) {
-  color: var(--color-muted);
-  line-height: 1.78;
-}
-
-.portfolio-section--dark .motion-panel__text > p:last-child {
-  color: rgb(226 232 240 / 76%);
-}
-
-.identity-cards,
-.skill-board,
-.about-strip,
-.resource-grid {
-  display: grid;
-  gap: 16px;
-}
-
-.identity-cards {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.identity-cards article,
-.skill-board article,
-.about-strip article,
-.resource-grid a,
-.contact-list li,
-.featured-lab,
-.experience-lane {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  gap: 18px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 2px solid var(--color-heading);
+  border-radius: var(--radius-xl);
   background: var(--color-surface);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-pop);
 }
 
-.identity-cards article,
-.resource-grid a,
-.contact-list li {
-  display: grid;
-  gap: 12px;
-  padding: 22px;
-}
-
-.identity-cards code {
-  width: fit-content;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--color-code-bg);
-  color: var(--color-code-text);
-  font-size: 0.8rem;
-  font-weight: 900;
-}
-
-.identity-cards h3,
-.skill-board h3,
-.about-strip h3,
-.resource-grid strong,
-.experience-lane h3 {
-  color: var(--color-heading);
-  font-size: 1.1rem;
-  letter-spacing: -0.025em;
-}
-
-.identity-cards p,
-.skill-board p,
-.about-strip p,
-.resource-grid p,
-.contact-list p,
-.experience-lane p {
-  color: var(--color-muted);
-  line-height: 1.68;
-}
-
-.featured-lab {
-  display: grid;
-  gap: 18px;
-  padding: clamp(18px, 3vw, 26px);
-  margin-bottom: 18px;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--color-warm) 10%, transparent), transparent 42%),
-    var(--color-surface);
-}
-
-.featured-lab__header {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.featured-lab__header div {
-  display: grid;
-  gap: 4px;
-}
-
-.featured-lab__header span,
-.experience-lane header > span {
-  color: var(--color-primary-strong);
-  font-size: 0.78rem;
-  font-weight: 950;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.featured-lab__header strong {
-  color: var(--color-heading);
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
-}
-
-.experience-map {
-  display: grid;
-  gap: 16px;
-}
-
-.experience-lane {
-  display: grid;
-  gap: 16px;
-  padding: clamp(18px, 3vw, 26px);
-}
-
-.experience-lane header {
-  display: grid;
-  grid-template-columns: 120px minmax(0, 1fr) auto;
-  gap: 16px;
-  align-items: start;
-}
-
-.experience-lane header strong {
-  display: inline-grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--color-code-bg);
-  color: var(--color-warm);
-  font-size: 1.1rem;
-}
-
-.experience-lane__list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.experience-lane__list a {
-  display: grid;
-  gap: 7px;
-  min-width: 0;
-  min-height: 104px;
-  padding: 14px;
-  border: 1px solid color-mix(in srgb, var(--color-border) 78%, transparent);
-  border-radius: var(--radius-md);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 46%, transparent) 1px, transparent 1px) 0 0 / 20px 20px,
-    var(--color-surface-strong);
-  color: inherit;
-  transition:
-    transform var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.experience-lane__list a:hover,
-.experience-lane__list a:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--color-warm) 72%, var(--color-border));
-  box-shadow: var(--shadow-card);
-}
-
-.experience-lane__list a > span {
-  width: fit-content;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: var(--color-code-bg);
-  color: var(--color-code-text);
-  font-size: 0.72rem;
-  font-weight: 950;
-}
-
-.experience-lane__list strong {
-  color: var(--color-heading);
-  line-height: 1.34;
-  overflow-wrap: anywhere;
-}
-
-.experience-lane__list small {
-  color: var(--color-muted);
-  line-height: 1.45;
-}
-
-.motion-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(280px, 0.72fr);
-  gap: clamp(24px, 5vw, 58px);
-  align-items: center;
-  margin-bottom: clamp(24px, 5vw, 44px);
-}
-
-.motion-panel--skill,
-.motion-panel--about {
-  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1fr);
-}
-
-.motion-panel__text {
-  display: grid;
-  gap: 14px;
-}
-
-.career-road {
-  position: relative;
-  display: grid;
-  gap: 18px;
-  max-width: 980px;
-}
-
-.career-road::before {
+.flat-stage::before,
+.flat-stage::after {
   position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 11px;
-  width: 2px;
-  background: rgb(255 255 255 / 14%);
+  border: 2px solid var(--color-heading);
+  border-radius: 999px;
   content: '';
 }
 
-.career-road li {
-  position: relative;
-  display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 24px;
-  padding-left: 42px;
-}
-
-.career-road li::before {
-  position: absolute;
-  top: 8px;
-  left: 4px;
-  width: 16px;
-  height: 16px;
-  border: 3px solid var(--color-warm);
-  border-radius: 50%;
-  background: #282c35;
-  content: '';
-}
-
-.career-road span {
-  color: var(--color-warm);
-  font-weight: 900;
-}
-
-.career-road h3 {
-  color: #fff;
-  font-size: 1.18rem;
-}
-
-.career-road p,
-.career-road ul {
-  margin-top: 8px;
-  color: rgb(226 232 240 / 78%);
-  line-height: 1.74;
-}
-
-.career-road ul {
-  display: grid;
-  gap: 4px;
-  padding-left: 18px;
-}
-
-.skill-board {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.skill-board article {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 16px;
-  align-items: center;
-  padding: 18px;
-}
-
-.skill-board img {
+.flat-stage::before {
+  top: 28px;
+  right: 28px;
   width: 52px;
   height: 52px;
-  object-fit: contain;
+  background: var(--color-accent);
 }
 
-.about-strip {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+.flat-stage::after {
+  right: 92px;
+  bottom: 32px;
+  width: 28px;
+  height: 28px;
+  background: var(--color-warm);
 }
 
-.about-strip article {
-  display: grid;
-  align-content: start;
+.flat-stage__chips {
+  position: absolute;
+  top: -18px;
+  right: 22px;
+  display: flex;
   gap: 8px;
-  padding: 18px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-soft);
 }
 
-.about-strip span,
-.resource-grid span,
-.contact-list span {
-  color: var(--color-primary-strong);
+.flat-stage__chips span {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  padding: 0 12px;
+  border: 2px solid var(--color-heading);
+  border-radius: 999px;
+  background: var(--color-warm);
+  color: var(--color-heading);
   font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.flat-stage__chips span:nth-child(2) {
+  background: var(--color-accent-soft);
+}
+
+.flat-stage__chips span:nth-child(3) {
+  background: var(--color-lavender-soft);
+}
+
+.code-note {
+  display: grid;
+  gap: 12px;
+  padding: clamp(18px, 4vw, 28px);
+  border: 2px solid var(--color-heading);
+  border-radius: 22px;
+  background:
+    linear-gradient(90deg, var(--color-code-line) 1px, transparent 1px) 0 0 / 26px 26px,
+    linear-gradient(0deg, var(--color-code-line) 1px, transparent 1px) 0 0 / 26px 26px,
+    var(--color-code-bg);
+  color: var(--color-code-text);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.code-note__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #7e8da8;
+  box-shadow: 18px 0 0 #7e8da8, 36px 0 0 #7e8da8;
+}
+
+.code-note p {
+  margin: 2px 0 0;
+  color: var(--color-warm);
+  font-family: inherit;
+  font-size: 0.82rem;
   font-weight: 950;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.about-strip a,
-.resource-grid a {
-  color: inherit;
+.flat-stage__caption {
+  display: grid;
+  gap: 6px;
 }
 
-.about-strip a {
-  width: fit-content;
-  color: var(--color-primary-strong);
-  font-weight: 900;
+.flat-stage__caption strong {
+  color: var(--color-heading);
+  font-size: clamp(1.22rem, 2.2vw, 1.7rem);
+  letter-spacing: -0.045em;
 }
 
-.resource-grid {
+.section-heading {
+  margin-bottom: clamp(22px, 4vw, 34px);
+}
+
+.section-heading h2,
+.motion-layout h2,
+.project-board-head h2,
+.contact-panel h2 {
+  max-width: 760px;
+  font-size: clamp(1.4rem, 2.35vw, 2rem);
+  line-height: 1.18;
+}
+
+.identity-list,
+.skill-grid,
+.about-list,
+.link-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.identity-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.resource-grid a {
-  color: inherit;
-  transition:
-    transform var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+.identity-list article,
+.skill-grid article,
+.about-list article,
+.link-cards article {
+  display: grid;
+  gap: 10px;
+  padding: clamp(18px, 2.4vw, 24px);
 }
 
-.resource-grid a:hover,
-.resource-grid a:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--color-primary) 38%, var(--color-border));
-  box-shadow: var(--shadow-card);
+.skill-grid article {
+  grid-template-columns: 54px minmax(0, 1fr);
+  align-items: start;
+}
+
+.skill-grid__icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 2px solid var(--color-heading);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: 4px 4px 0 var(--color-heading);
+  color: var(--color-primary-strong);
+  font-size: 0.86rem;
+  font-weight: 950;
+}
+
+.skill-grid__icon img {
+  display: block;
+  max-width: 30px;
+  max-height: 30px;
+  object-fit: contain;
+}
+
+.skill-grid__content {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.identity-list article:nth-child(1),
+.skill-grid article:nth-child(4n + 1) {
+  background: var(--color-warm-soft);
+}
+
+.identity-list article:nth-child(2),
+.skill-grid article:nth-child(4n + 2) {
+  background: var(--color-accent-soft);
+}
+
+.identity-list article:nth-child(3),
+.skill-grid article:nth-child(4n + 3) {
+  background: var(--color-lavender-soft);
+}
+
+.identity-list h3,
+.skill-grid h3,
+.about-list h3,
+.link-cards strong {
+  color: var(--color-heading);
+  font-size: 1.06rem;
+  line-height: 1.35;
+}
+
+.identity-list p,
+.skill-grid p,
+.about-list p,
+.link-cards span,
+.career-list p,
+.career-list li {
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.home-section--projects {
+  border-top: 2px solid var(--color-heading);
+  border-bottom: 2px solid var(--color-heading);
+  background: var(--color-surface-strong);
+}
+
+.project-board-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.project-board-head__count {
+  display: grid;
+  min-width: 124px;
+  min-height: 104px;
+  place-items: center;
+  padding: 16px;
+  border: 2px solid var(--color-heading);
+  border-radius: var(--radius-md);
+  background: var(--color-warm);
+  color: var(--color-heading);
+  box-shadow: var(--shadow-flat);
+}
+
+.project-board-head__count strong {
+  font-size: 2.1rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.project-board-head__count span {
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 10px;
+  border: 2px solid var(--color-heading);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.project-filter button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: var(--color-surface-strong);
+  color: var(--color-heading);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.project-filter button strong {
+  display: grid;
+  min-width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--color-warm-soft);
+  color: var(--color-heading);
+  font-size: 0.76rem;
+}
+
+.project-filter button.is-active {
+  border-color: var(--color-heading);
+  background: var(--color-heading);
+  color: #fff;
+}
+
+.project-filter button.is-active strong {
+  background: var(--color-warm);
+  color: var(--color-heading);
+}
+
+.motion-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(240px, 0.62fr);
+  gap: clamp(24px, 6vw, 70px);
+  align-items: center;
+}
+
+.motion-layout--reverse {
+  direction: rtl;
+}
+
+.motion-layout--reverse > * {
+  direction: ltr;
+}
+
+.career-list {
+  display: grid;
+  gap: 0;
+  margin: clamp(24px, 4vw, 40px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.career-list > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 40px);
+  padding: 24px 0 24px 26px;
+  border-left: 2px solid var(--color-heading);
+}
+
+.career-list > li::before {
+  position: absolute;
+  top: 30px;
+  left: -9px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-heading);
+  border-radius: 50%;
+  background: var(--color-warm);
+  content: '';
+}
+
+.career-list__period {
+  color: var(--color-primary-strong);
+  font-weight: 950;
+}
+
+.career-list h3 {
+  margin-bottom: 8px;
+  color: var(--color-heading);
+  font-size: 1.2rem;
+}
+
+.career-list ul {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding-left: 1.1em;
+}
+
+.process-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.process-strip span {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 28px;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid var(--color-heading);
+  border-radius: 999px;
+  background: var(--color-warm);
+  color: var(--color-heading);
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.about-list article {
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: start;
+}
+
+.about-list__type {
+  display: inline-grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 2px solid var(--color-heading);
+  border-radius: 999px;
+  background: var(--color-warm);
+  color: var(--color-heading);
+  font-size: 0.76rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.about-list__type--activity {
+  background: var(--color-accent-soft);
+}
+
+.about-list__type--education {
+  background: var(--color-lavender-soft);
+}
+
+.about-list__body {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.about-list__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.about-list__links a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 6px 11px;
+  border: 1px solid var(--color-heading);
+  border-radius: 999px;
+  background: var(--color-surface-strong);
+  color: var(--color-heading);
+  font-size: 0.82rem;
+  font-weight: 950;
+}
+
+.about-list__links a:hover,
+.about-list__links a:focus-visible {
+  background: var(--color-heading);
+  color: #fff;
+}
+
+.home-section--note {
+  background: var(--color-bg-soft);
+}
+
+.link-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.link-cards article {
+  align-content: start;
+}
+
+.link-cards__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.link-cards__actions a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 6px 11px;
+  border: 1px solid var(--color-heading);
+  border-radius: 999px;
+  background: var(--color-surface-strong);
+  color: var(--color-heading);
+  font-size: 0.82rem;
+  font-weight: 950;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.link-cards__actions a:hover,
+.link-cards__actions a:focus-visible {
+  background: var(--color-heading);
+  color: #fff;
+}
+
+.home-section--contact {
+  padding-bottom: clamp(64px, 10vw, 110px);
 }
 
 .contact-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
-  gap: clamp(24px, 5vw, 56px);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(20px, 5vw, 52px);
   align-items: center;
-  padding: clamp(30px, 5vw, 56px);
-  border: 1px solid color-mix(in srgb, var(--color-primary) 24%, var(--color-border));
-  border-radius: var(--radius-xl);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 58%, transparent) 1px, transparent 1px) 0 0 / 34px 34px,
-    var(--color-surface);
-  box-shadow: var(--shadow-card);
+  padding: clamp(24px, 4.5vw, 42px);
+  background: var(--color-warm-soft);
 }
 
-.contact-list {
-  display: grid;
-  gap: 12px;
-}
+@media (max-width: 980px) {
+  .hero__inner,
+  .motion-layout,
+  .contact-panel,
+  .project-board-head {
+    grid-template-columns: 1fr;
+  }
 
-.contact-list a {
-  width: fit-content;
-  color: var(--color-heading);
-  font-weight: 950;
-  overflow-wrap: anywhere;
-}
+  .motion-layout--reverse {
+    direction: ltr;
+  }
 
-.contact-list a:hover,
-.contact-list a:focus-visible {
-  color: var(--color-primary-strong);
-}
-
-@media (max-width: 1120px) {
-  .experience-lane__list {
+  .identity-list,
+  .skill-grid,
+  .about-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
 
-@media (max-width: 1080px) {
-  .about-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .project-board-head__count {
+    width: fit-content;
   }
 }
 
-@media (max-width: 920px) {
-  .hero-workbench__inner,
-  .section-heading--split,
-  .motion-panel,
-  .motion-panel--skill,
-  .motion-panel--about,
-  .contact-panel {
+@media (max-width: 640px) {
+  .hero,
+  .home-section {
+    padding: 40px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 11vw, 2.75rem);
+  }
+
+  .hero__stats,
+  .identity-list,
+  .skill-grid,
+  .about-list,
+  .link-cards {
     grid-template-columns: 1fr;
   }
 
-  .markup-console {
-    order: -1;
+  .skill-grid article,
+  .about-list article {
+    grid-template-columns: 50px minmax(0, 1fr);
   }
 
-  .identity-cards,
-  .resource-grid {
+  .skill-grid__icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .about-list__type {
+    width: 50px;
+    height: 50px;
+    font-size: 0.7rem;
+  }
+
+  .project-filter {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .project-filter button {
+    flex: 0 0 auto;
+  }
+
+  .career-list > li {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
-  .experience-lane header {
-    grid-template-columns: 1fr auto;
-  }
-
-  .experience-lane header > span {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 720px) {
-  .hero-workbench {
-    padding-top: 54px;
-  }
-
-  .hero-workbench__stats,
-  .skill-board,
-  .about-strip,
-  .experience-lane__list {
-    grid-template-columns: 1fr;
-  }
-
-  .career-road li {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .hero-workbench__actions,
   .contact-panel__actions,
-  .featured-lab__header {
+  .hero__actions {
     align-items: stretch;
-    flex-direction: column;
   }
 
-  .hero-workbench__actions > *,
   .contact-panel__actions > *,
-  .featured-lab__header > * {
+  .hero__actions > * {
     width: 100%;
-  }
-
-  .contact-panel {
-    padding: 22px;
   }
 }
 </style>

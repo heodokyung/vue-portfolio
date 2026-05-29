@@ -66,6 +66,14 @@ export const skills = [
     "group": "workflow"
   },
   {
+    "id": "figma",
+    "name": "Figma",
+    "summary": "Figma 산출물을 기준으로 간격, 컴포넌트 상태, 반응형 화면 흐름을 확인하고 실제 UI 구현 기준으로 옮깁니다.",
+    "url": "https://www.figma.com/",
+    "image": "/assets/portfolio/thumb_img_skill/ico_skill_figma.svg",
+    "group": "collaboration"
+  },
+  {
     "id": "zeplin",
     "name": "Zeplin",
     "summary": "Zeplin을 통해 디자인 산출물을 확인하고, 코멘트로 수정사항과 피드백을 주고받았습니다.",

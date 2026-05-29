@@ -13,8 +13,8 @@ import { skills } from '@/data/skills'
 const skillGroups = [
   {
     id: 'frontend',
-    title: 'UI Development',
-    description: '마크업 기반의 화면 구현 역량 위에 JavaScript, Vue, React를 연결해 운영 가능한 UI를 구현합니다.',
+    title: 'Frontend UI',
+    description: 'Vue, React, TypeScript, JavaScript를 활용해 데이터와 화면 구조를 분리한 UI를 구현합니다.',
     items: skills.filter((skill) => skill.group === 'frontend'),
   },
   {
@@ -52,7 +52,24 @@ const workingPrinciples = [
   },
 ]
 
-const primaryCareers = careers.slice(0, 4)
+const primaryCareers = careers
+
+const getAboutTypeLabel = (type: string) => {
+  if (type === 'certificate') return '자격증'
+  if (type === 'activity') return '활동'
+  return '교육'
+}
+
+const getAboutTypeClass = (type: string) => `about-card-list__type about-card-list__type--${type}`
+
+const getSkillInitials = (name: string) =>
+  name
+    .replace(/&/g, ' ')
+    .split(/[\s/]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word.charAt(0).toUpperCase())
+    .join('')
 </script>
 
 <template>
@@ -99,8 +116,8 @@ const primaryCareers = careers.slice(0, 4)
     <AppContainer>
       <AppSectionTitle
         eyebrow="Career"
-        title="운영과 개편 경험을 바탕으로 UI 구조를 개선합니다."
-        description="커머스, 금융, 공공, 모바일 웹 프로젝트를 거치며 마크업 컨벤션, 운영 이슈 대응, 공통 UI 정리, 접근성 검수 경험을 쌓았습니다."
+        title="백엔드 개발부터 UI 개발까지 이어온 경력입니다."
+        description="Java·ASP 기반 웹 개발, 웹표준과 접근성 중심의 퍼블리싱, 금융·커머스 UI 운영과 Vue·React 화면 구현까지의 흐름을 모두 담았습니다."
       />
 
       <ol class="career-timeline">
@@ -144,6 +161,7 @@ const primaryCareers = careers.slice(0, 4)
           <ul>
             <li v-for="skill in group.items" :key="skill.id">
               <img v-if="skill.image" :src="skill.image" :alt="`${skill.name} 아이콘`" loading="lazy" />
+              <span v-else class="skill-matrix__fallback" aria-hidden="true">{{ getSkillInitials(skill.name) }}</span>
               <div>
                 <strong>{{ skill.name }}</strong>
                 <span>{{ skill.summary }}</span>
@@ -159,17 +177,28 @@ const primaryCareers = careers.slice(0, 4)
     <AppContainer>
       <AppSectionTitle
         eyebrow="History"
-        title="자격, 교육, 접근성 활동"
-        description="웹표준과 접근성 기반을 쌓아온 이력과 UI 개발 학습 이력을 함께 정리했습니다."
+        title="자격, 교육, 접근성 활동 전체 이력"
+        description="웹표준과 접근성 기반을 쌓아온 이력과 프론트엔드 학습 이력을 함께 정리했습니다."
       />
       <div class="about-card-list">
         <article v-for="item in aboutItems" :key="item.id">
-          <span class="about-card-list__type">{{ item.type }}</span>
+          <span :class="getAboutTypeClass(item.type)">{{ getAboutTypeLabel(item.type) }}</span>
           <h3>{{ item.title }}</h3>
           <p v-if="item.period" class="about-card-list__meta">{{ item.period }}</p>
           <p v-if="item.organization" class="about-card-list__meta">{{ item.organization }}</p>
           <p v-if="item.summary">{{ item.summary }}</p>
-          <a v-if="item.url" :href="item.url" target="_blank" rel="noreferrer noopener">관련 링크</a>
+          <div v-if="item.links?.length || item.url" class="about-card-list__links" aria-label="관련 링크">
+            <a v-if="item.url" :href="item.url" target="_blank" rel="noreferrer noopener">관련 링크</a>
+            <a
+              v-for="link in item.links"
+              :key="link.href"
+              :href="link.href"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {{ link.label }}
+            </a>
+          </div>
         </article>
       </div>
     </AppContainer>
@@ -182,8 +211,9 @@ const primaryCareers = careers.slice(0, 4)
   overflow: hidden;
   padding: clamp(64px, 9vw, 124px) 0 clamp(48px, 7vw, 92px);
   background:
-    radial-gradient(circle at 86% 18%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 28%),
-    linear-gradient(180deg, color-mix(in srgb, var(--color-primary-soft) 48%, var(--color-bg)), var(--color-bg) 82%);
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(0deg, var(--color-grid-line) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--color-bg-soft);
 }
 
 .about-hero__inner {
@@ -425,10 +455,25 @@ const primaryCareers = careers.slice(0, 4)
   background: var(--color-surface-strong);
 }
 
-.skill-matrix img {
+.skill-matrix img,
+.skill-matrix__fallback {
   width: 42px;
   height: 42px;
+}
+
+.skill-matrix img {
   object-fit: contain;
+}
+
+.skill-matrix__fallback {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-heading);
+  border-radius: 12px;
+  background: var(--color-warm-soft);
+  color: var(--color-primary-strong);
+  font-size: 0.78rem;
+  font-weight: 950;
 }
 
 .skill-matrix strong {
@@ -458,11 +503,25 @@ const primaryCareers = careers.slice(0, 4)
 }
 
 .about-card-list__type {
-  color: var(--color-primary);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: inline-grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 2px solid var(--color-heading);
+  border-radius: 999px;
+  background: var(--color-warm);
+  color: var(--color-heading);
+  font-size: 0.76rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.about-card-list__type--activity {
+  background: var(--color-accent-soft);
+}
+
+.about-card-list__type--education {
+  background: var(--color-lavender-soft);
 }
 
 .about-card-list h3 {
@@ -483,6 +542,33 @@ const primaryCareers = careers.slice(0, 4)
 .about-card-list a {
   color: var(--color-primary-strong);
   font-weight: 900;
+}
+
+
+.about-card-list__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.about-card-list__links a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 6px 11px;
+  border: 1px solid var(--color-heading);
+  border-radius: 999px;
+  background: var(--color-surface-strong);
+  color: var(--color-heading);
+  font-size: 0.82rem;
+  font-weight: 950;
+}
+
+.about-card-list__links a:hover,
+.about-card-list__links a:focus-visible {
+  background: var(--color-heading);
+  color: #fff;
 }
 
 @media (max-width: 980px) {
@@ -517,9 +603,12 @@ const primaryCareers = careers.slice(0, 4)
     grid-template-columns: 36px minmax(0, 1fr);
   }
 
-  .skill-matrix img {
+  .skill-matrix img,
+  .skill-matrix__fallback {
     width: 36px;
     height: 36px;
   }
 }
+
+
 </style>

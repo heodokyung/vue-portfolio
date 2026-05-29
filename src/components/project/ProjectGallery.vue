@@ -7,7 +7,6 @@ const props = defineProps<{ items: ProjectMedia[] }>()
 const selectedIndex = ref(0)
 
 const isMobileGallery = computed(() => props.items.length > 1 && props.items.every((item) => item.variant === 'mobile'))
-const isWebGallery = computed(() => !isMobileGallery.value)
 const selectedItem = computed(() => props.items[selectedIndex.value] ?? props.items[0])
 
 watch(
@@ -21,7 +20,11 @@ watch(
 <template>
   <div v-if="items.length" class="project-gallery">
     <div v-if="isMobileGallery" class="mobile-gallery">
-      <p class="mobile-gallery__hint">좌우로 넘기며 주요 모바일 화면 흐름을 확인할 수 있습니다.</p>
+      <div class="gallery-toolbar">
+        <p>Mobile Flow</p>
+        <span>좌우로 넘겨 화면 흐름을 확인합니다.</span>
+      </div>
+
       <div class="mobile-gallery__rail" tabindex="0" aria-label="모바일 프로젝트 화면 가로 스크롤 갤러리">
         <figure v-for="(item, index) in items" :key="item.src" class="mobile-gallery__item">
           <div class="mobile-gallery__phone">
@@ -29,19 +32,25 @@ watch(
             <img :src="item.src" :alt="item.alt" loading="lazy" />
           </div>
           <figcaption>
-            <strong>Screen {{ index + 1 }}</strong>
+            <strong>{{ String(index + 1).padStart(2, '0') }}</strong>
             <span v-if="item.caption">{{ item.caption }}</span>
           </figcaption>
         </figure>
       </div>
     </div>
 
-    <div v-else-if="isWebGallery" class="web-showcase">
-      <p class="web-showcase__hint">PC 화면은 크게 보고, 필요한 경우 이미지를 눌러 원본 크기로 확인할 수 있습니다.</p>
+    <div v-else class="web-showcase">
+      <div class="gallery-toolbar">
+        <p>Web Screen Viewer</p>
+        <span>이미지를 누르면 원본 크기로 열립니다.</span>
+      </div>
+
       <figure v-if="selectedItem" class="web-showcase__lead">
         <a :href="selectedItem.src" target="_blank" rel="noreferrer noopener" class="web-showcase__browser">
           <span class="web-showcase__bar" aria-hidden="true"><i></i><i></i><i></i></span>
-          <img :src="selectedItem.src" :alt="selectedItem.alt" loading="lazy" />
+          <span class="web-showcase__stage">
+            <img :src="selectedItem.src" :alt="selectedItem.alt" loading="lazy" />
+          </span>
         </a>
         <figcaption>
           <strong>Screen {{ selectedIndex + 1 }}</strong>
@@ -59,7 +68,7 @@ watch(
           @click="selectedIndex = index"
         >
           <img :src="item.src" :alt="`${item.alt} 썸네일`" loading="lazy" />
-          <span>Screen {{ index + 1 }}</span>
+          <span>{{ String(index + 1).padStart(2, '0') }}</span>
         </button>
       </div>
     </div>
@@ -72,32 +81,45 @@ watch(
   min-width: 0;
 }
 
-.mobile-gallery {
+.mobile-gallery,
+.web-showcase {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
 }
 
-.mobile-gallery__hint,
-.web-showcase__hint {
-  width: fit-content;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-  font-size: 0.84rem;
-  font-weight: 900;
+.gallery-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border: 2px solid var(--color-heading);
+  border-radius: 14px;
+  background: var(--color-warm-soft);
+}
+
+.gallery-toolbar p {
+  color: var(--color-heading);
+  font-weight: 950;
+}
+
+.gallery-toolbar span {
+  color: var(--color-muted);
+  font-size: 0.86rem;
+  font-weight: 850;
 }
 
 .mobile-gallery__rail {
   display: grid;
-  grid-auto-columns: minmax(210px, 258px);
+  grid-auto-columns: minmax(208px, 252px);
   grid-auto-flow: column;
-  gap: 16px;
+  gap: 18px;
   min-width: 0;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
-  padding: 6px 4px 18px;
+  padding: 8px 4px 18px;
   scroll-padding-inline: 4px;
   scroll-snap-type: inline mandatory;
   scrollbar-width: thin;
@@ -105,7 +127,7 @@ watch(
 
 .mobile-gallery__item {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
   margin: 0;
   scroll-snap-align: start;
@@ -114,25 +136,23 @@ watch(
 .mobile-gallery__phone {
   position: relative;
   display: grid;
-  min-height: 430px;
+  min-height: 366px;
   place-items: center;
-  padding: 26px 15px 18px;
-  border: 10px solid #111827;
-  border-radius: 32px;
-  background:
-    linear-gradient(180deg, #111827, #0f172a),
-    var(--color-surface);
-  box-shadow: 0 18px 42px rgb(15 23 42 / 18%);
+  padding: 26px 14px 16px;
+  border: 2px solid var(--color-heading);
+  border-radius: 30px;
+  background: #172033;
+  box-shadow: var(--shadow-flat);
 }
 
 .mobile-gallery__notch {
   position: absolute;
-  top: 11px;
+  top: 12px;
   left: 50%;
   width: 54px;
   height: 5px;
   border-radius: 999px;
-  background: rgb(255 255 255 / 22%);
+  background: rgb(255 255 255 / 26%);
   transform: translateX(-50%);
 }
 
@@ -140,15 +160,16 @@ watch(
   display: block;
   width: auto;
   max-width: 100%;
-  max-height: 374px;
+  max-height: 326px;
   border-radius: 16px;
   object-fit: contain;
 }
 
-.mobile-gallery__item figcaption {
+.mobile-gallery__item figcaption,
+.web-showcase__lead figcaption {
   display: grid;
-  gap: 4px;
-  min-height: 72px;
+  gap: 5px;
+  min-height: 54px;
   color: var(--color-muted);
   font-size: 0.86rem;
   line-height: 1.55;
@@ -156,16 +177,11 @@ watch(
 
 .mobile-gallery__item figcaption strong,
 .web-showcase__lead figcaption strong {
-  color: var(--color-heading);
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
+  color: var(--color-primary-strong);
+  font-size: 0.8rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.web-showcase {
-  display: grid;
-  gap: 14px;
-  min-width: 0;
 }
 
 .web-showcase__lead {
@@ -179,46 +195,56 @@ watch(
   display: grid;
   overflow: hidden;
   min-width: 0;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--color-grid-line) 58%, transparent) 1px, transparent 1px) 0 0 / 30px 30px,
-    var(--color-surface-strong);
-  box-shadow: var(--shadow-card);
+  border: 2px solid var(--color-heading);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-flat);
 }
 
 .web-showcase__bar {
   display: flex;
   gap: 7px;
-  padding: 13px 15px;
-  border-bottom: 1px solid var(--color-border);
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--color-heading);
   background: var(--color-surface);
 }
 
 .web-showcase__bar i {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--color-heading);
   border-radius: 50%;
-  background: color-mix(in srgb, var(--color-muted) 28%, transparent);
+  background: var(--color-coral);
 }
 
-.web-showcase__browser img {
+.web-showcase__bar i:nth-child(2) {
+  background: var(--color-warm);
+}
+
+.web-showcase__bar i:nth-child(3) {
+  background: var(--color-accent);
+}
+
+.web-showcase__stage {
+  display: grid;
+  place-items: start center;
+  min-height: 360px;
+  background: var(--color-bg-soft);
+}
+
+.web-showcase__stage img {
   display: block;
   width: 100%;
-  max-height: min(82vh, 900px);
+  height: auto;
+  background: #fff;
   object-fit: contain;
-}
-
-.web-showcase__lead figcaption {
-  display: grid;
-  gap: 5px;
-  color: var(--color-muted);
-  line-height: 1.55;
+  object-position: top center;
 }
 
 .web-showcase__thumbs {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
   gap: 10px;
 }
 
@@ -227,14 +253,14 @@ watch(
   gap: 8px;
   min-width: 0;
   padding: 8px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 14px;
   background: var(--color-surface);
   color: var(--color-muted);
   cursor: pointer;
   font: inherit;
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 950;
   text-align: left;
   transition:
     transform var(--transition-fast),
@@ -245,10 +271,10 @@ watch(
 .web-showcase__thumbs button:hover,
 .web-showcase__thumbs button:focus-visible,
 .web-showcase__thumbs button.is-active {
-  transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--color-warm) 70%, var(--color-border));
+  transform: translate(-2px, -2px);
+  border-color: var(--color-heading);
   color: var(--color-heading);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-flat);
 }
 
 .web-showcase__thumbs img {
@@ -260,39 +286,32 @@ watch(
   object-position: top center;
 }
 
-@media (max-width: 900px) {
-  .web-showcase__thumbs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 780px) {
   .mobile-gallery__rail {
-    grid-auto-columns: minmax(188px, 236px);
+    grid-auto-columns: minmax(180px, 224px);
   }
 
   .mobile-gallery__phone {
-    min-height: 390px;
-    border-width: 8px;
-    border-radius: 28px;
+    min-height: 350px;
   }
 
   .mobile-gallery__phone img {
-    max-height: 336px;
+    max-height: 306px;
+  }
+
+  .web-showcase__stage {
+    min-height: 300px;
   }
 }
 
 @media (max-width: 430px) {
+  .gallery-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .mobile-gallery__rail {
     grid-auto-columns: minmax(176px, 78vw);
-  }
-
-  .mobile-gallery__phone {
-    min-height: 372px;
-  }
-
-  .web-showcase__thumbs {
-    grid-template-columns: 1fr;
   }
 }
 </style>

@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, type RouteLocationNormalizedLoaded } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import ProjectsView from '@/views/ProjectsView.vue'
 import ProjectDetailView from '@/views/ProjectDetailView.vue'
 import AboutView from '@/views/AboutView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
@@ -9,6 +8,7 @@ import { projects } from '@/data/projects'
 
 const siteTitle = 'Heo Do Kyung Portfolio'
 const routeScrollPrefix = 'portfolio:route-scroll:'
+const projectSourceKey = 'portfolio:project-detail-source'
 
 if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
   window.history.scrollRestoration = 'manual'
@@ -36,6 +36,24 @@ const getRouteScroll = (route: RouteLocationNormalizedLoaded) => {
   if (typeof window === 'undefined') return 0
   const stored = Number(sessionStorage.getItem(getRouteScrollKey(route)) ?? 0)
   return Number.isFinite(stored) ? stored : 0
+}
+
+const saveProjectDetailSource = (route: RouteLocationNormalizedLoaded) => {
+  if (typeof window === 'undefined') return
+
+  if (!['home', 'projects'].includes(String(route.name ?? ''))) {
+    sessionStorage.removeItem(projectSourceKey)
+    return
+  }
+
+  sessionStorage.setItem(
+    projectSourceKey,
+    JSON.stringify({
+      name: route.name,
+      fullPath: route.fullPath,
+      scrollY: window.scrollY,
+    }),
+  )
 }
 
 const restoreAfterRender = (top: number) =>
@@ -102,7 +120,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', name: 'home', component: HomeView },
-    { path: '/projects', name: 'projects', component: ProjectsView },
+    { path: '/projects', redirect: { path: '/', hash: '#projects' } },
     { path: '/projects/:projectId', name: 'project-detail', component: ProjectDetailView, props: true },
     { path: '/about', name: 'about', component: AboutView },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundView },
@@ -129,6 +147,10 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
   saveRouteScroll(from)
+
+  if (to.name === 'project-detail') {
+    saveProjectDetailSource(from)
+  }
 
   if (to.name !== 'project-detail' && from.name !== 'project-detail' && !to.hash) {
     sessionStorage.removeItem(getRouteScrollKey(to))

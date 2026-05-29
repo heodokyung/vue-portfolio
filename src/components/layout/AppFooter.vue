@@ -3,18 +3,16 @@ import AppContainer from '@/components/common/AppContainer.vue'
 import { profile } from '@/data/profile'
 
 const pageLinks = [
-  { label: 'Identity', to: '/#identity' },
-  { label: 'Projects', to: '/#projects' },
-  { label: 'Work', to: '/#work' },
-  { label: 'Skills', to: '/#skills' },
-  { label: 'Guide', to: '/#guide' },
+  { label: 'Project', to: '/#projects' },
+  { label: 'Career', to: '/#work' },
+  { label: 'Skill', to: '/#skills' },
   { label: 'Contact', to: '/#contact' },
 ]
 
 const externalLinks = [
   { label: 'GitHub', href: profile.github },
-  { label: 'Frontend Study', href: 'https://github.com/heodokyung/frontend-study' },
-  { label: 'Frontend Guide', href: 'https://github.com/heodokyung/frontend-guide' },
+  { label: 'Study', href: 'https://github.com/heodokyung/frontend-study' },
+  { label: 'Guide', href: 'https://github.com/heodokyung/frontend-guide' },
 ]
 </script>
 
@@ -22,15 +20,12 @@ const externalLinks = [
   <footer class="site-footer" aria-labelledby="site-footer-title">
     <AppContainer class="site-footer__inner">
       <div class="site-footer__brand-block">
-        <strong id="site-footer-title">{{ profile.nameKo }} UI Developer Portfolio</strong>
-        <p>
-          웹표준, 접근성, 반응형 UI, 마크업 컨벤션, Vue·React 화면 구현 경험을 한 페이지 흐름으로 정리한 포트폴리오입니다.
-        </p>
+        <strong id="site-footer-title">{{ profile.nameKo }} · UI Developer</strong>
+        <p>백엔드 개발 경험에서 출발해 웹표준, 접근성, 반응형 UI, Vue·React 화면 구현까지 이어온 작업을 담았습니다.</p>
       </div>
 
       <nav class="site-footer__nav" aria-label="푸터 섹션 메뉴">
         <RouterLink v-for="link in pageLinks" :key="link.to" :to="link.to">{{ link.label }}</RouterLink>
-        <RouterLink to="/projects">Project Archive</RouterLink>
       </nav>
 
       <div class="site-footer__contact" aria-label="연락처와 외부 링크">
@@ -42,24 +37,22 @@ const externalLinks = [
     </AppContainer>
 
     <AppContainer class="site-footer__bottom">
-      <p>© {{ new Date().getFullYear() }} {{ profile.name }}. Built with Vue 3, Vite, TypeScript and SCSS.</p>
-      <p>Markup Convention · Accessible UI · Responsive Layout</p>
+      <p>© {{ new Date().getFullYear() }} {{ profile.name }}.</p>
+      <p>Semantic Markup · Accessible UI · Responsive Layout</p>
     </AppContainer>
   </footer>
 </template>
 
 <style scoped lang="scss">
 .site-footer {
-  border-top: 1px solid rgb(255 255 255 / 10%);
-  background:
-    linear-gradient(90deg, rgb(255 255 255 / 6%) 1px, transparent 1px) 0 0 / 34px 34px,
-    var(--color-code-bg);
-  color: rgb(226 232 240 / 78%);
+  border-top: 2px solid var(--color-heading);
+  background: var(--color-surface);
+  color: var(--color-muted);
 }
 
 .site-footer__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.42fr) minmax(160px, 0.52fr) minmax(210px, 0.7fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(150px, 0.45fr) minmax(220px, 0.7fr);
   gap: clamp(24px, 5vw, 52px);
   padding: clamp(34px, 6vw, 58px) 0 28px;
 }
@@ -70,13 +63,13 @@ const externalLinks = [
 }
 
 .site-footer__brand-block strong {
-  color: #fff;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--color-heading);
+  font-size: clamp(1.15rem, 2vw, 1.42rem);
   letter-spacing: -0.04em;
 }
 
 .site-footer__brand-block p {
-  max-width: 620px;
+  max-width: 650px;
   line-height: 1.75;
 }
 
@@ -91,13 +84,13 @@ const externalLinks = [
 .site-footer__contact a {
   width: fit-content;
   min-height: 34px;
-  color: rgb(226 232 240 / 76%);
-  font-weight: 800;
+  color: var(--color-heading);
+  font-weight: 850;
 }
 
 .site-footer__nav a:hover,
 .site-footer__contact a:hover {
-  color: var(--color-warm);
+  color: var(--color-primary-strong);
 }
 
 .site-footer__bottom {
@@ -106,8 +99,8 @@ const externalLinks = [
   align-items: center;
   justify-content: space-between;
   padding: 18px 0 28px;
-  border-top: 1px solid rgb(255 255 255 / 10%);
-  color: rgb(226 232 240 / 62%);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
   font-size: 0.88rem;
 }
 

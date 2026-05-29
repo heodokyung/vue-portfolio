@@ -25,8 +25,12 @@ export const aboutItems = [
     "title": "React JS 마스터클래스",
     "period": null,
     "organization": "(온라인) 노마드 코더",
-    "summary": "React 기반 암호화폐 시세 트래커, 트렐로형 보드, 모션 프로젝트를 구현하며 컴포넌트 구조와 상태관리 흐름을 학습했습니다.",
-    "url": "https://nomadcoders.co/react-masterclass"
+    "summary": "React 기반 암호화폐 시세 트래커 프로젝트를 구현하며 컴포넌트 구조, API 연동, 상태 처리 흐름을 학습했습니다.",
+    "url": null,
+    "links": [
+      { "label": "Repo", "href": "https://github.com/heodokyung/react-coin-list" },
+      { "label": "Demo", "href": "https://heodokyung.github.io/react-coin-list/" }
+    ]
   },
   {
     "id": "about-4",
@@ -34,8 +38,12 @@ export const aboutItems = [
     "title": "ReactJS로 영화 웹 서비스 만들기",
     "period": null,
     "organization": "(온라인) 노마드 코더",
-    "summary": "영화 웹 서비스 클론 프로젝트를 통해 React 컴포넌트, 라우팅, 비동기 데이터 처리의 기본기를 학습했습니다.",
-    "url": "https://nomadcoders.co/react-for-beginners"
+    "summary": "React 기반 영화 웹 서비스 프로젝트를 구현하며 라우팅, 데이터 호출, 상세 화면 구성의 기본기를 학습했습니다.",
+    "url": null,
+    "links": [
+      { "label": "Repo", "href": "https://github.com/heodokyung/react-netflix" },
+      { "label": "Demo", "href": "https://heodokyung.github.io/react-netflix/" }
+    ]
   },
   {
     "id": "about-5",
